@@ -1,0 +1,8 @@
+{
+  "name": "Remix: Retatrutide Australia",
+  "description": "Premium modern luxury medical research peptide brand with a clean Australia ecommerce aesthetic.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
