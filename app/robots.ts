@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/'],
     },
-    sitemap: 'https://retaaustralia.com/sitemap.xml',
+    sitemap: 'https://www.reta-australia.com.au/sitemap.xml',
   };
 }

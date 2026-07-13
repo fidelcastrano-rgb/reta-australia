@@ -16,12 +16,33 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const product = products.find(p => p.slug === slug);
   if (!product) return { title: 'Product Not Found' };
   
+  const title = `Buy ${product.name} Australia | Premium Research Peptides`;
+  const description = `Buy ${product.name} online in Australia. ${product.description?.substring(0, 150) || 'Premium research peptide.'} Third-party tested, >99% purity. Laboratory grade from RetaAustralia.`;
+  
   return {
-    title: `Buy ${product.name} Australia | Premium Research Peptides`,
-    description: `Buy ${product.name} online in Australia. ${product.description?.substring(0, 100) || 'Premium research peptide.'} Third-party tested, >99% purity. Laboratory grade from RetaAustralia.`,
+    title,
+    description,
     alternates: {
       canonical: `/products/${product.slug}`
-    }
+    },
+    openGraph: {
+      title,
+      description,
+      type: 'website',
+      url: `https://www.reta-australia.com.au/products/${product.slug}`,
+      images: [
+        {
+          url: product.image || '/img.png',
+          alt: product.name,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [product.image || '/img.png'],
+    },
   };
 }
 
@@ -43,7 +64,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
     },
     "offers": {
       "@type": "AggregateOffer",
-      "url": `https://retaaustralia.com/products/${product.slug}`,
+      "url": `https://www.reta-australia.com.au/products/${product.slug}`,
       "priceCurrency": "AUD",
       "lowPrice": product.priceFrom,
       "highPrice": product.variants[product.variants.length - 1]?.price || product.priceFrom,

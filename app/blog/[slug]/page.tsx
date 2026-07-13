@@ -14,7 +14,36 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const post = blogPosts.find(p => p.slug === slug);
   if (!post) return { title: 'Not Found' };
-  return { title: post.title, description: post.excerpt };
+  
+  const title = `${post.title} | RetaAustralia Research`;
+  
+  return {
+    title,
+    description: post.excerpt,
+    alternates: {
+      canonical: `/blog/${slug}`,
+    },
+    openGraph: {
+      title,
+      description: post.excerpt,
+      type: 'article',
+      url: `https://www.reta-australia.com.au/blog/${slug}`,
+      publishedTime: post.date,
+      authors: [post.author || 'Research Team'],
+      images: [
+        {
+          url: post.image || '/img.png',
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description: post.excerpt,
+      images: [post.image || '/img.png'],
+    },
+  };
 }
 
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
@@ -22,8 +51,33 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
   const post = blogPosts.find(p => p.slug === slug);
   if (!post) notFound();
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "image": post.image || "https://www.reta-australia.com.au/img.png",
+    "datePublished": post.date,
+    "author": {
+      "@type": "Person",
+      "name": post.author || "Research Team"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "RetaAustralia",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.reta-australia.com.au/logo.webp"
+      }
+    },
+    "description": post.excerpt
+  };
+
   return (
     <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
       <Link href="/blog" className="inline-flex items-center gap-2 text-brand-muted hover:text-brand-text font-bold mb-10 transition-colors">
         <ArrowLeft className="w-4 h-4" /> Back to blog
       </Link>

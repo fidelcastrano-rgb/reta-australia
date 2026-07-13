@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono' });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://retaaustralia.com'),
+  metadataBase: new URL('https://www.reta-australia.com.au'),
   title: {
     template: '%s | Retatrutide Australia',
     default: 'Buy Retatrutide Australia | Premium Research Peptides | RetaAustralia',
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_AU',
-    url: 'https://retaaustralia.com',
+    url: 'https://www.reta-australia.com.au',
     siteName: 'Retatrutide Australia',
     title: 'Buy Retatrutide Australia | Premium Research Peptides',
     description: 'RetaAustralia is the best place to buy Retatrutide and premium research peptides in Australia. Laboratory grade, third-party tested.',
@@ -60,8 +60,8 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "RetaAustralia",
-    "url": "https://retaaustralia.com",
-    "logo": "https://retaaustralia.com/logo.webp",
+    "url": "https://www.reta-australia.com.au",
+    "logo": "https://www.reta-australia.com.au/logo.webp",
     "description": "Premium modern luxury medical research peptide brand in Australia.",
     "contactPoint": {
       "@type": "ContactPoint",
@@ -71,7 +71,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
   };
 
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en-AU" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <head>
         <script
           type="application/ld+json"

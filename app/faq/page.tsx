@@ -1,10 +1,32 @@
 import { faqs } from '@/lib/data';
 import { ChevronDown } from 'lucide-react';
 import Link from 'next/link';
+import type { Metadata } from 'next';
 
-export const metadata = {
-  title: 'Frequently Asked Questions',
+export const metadata: Metadata = {
+  title: 'Frequently Asked Questions | Peptide Research Australia',
   description: 'Frequently asked questions about buying Retatrutide and research peptides in Australia. Learn about our shipping, lab standards, and more.',
+  alternates: {
+    canonical: '/faq',
+  },
+  openGraph: {
+    title: 'Frequently Asked Questions | Peptide Research Australia',
+    description: 'Find answers about ordering, shipping, and laboratory standards for research peptides and Retatrutide in Australia.',
+    url: 'https://www.reta-australia.com.au/faq',
+    type: 'website',
+    images: [
+      {
+        url: '/img.png',
+        alt: 'FAQ - Peptide Research Australia',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Frequently Asked Questions | Peptide Research Australia',
+    description: 'Find answers about ordering and research standards for peptides in Australia.',
+    images: ['/img.png'],
+  },
 };
 
 export default function FAQPage() {

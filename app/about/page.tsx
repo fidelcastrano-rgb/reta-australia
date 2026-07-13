@@ -1,12 +1,52 @@
 import { AlertTriangle } from 'lucide-react';
+import type { Metadata } from 'next';
 
-export const metadata = {
-  title: 'About Us',
+export const metadata: Metadata = {
+  title: 'About Us | Australian Peptide Supplier Standards',
+  description: 'Learn about RetaAustralia, the premier supplier of high-purity laboratory research peptides in Australia. Read about our quality standard protocols and third-party testing.',
+  alternates: {
+    canonical: '/about',
+  },
+  openGraph: {
+    title: 'About Us | Australian Peptide Supplier Standards',
+    description: 'RetaAustralia is dedicated to providing laboratory-grade research peptides including Retatrutide. Fast domestic express dispatch and HPLC/MS purity verified.',
+    url: 'https://www.reta-australia.com.au/about',
+    type: 'website',
+    images: [
+      {
+        url: '/img.png',
+        alt: 'About RetaAustralia - Research Peptides Standard',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About Us | Australian Peptide Supplier Standards',
+    description: 'RetaAustralia is dedicated to providing laboratory-grade research peptides in Australia.',
+    images: ['/img.png'],
+  },
 };
 
 export default function AboutPage() {
+  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About RetaAustralia",
+    "description": "RetaAustralia is the leading provider of laboratory-grade research peptides, ensuring average purity exceeds 99% with HPLC and MS testing.",
+    "url": "https://www.reta-australia.com.au/about",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "RetaAustralia",
+      "url": "https://www.reta-australia.com.au"
+    }
+  };
+
   return (
     <div className="pb-24">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }}
+      />
       {/* 1. Hero */}
       <section className="bg-brand-text text-white py-24 text-center">
         <div className="max-w-4xl mx-auto px-4">

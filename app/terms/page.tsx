@@ -1,4 +1,23 @@
-export const metadata = { title: 'Terms of Use' };
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = { 
+  title: 'Terms of Use | RetaAustralia',
+  description: 'Read the terms of use of RetaAustralia. All products sold on this website are strictly for laboratory research and development purposes only in Australia.',
+  alternates: {
+    canonical: '/terms',
+  },
+  openGraph: {
+    title: 'Terms of Use | RetaAustralia',
+    description: 'Terms of use and laboratory research specifications at RetaAustralia.',
+    url: 'https://www.reta-australia.com.au/terms',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Terms of Use | RetaAustralia',
+    description: 'Terms of use and laboratory research specifications at RetaAustralia.',
+  },
+};
 
 export default function TermsPage() {
   return (

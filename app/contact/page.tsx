@@ -1,8 +1,30 @@
 import { MessageCircle, Mail, MapPin, Truck, AlertTriangle, Info } from 'lucide-react';
+import type { Metadata } from 'next';
 
-export const metadata = { 
-  title: 'Contact Us',
+export const metadata: Metadata = { 
+  title: 'Contact Us | Wholesale Peptides Australia',
   description: 'Contact RetaAustralia for wholesale inquiries and ordering. Fast shipping of Retatrutide and research peptides across Australia. Local support team available.',
+  alternates: {
+    canonical: '/contact',
+  },
+  openGraph: {
+    title: 'Contact Us | Wholesale Peptides Australia',
+    description: 'Order laboratory-grade research peptides including Retatrutide. Secure Australian ordering processed via WhatsApp and Email.',
+    url: 'https://www.reta-australia.com.au/contact',
+    type: 'website',
+    images: [
+      {
+        url: '/img.png',
+        alt: 'Contact RetaAustralia Support',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Contact Us | Wholesale Peptides Australia',
+    description: 'Order laboratory-grade research peptides securely in Australia.',
+    images: ['/img.png'],
+  },
 };
 
 export default function ContactPage() {
@@ -10,7 +32,7 @@ export default function ContactPage() {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "RetaAustralia",
-    "url": "https://retaaustralia.com",
+    "url": "https://www.reta-australia.com.au",
     "contactPoint": [
       {
         "@type": "ContactPoint",

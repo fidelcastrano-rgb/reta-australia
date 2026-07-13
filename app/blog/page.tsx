@@ -2,9 +2,32 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { blogPosts } from '@/lib/data';
 
-export const metadata = {
-  title: 'Research & Blog',
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Research & Blog | Peptide Studies Australia',
   description: 'Read the latest updates, guides, and research on lyophilized peptides, Retatrutide, and more from RetaAustralia.',
+  alternates: {
+    canonical: '/blog',
+  },
+  openGraph: {
+    title: 'Research & Blog | Peptide Studies Australia',
+    description: 'The latest updates, guides, and scientific research on lyophilized peptides in Australia. Sourced and compiled by our team.',
+    url: 'https://www.reta-australia.com.au/blog',
+    type: 'website',
+    images: [
+      {
+        url: '/img.png',
+        alt: 'Research & Blog - RetaAustralia',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Research & Blog | Peptide Studies Australia',
+    description: 'The latest updates, guides, and scientific research on lyophilized peptides in Australia.',
+    images: ['/img.png'],
+  },
 };
 
 export default function BlogPage() {

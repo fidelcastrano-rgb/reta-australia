@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { products, blogPosts } from '@/lib/data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://retaaustralia.com';
+  const baseUrl = 'https://www.reta-australia.com.au';
 
   const staticPages = [
     '',

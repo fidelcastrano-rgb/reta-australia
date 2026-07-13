@@ -1,4 +1,23 @@
-export const metadata = { title: 'Privacy Policy' };
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = { 
+  title: 'Privacy Policy | RetaAustralia',
+  description: 'Read the privacy policy of RetaAustralia. Learn how we collect, use, and protect your personal ordering and inquiry data under strict Australian standards.',
+  alternates: {
+    canonical: '/privacy',
+  },
+  openGraph: {
+    title: 'Privacy Policy | RetaAustralia',
+    description: 'Privacy policy and data protection practices at RetaAustralia. We protect your research inquiry details.',
+    url: 'https://www.reta-australia.com.au/privacy',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Privacy Policy | RetaAustralia',
+    description: 'Privacy policy and data protection practices at RetaAustralia.',
+  },
+};
 
 export default function PrivacyPage() {
   return (
