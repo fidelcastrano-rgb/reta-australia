@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useCart } from '@/components/CartContext';
 import Link from 'next/link';
 import { motion } from 'motion/react';
-import { Loader2 } from 'lucide-react';
+import { Loader2, MessageCircle } from 'lucide-react';
 
 export default function CheckoutPage() {
   const { items, clearOrder, removeItem } = useCart();
@@ -22,6 +22,7 @@ export default function CheckoutPage() {
   const [shippingMethod, setShippingMethod] = useState<'normal' | 'express'>('normal');
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<'crypto' | 'payid' | 'bank_transfer'>('crypto');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isWhatsAppSubmitting, setIsWhatsAppSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
 
@@ -77,6 +78,89 @@ export default function CheckoutPage() {
       setError(err.message || 'Something went wrong');
     } finally {
       setIsSubmitting(false);
+    }
+  };
+
+  const handleWhatsAppCheckout = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    
+    // Trigger standard HTML form validation
+    const form = document.getElementById('checkout-form') as HTMLFormElement;
+    if (!form) return;
+    
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    if (items.length === 0) return;
+    setIsWhatsAppSubmitting(true);
+    setError('');
+
+    try {
+      // 1. Send the order details to the server so it gets registered / emailed
+      const response = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...formData,
+          shippingMethod,
+          paymentMethod,
+          items,
+          subtotal,
+          shippingCost,
+          total,
+        }),
+      });
+
+      if (!response.ok) {
+        const errData = await response.json().catch(() => ({}));
+        throw new Error(errData.error || 'Failed to register order details. Please try again.');
+      }
+
+      // 2. Open WhatsApp with all details prefilled
+      const whatsappNumber = "61485958620"; // Admin whatsapp number
+      
+      let paymentMethodLabel = 'Bank Transfer';
+      if (paymentMethod === 'payid') {
+        paymentMethodLabel = 'PayID';
+      } else if (paymentMethod === 'crypto') {
+        paymentMethodLabel = 'Cryptocurrency (USDT/BTC/LTC - Preferred)';
+      }
+
+      let text = `*NEW ORDER SUBMITTED*\n\n`;
+      text += `*Customer Info:*\n`;
+      text += `- Name: ${formData.firstName} ${formData.lastName}\n`;
+      text += `- Email: ${formData.email}\n`;
+      text += `- Phone: ${formData.phone}\n\n`;
+      
+      text += `*Shipping Address:*\n`;
+      text += `- Street: ${formData.address}\n`;
+      text += `- City/Suburb: ${formData.city}\n`;
+      text += `- State: ${formData.state}\n`;
+      text += `- Postcode: ${formData.postcode}\n`;
+      text += `- Country: ${formData.country}\n\n`;
+      
+      text += `*Shipping Method:* ${shippingMethod === 'express' ? 'Express ($70)' : 'Normal ($20)'}\n`;
+      text += `*Payment Method:* ${paymentMethodLabel}\n\n`;
+      
+      text += `*Order Items:*\n`;
+      items.forEach(item => {
+        text += `- ${item.qty}x ${item.name} (${item.variant}) - $${(item.price * item.qty).toFixed(2)}\n`;
+      });
+      
+      text += `\n*Subtotal:* $${subtotal.toFixed(2)}\n`;
+      text += `*Shipping:* $${shippingCost.toFixed(2)}\n`;
+      text += `*Total Order Amount:* $${total.toFixed(2)} AUD\n\n`;
+      text += `Please send the payment instructions so I can transfer the funds immediately.`;
+
+      clearOrder();
+      setSuccess(true);
+      window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`, '_blank');
+    } catch (err: any) {
+      setError(err.message || 'Something went wrong');
+    } finally {
+      setIsWhatsAppSubmitting(false);
     }
   };
 
@@ -349,18 +433,35 @@ export default function CheckoutPage() {
                 <span className="font-mono text-brand-accent">${total.toFixed(2)} <span className="text-xs text-brand-muted ml-1">AUD</span></span>
               </div>
 
-              <button 
-                type="submit" 
-                form="checkout-form"
-                disabled={isSubmitting}
-                className="w-full bg-brand-cta text-white font-bold text-xs uppercase tracking-widest py-4 flex justify-center items-center gap-2 hover:bg-opacity-90 transition disabled:opacity-70 disabled:cursor-not-allowed"
-              >
-                {isSubmitting ? (
-                  <><Loader2 className="w-4 h-4 animate-spin" /> Processing...</>
-                ) : (
-                  'Place Order'
-                )}
-              </button>
+              <div className="space-y-3">
+                <button 
+                  type="submit" 
+                  form="checkout-form"
+                  disabled={isSubmitting || isWhatsAppSubmitting}
+                  className="w-full bg-brand-cta text-white font-bold text-xs uppercase tracking-widest py-4 flex justify-center items-center gap-2 hover:bg-opacity-90 transition disabled:opacity-75 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? (
+                    <><Loader2 className="w-4 h-4 animate-spin" /> Processing...</>
+                  ) : (
+                    'Place Order on Website'
+                  )}
+                </button>
+
+                <button 
+                  type="button"
+                  onClick={handleWhatsAppCheckout}
+                  disabled={isSubmitting || isWhatsAppSubmitting}
+                  className="w-full bg-brand-success text-brand-text font-bold text-xs uppercase tracking-widest py-4 flex justify-center items-center gap-2 hover:bg-opacity-90 transition disabled:opacity-75 disabled:cursor-not-allowed border border-brand-success"
+                >
+                  {isWhatsAppSubmitting ? (
+                    <><Loader2 className="w-4 h-4 animate-spin" /> Processing...</>
+                  ) : (
+                    <>
+                      <MessageCircle className="w-4 h-4" /> Checkout via WhatsApp
+                    </>
+                  )}
+                </button>
+              </div>
             </div>
           </div>
         </div>
