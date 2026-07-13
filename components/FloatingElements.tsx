@@ -3,16 +3,28 @@ import { MessageCircle, X, Mail } from 'lucide-react';
 import { useCart } from './CartContext';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function FloatingElements() {
   const { items, removeItem, clearOrder } = useCart();
   const [mounted, setMounted] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState<'crypto' | 'payid' | 'bank_transfer'>('crypto');
+  const [minimized, setMinimized] = useState(false);
+  const pathname = usePathname();
   
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
+
+  useEffect(() => {
+    if (pathname === '/checkout') {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setMinimized(true);
+    } else {
+      setMinimized(false);
+    }
+  }, [pathname]);
 
   if (!mounted) return null;
 
@@ -53,6 +65,8 @@ export default function FloatingElements() {
     window.location.href = `mailto:order@reta-australia.com.au?subject=New Order&body=${generateOrderText()}`;
   };
 
+  const showDrawer = items.length > 0 && !minimized;
+
   return (
     <>
       {/* WhatsApp Float */}
@@ -67,13 +81,44 @@ export default function FloatingElements() {
         <span className="font-medium">Chat with us</span>
       </a>
 
+      {/* Minimized Order Builder Pill */}
+      {items.length > 0 && minimized && (
+        <button
+          onClick={() => setMinimized(false)}
+          className="fixed bottom-6 right-6 z-40 flex items-center justify-between gap-4 bg-brand-text text-brand-bg px-5 py-3 border-2 border-brand-cta shadow-xl hover:scale-102 hover:border-brand-success/80 transition-all font-mono text-[10px] uppercase tracking-widest font-bold"
+        >
+          <span className="flex items-center gap-2">
+            <span className="w-2 h-2 bg-brand-success rounded-full animate-pulse" />
+            Your Order ({items.reduce((acc, item) => acc + item.qty, 0)})
+          </span>
+          <span className="text-brand-success">${total}</span>
+        </button>
+      )}
+
       {/* Order Builder */}
       <div 
-        className={`fixed bottom-0 right-0 sm:bottom-6 sm:right-6 w-full sm:w-96 bg-brand-text text-brand-bg shadow-2xl sm:rounded-none border-t-4 sm:border-4 border-brand-cta transition-transform duration-300 z-50 flex flex-col ${items.length > 0 ? 'translate-y-0' : 'translate-y-[150%]'}`}
+        className={`fixed bottom-0 right-0 sm:bottom-6 sm:right-6 w-full sm:w-96 bg-brand-text text-brand-bg shadow-2xl sm:rounded-none border-t-4 sm:border-4 border-brand-cta transition-transform duration-300 z-50 flex flex-col ${showDrawer ? 'translate-y-0' : 'translate-y-[150%]'}`}
       >
         <div className="p-4 flex justify-between items-center border-b border-brand-secondary/20">
           <h3 className="font-sans font-light tracking-tighter text-lg text-brand-bg">Your Order</h3>
-          <button onClick={clearOrder} className="text-brand-muted hover:text-brand-bg" aria-label="Clear Order"><X className="w-5 h-5" /></button>
+          <div className="flex items-center gap-3">
+            <button 
+              type="button"
+              onClick={clearOrder} 
+              className="text-brand-muted hover:text-red-400 text-[10px] uppercase tracking-widest font-mono mr-1"
+              title="Clear entire order"
+            >
+              Clear All
+            </button>
+            <button 
+              type="button"
+              onClick={() => setMinimized(true)} 
+              className="text-brand-muted hover:text-brand-bg" 
+              aria-label="Minimize Order Drawer"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
         </div>
         
         <div className="max-h-52 overflow-y-auto p-4 flex flex-col gap-3">
