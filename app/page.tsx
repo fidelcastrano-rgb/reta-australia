@@ -2,6 +2,33 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { products, faqs } from '@/lib/data';
 import { ShieldCheck, Truck, Clock, Award, Search, Beaker, CheckCircle, ChevronDown } from 'lucide-react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Buy Retatrutide Australia | Premium Research Peptides | RetaAustralia',
+  description: 'Buy Retatrutide Australia. RetaAustralia is the premier place to buy Retatrutide and premium research peptides in Australia. 99%+ purity, third-party tested, fast Australian shipping.',
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: 'Buy Retatrutide Australia | Premium Research Peptides',
+    description: 'Buy Retatrutide Australia. RetaAustralia is the premier place to buy Retatrutide and premium research peptides in Australia. 99%+ purity, third-party tested.',
+    url: 'https://www.reta-australia.com.au',
+    type: 'website',
+    images: [
+      {
+        url: '/img.png',
+        alt: 'Buy Retatrutide Australia Online',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Buy Retatrutide Australia | Premium Research Peptides',
+    description: 'Buy Retatrutide Australia. RetaAustralia is the premier place to buy Retatrutide and premium research peptides in Australia.',
+    images: ['/img.png'],
+  },
+};
 
 export default function Home() {
   const faqSchema = {

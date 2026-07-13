@@ -16,8 +16,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const product = products.find(p => p.slug === slug);
   if (!product) return { title: 'Product Not Found' };
   
-  const title = `Buy ${product.name} Australia | Premium Research Peptides`;
-  const description = `Buy ${product.name} online in Australia. ${product.description?.substring(0, 150) || 'Premium research peptide.'} Third-party tested, >99% purity. Laboratory grade from RetaAustralia.`;
+  const title = `Buy ${product.name} Australia | Retatrutide Australia & Peptides`;
+  const description = `Buy ${product.name} online. ${product.description?.substring(0, 140) || 'Premium research peptide.'} part of our Retatrutide Australia collection with guaranteed >99% purity.`;
   
   return {
     title,
