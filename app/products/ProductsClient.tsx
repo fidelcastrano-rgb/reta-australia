@@ -112,27 +112,32 @@ function ProductCard({ product, addToOrder }: { product: any, addToOrder: any })
             {product.tag}
           </div>
         )}
+        {product.isVial && (
+          <div className="absolute top-3 right-3 bg-brand-text text-white text-[9px] font-mono px-2 py-1 uppercase tracking-widest font-bold">
+            Min Order: 10 Vials
+          </div>
+        )}
       </div>
       
       <h3 className="text-sm font-bold uppercase tracking-wide mb-2 text-brand-text">{product.name}</h3>
       <p className="text-brand-muted text-xs font-light mb-4 line-clamp-2">{product.description}</p>
       
       <div className="flex items-center gap-2 mb-4 bg-brand-bg border border-brand-border p-2 text-[10px] font-mono text-brand-text">
-        <div className="w-1.5 h-1.5 bg-brand-text rounded-full"></div> COA Verified &gt;99% Purity
+        <div className="w-1.5 h-1.5 bg-brand-text rounded-full"></div> COA Available Upon Request (&gt;99% Purity)
       </div>
 
-      <div className="flex flex-wrap gap-2 mb-6">
+      <div className="flex flex-wrap gap-1.5 mb-6">
         {product.variants.map((v: any) => (
           <button 
             key={v.name}
             onClick={() => setSelectedVariant(v)}
-            className={`px-3 py-1.5 text-[10px] uppercase tracking-widest font-bold border transition-colors ${
+            className={`px-2.5 py-1.5 text-[10px] uppercase tracking-widest font-bold border transition-colors ${
               selectedVariant.name === v.name 
                 ? 'bg-brand-text text-white border-brand-text' 
                 : 'bg-transparent border-brand-border text-brand-muted hover:text-brand-text hover:border-brand-text'
             }`}
           >
-            {v.name} {v.savings && <span className="text-brand-muted ml-1">({v.savings})</span>}
+            {v.name} {v.savingsLabel && <span className="text-brand-success ml-0.5">({v.savingsLabel})</span>}
           </button>
         ))}
       </div>
@@ -140,11 +145,15 @@ function ProductCard({ product, addToOrder }: { product: any, addToOrder: any })
       <div className="mt-auto">
         <div className="flex justify-between items-end mb-4">
           <div>
-            <div className="text-[10px] text-brand-muted uppercase tracking-widest mb-1">Price</div>
-            <div className="text-xl font-light text-brand-text">${selectedVariant.price}</div>
+            <div className="text-[10px] text-brand-muted uppercase tracking-widest mb-1">
+              {product.isVial ? 'Price (10 Vials Min)' : 'Price'}
+            </div>
+            <div className="text-xl font-light text-brand-text">${selectedVariant.price} AUD</div>
           </div>
-          {selectedVariant.savings && (
-            <div className="text-[10px] text-brand-text uppercase tracking-widest font-bold border border-brand-border px-2 py-1">{selectedVariant.savings}</div>
+          {selectedVariant.savingsLabel && (
+            <div className="text-[10px] text-brand-text uppercase tracking-widest font-bold border border-brand-border px-2 py-1">
+              {selectedVariant.savingsLabel}
+            </div>
           )}
         </div>
 

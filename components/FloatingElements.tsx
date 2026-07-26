@@ -1,5 +1,5 @@
 "use client";
-import { MessageCircle, X, Mail } from 'lucide-react';
+import { MessageCircle, X, Mail, AlertTriangle } from 'lucide-react';
 import { useCart } from './CartContext';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -29,7 +29,10 @@ export default function FloatingElements() {
   if (!mounted) return null;
 
   const total = items.reduce((acc, item) => acc + (item.price * item.qty), 0);
-  const whatsappNumber = "61485958620"; // Updated site whatsapp number
+  const whatsappNumber = "61485958620"; // Admin whatsapp number
+
+  const MIN_ORDER_AMOUNT = 150;
+  const isMinOrderMet = total >= MIN_ORDER_AMOUNT;
 
   const isPayidAllowed = total >= 100;
   const isBankTransferAllowed = total >= 200;
@@ -51,17 +54,25 @@ export default function FloatingElements() {
       bank_transfer: "Bank Transfer"
     };
 
-    text += `\nTotal: $${total}\n`;
+    text += `\nTotal: $${total} AUD\n`;
     text += `Payment Method: ${paymentLabels[activePaymentMethod]}\n\n`;
     text += `Please confirm availability and send payment instructions.`;
     return encodeURIComponent(text);
   };
 
   const sendWA = () => {
+    if (!isMinOrderMet) {
+      alert(`Minimum order amount is $150 AUD. Please add $${(MIN_ORDER_AMOUNT - total).toFixed(2)} AUD more to proceed.`);
+      return;
+    }
     window.open(`https://wa.me/${whatsappNumber}?text=${generateOrderText()}`, '_blank');
   };
   
   const sendEmail = () => {
+    if (!isMinOrderMet) {
+      alert(`Minimum order amount is $150 AUD. Please add $${(MIN_ORDER_AMOUNT - total).toFixed(2)} AUD more to proceed.`);
+      return;
+    }
     window.location.href = `mailto:order@reta-australia.com.au?subject=New Order&body=${generateOrderText()}`;
   };
 
@@ -91,7 +102,7 @@ export default function FloatingElements() {
             <span className="w-2 h-2 bg-brand-success rounded-full animate-pulse" />
             Your Order ({items.reduce((acc, item) => acc + item.qty, 0)})
           </span>
-          <span className="text-brand-success">${total}</span>
+          <span className="text-brand-success">${total} AUD</span>
         </button>
       )}
 
@@ -137,6 +148,17 @@ export default function FloatingElements() {
         </div>
         
         <div className="p-4 bg-black/20">
+          {/* Minimum Order Warning */}
+          {!isMinOrderMet && (
+            <div className="mb-3 p-2.5 bg-amber-500/20 border border-amber-500/40 text-amber-200 text-[10px] font-mono flex items-start gap-2">
+              <AlertTriangle className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+              <div>
+                <span className="font-bold uppercase tracking-wider block">Minimum Order: $150 AUD</span>
+                Please add <strong className="text-white">${(MIN_ORDER_AMOUNT - total).toFixed(2)} AUD</strong> more to proceed to checkout.
+              </div>
+            </div>
+          )}
+
           {/* Payment Method Selector in Drawer */}
           <div className="mb-4 border-b border-brand-secondary/15 pb-4">
             <div className="text-[10px] uppercase tracking-widest text-brand-muted mb-2 font-mono flex justify-between">
@@ -192,27 +214,36 @@ export default function FloatingElements() {
 
           <div className="flex justify-between font-bold mb-4 text-lg text-brand-success">
             <span>Total:</span>
-            <span>${total}</span>
+            <span>${total} AUD</span>
           </div>
 
           <div className="flex flex-col gap-2">
-            <Link 
-              href="/checkout" 
-              className="flex items-center justify-center gap-2 bg-brand-success text-brand-text py-3 text-xs uppercase tracking-widest font-bold hover:bg-brand-success/90 transition text-center w-full"
-            >
-              Secure Checkout
-            </Link>
+            {isMinOrderMet ? (
+              <Link 
+                href="/checkout" 
+                className="flex items-center justify-center gap-2 bg-brand-success text-brand-text py-3 text-xs uppercase tracking-widest font-bold hover:bg-brand-success/90 transition text-center w-full"
+              >
+                Secure Checkout
+              </Link>
+            ) : (
+              <button 
+                onClick={() => alert(`Minimum order amount is $150 AUD. Please add $${(MIN_ORDER_AMOUNT - total).toFixed(2)} AUD more to your order.`)}
+                className="flex items-center justify-center gap-2 bg-gray-600 text-gray-300 py-3 text-xs uppercase tracking-widest font-bold cursor-not-allowed w-full opacity-80"
+              >
+                Min Order $150 AUD Required
+              </button>
+            )}
             
             <div className="grid grid-cols-2 gap-2">
               <button 
                 onClick={sendWA} 
-                className="flex items-center justify-center gap-1 bg-transparent border border-brand-secondary text-brand-bg py-2 text-[9px] uppercase tracking-widest font-semibold hover:bg-brand-secondary/15 hover:text-brand-success transition"
+                className={`flex items-center justify-center gap-1 bg-transparent border border-brand-secondary text-brand-bg py-2 text-[9px] uppercase tracking-widest font-semibold transition ${isMinOrderMet ? 'hover:bg-brand-secondary/15 hover:text-brand-success' : 'opacity-60'}`}
               >
-                <MessageCircle className="w-3.5 h-3.5" /> WhatsApp Checkout
+                <MessageCircle className="w-3.5 h-3.5" /> WhatsApp
               </button>
               <button 
                 onClick={sendEmail} 
-                className="flex items-center justify-center gap-1 bg-transparent border border-brand-secondary text-brand-bg py-2 text-[9px] uppercase tracking-widest font-semibold hover:bg-brand-secondary/15 hover:text-brand-success transition"
+                className={`flex items-center justify-center gap-1 bg-transparent border border-brand-secondary text-brand-bg py-2 text-[9px] uppercase tracking-widest font-semibold transition ${isMinOrderMet ? 'hover:bg-brand-secondary/15 hover:text-brand-success' : 'opacity-60'}`}
               >
                 <Mail className="w-3.5 h-3.5" /> Email Checkout
               </button>

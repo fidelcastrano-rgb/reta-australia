@@ -34,6 +34,8 @@ export default function CheckoutPage() {
   const shippingCost = shippingMethod === 'normal' ? 20 : 70;
   const total = subtotal + shippingCost;
 
+  const isMinOrderMet = subtotal >= 150;
+
   const isCryptoAllowed = true;
   const isPayidAllowed = total >= 100;
   const isBankTransferAllowed = total >= 200;
@@ -49,6 +51,10 @@ export default function CheckoutPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (items.length === 0) return;
+    if (!isMinOrderMet) {
+      setError(`Minimum order amount is $150 AUD. Please add $${(150 - subtotal).toFixed(2)} AUD more to your cart to proceed.`);
+      return;
+    }
     setIsSubmitting(true);
     setError('');
 
@@ -94,6 +100,10 @@ export default function CheckoutPage() {
     }
 
     if (items.length === 0) return;
+    if (!isMinOrderMet) {
+      setError(`Minimum order amount is $150 AUD. Please add $${(150 - subtotal).toFixed(2)} AUD more to your cart to proceed.`);
+      return;
+    }
     setIsWhatsAppSubmitting(true);
     setError('');
 
@@ -428,20 +438,29 @@ export default function CheckoutPage() {
                 </div>
               </div>
 
-              <div className="flex justify-between items-center text-lg font-bold border-t border-brand-border pt-6 mb-8">
+              <div className="flex justify-between items-center text-lg font-bold border-t border-brand-border pt-6 mb-6">
                 <span>Total</span>
                 <span className="font-mono text-brand-accent">${total.toFixed(2)} <span className="text-xs text-brand-muted ml-1">AUD</span></span>
               </div>
+
+              {!isMinOrderMet && (
+                <div className="mb-6 p-4 bg-amber-50 border border-amber-300 text-amber-800 text-xs font-mono">
+                  <strong className="block uppercase tracking-wider mb-1">⚠️ Minimum Order Requirement: $150 AUD</strong>
+                  Current subtotal is <strong>${subtotal.toFixed(2)} AUD</strong>. Please add <strong>${(150 - subtotal).toFixed(2)} AUD</strong> more to your order to complete checkout.
+                </div>
+              )}
 
               <div className="space-y-3">
                 <button 
                   type="submit" 
                   form="checkout-form"
-                  disabled={isSubmitting || isWhatsAppSubmitting}
-                  className="w-full bg-brand-cta text-white font-bold text-xs uppercase tracking-widest py-4 flex justify-center items-center gap-2 hover:bg-opacity-90 transition disabled:opacity-75 disabled:cursor-not-allowed"
+                  disabled={isSubmitting || isWhatsAppSubmitting || !isMinOrderMet}
+                  className="w-full bg-brand-cta text-white font-bold text-xs uppercase tracking-widest py-4 flex justify-center items-center gap-2 hover:bg-opacity-90 transition disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <><Loader2 className="w-4 h-4 animate-spin" /> Processing...</>
+                  ) : !isMinOrderMet ? (
+                    'Min Order $150 AUD Required'
                   ) : (
                     'Place Order on Website'
                   )}
@@ -450,8 +469,8 @@ export default function CheckoutPage() {
                 <button 
                   type="button"
                   onClick={handleWhatsAppCheckout}
-                  disabled={isSubmitting || isWhatsAppSubmitting}
-                  className="w-full bg-brand-success text-brand-text font-bold text-xs uppercase tracking-widest py-4 flex justify-center items-center gap-2 hover:bg-opacity-90 transition disabled:opacity-75 disabled:cursor-not-allowed border border-brand-success"
+                  disabled={isSubmitting || isWhatsAppSubmitting || !isMinOrderMet}
+                  className="w-full bg-brand-success text-brand-text font-bold text-xs uppercase tracking-widest py-4 flex justify-center items-center gap-2 hover:bg-opacity-90 transition disabled:opacity-50 disabled:cursor-not-allowed border border-brand-success"
                 >
                   {isWhatsAppSubmitting ? (
                     <><Loader2 className="w-4 h-4 animate-spin" /> Processing...</>

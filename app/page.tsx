@@ -52,13 +52,13 @@ export default function Home() {
       />
       {/* 1. Notice/announcement bar */}
       <div className="bg-brand-text text-white text-sm py-2 overflow-hidden whitespace-nowrap relative">
-        <div className="animate-[marquee_20s_linear_infinite] inline-block font-medium">
-          <span className="mx-4">🔥 NEXT DAY EXPRESS SHIPPING AUSTRALIA-WIDE</span>
-          <span className="mx-4">🧪 THIRD-PARTY TESTED 99%+ PURITY</span>
-          <span className="mx-4">🛡️ SECURE LOCAL INVENTORY</span>
-          <span className="mx-4">🔥 NEXT DAY EXPRESS SHIPPING AUSTRALIA-WIDE</span>
-          <span className="mx-4">🧪 THIRD-PARTY TESTED 99%+ PURITY</span>
-          <span className="mx-4">🛡️ SECURE LOCAL INVENTORY</span>
+        <div className="animate-[marquee_25s_linear_infinite] inline-block font-medium">
+          <span className="mx-4">🔥 10 VIAL MINIMUM FOR PEPTIDES &amp; BULK DISCOUNTS</span>
+          <span className="mx-4">🧪 THIRD-PARTY TESTED (COA ON REQUEST)</span>
+          <span className="mx-4">🚚 NEXT DAY EXPRESS SHIPPING AUSTRALIA-WIDE</span>
+          <span className="mx-4">💳 $150 STORE MINIMUM ORDER</span>
+          <span className="mx-4">🔥 10 VIAL MINIMUM FOR PEPTIDES &amp; BULK DISCOUNTS</span>
+          <span className="mx-4">🧪 THIRD-PARTY TESTED (COA ON REQUEST)</span>
         </div>
       </div>
 
@@ -218,7 +218,7 @@ export default function Home() {
                     <h3 className="text-sm font-bold uppercase tracking-wide text-brand-text">{product.name}</h3>
                     <p className="text-xs text-brand-muted mt-1 font-mono">${product.priceFrom} AUD</p>
                   </div>
-                  <span className="text-[10px] font-mono text-brand-muted italic">COA &gt;99%</span>
+                  <span className="text-[10px] font-mono text-brand-muted italic">COA On Request</span>
                 </div>
                 <div className="flex gap-2 mt-4">
                   <Link href={`/products/${product.slug}`} className="flex-1 text-center bg-transparent border border-brand-border text-brand-text text-[10px] font-bold uppercase tracking-widest py-3 hover:bg-brand-secondary transition">

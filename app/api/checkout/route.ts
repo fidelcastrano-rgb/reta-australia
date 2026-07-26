@@ -11,6 +11,10 @@ export async function POST(req: Request) {
     const calculatedShipping = shippingMethod === 'normal' ? 20 : 70;
     const calculatedTotal = calculatedSubtotal + calculatedShipping;
 
+    if (calculatedSubtotal < 150) {
+      return NextResponse.json({ error: 'Minimum order amount is $150 AUD.' }, { status: 400 });
+    }
+
     if (calculatedTotal < 100 && paymentMethod !== 'crypto') {
       return NextResponse.json({ error: 'Orders below $100 AUD can only be paid via Crypto.' }, { status: 400 });
     }
