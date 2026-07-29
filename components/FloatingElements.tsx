@@ -8,7 +8,7 @@ import { usePathname } from 'next/navigation';
 export default function FloatingElements() {
   const { items, removeItem, clearOrder } = useCart();
   const [mounted, setMounted] = useState(false);
-  const [paymentMethod, setPaymentMethod] = useState<'crypto' | 'payid' | 'bank_transfer'>('crypto');
+  const [paymentMethod, setPaymentMethod] = useState<'crypto' | 'credit_card' | 'payid' | 'bank_transfer'>('crypto');
   const [minimized, setMinimized] = useState(false);
   const pathname = usePathname();
   
@@ -34,13 +34,16 @@ export default function FloatingElements() {
   const MIN_ORDER_AMOUNT = 150;
   const isMinOrderMet = total >= MIN_ORDER_AMOUNT;
 
+  const isCreditCardAllowed = total >= 100;
   const isPayidAllowed = total >= 100;
   const isBankTransferAllowed = total >= 200;
 
   const activePaymentMethod = 
     paymentMethod === 'bank_transfer' && !isBankTransferAllowed
-      ? (isPayidAllowed ? 'payid' : 'crypto')
-      : (paymentMethod === 'payid' && !isPayidAllowed ? 'crypto' : paymentMethod);
+      ? (isCreditCardAllowed ? 'credit_card' : (isPayidAllowed ? 'payid' : 'crypto'))
+      : (paymentMethod === 'credit_card' && !isCreditCardAllowed
+        ? (isPayidAllowed ? 'payid' : 'crypto')
+        : (paymentMethod === 'payid' && !isPayidAllowed ? 'crypto' : paymentMethod));
   
   const generateOrderText = () => {
     let text = "Hi, I would like to order:\n\n";
@@ -50,6 +53,7 @@ export default function FloatingElements() {
 
     const paymentLabels = {
       crypto: "Cryptocurrency (USDT/BTC/LTC - Preferred)",
+      credit_card: "Credit Card (Information will be emailed)",
       payid: "PayID",
       bank_transfer: "Bank Transfer"
     };
@@ -165,11 +169,11 @@ export default function FloatingElements() {
               <span>Payment Method</span>
               <span className="text-brand-success font-bold">Select</span>
             </div>
-            <div className="grid grid-cols-3 gap-1.5">
+            <div className="grid grid-cols-4 gap-1">
               <button 
                 type="button"
                 onClick={() => setPaymentMethod('crypto')}
-                className={`py-1.5 px-1 text-[9px] uppercase tracking-wider font-bold border transition-all ${
+                className={`py-1.5 px-0.5 text-[8px] uppercase tracking-wider font-bold border transition-all truncate ${
                   activePaymentMethod === 'crypto' 
                     ? 'bg-brand-success text-brand-text border-brand-success' 
                     : 'bg-transparent border-brand-secondary/20 text-brand-muted hover:text-brand-bg hover:border-brand-bg'
@@ -179,9 +183,22 @@ export default function FloatingElements() {
               </button>
               <button 
                 type="button"
+                onClick={() => isCreditCardAllowed && setPaymentMethod('credit_card')}
+                disabled={!isCreditCardAllowed}
+                className={`py-1.5 px-0.5 text-[8px] uppercase tracking-wider font-bold border transition-all truncate ${
+                  activePaymentMethod === 'credit_card' 
+                    ? 'bg-brand-success text-brand-text border-brand-success' 
+                    : 'bg-transparent border-brand-secondary/10 text-brand-muted/40 disabled:opacity-30 disabled:cursor-not-allowed'
+                } ${isCreditCardAllowed ? 'hover:text-brand-bg hover:border-brand-bg' : ''}`}
+                title={!isCreditCardAllowed ? "Min $100 for Credit Card" : "Credit Card"}
+              >
+                Card{!isCreditCardAllowed && "*"}
+              </button>
+              <button 
+                type="button"
                 onClick={() => isPayidAllowed && setPaymentMethod('payid')}
                 disabled={!isPayidAllowed}
-                className={`py-1.5 px-1 text-[9px] uppercase tracking-wider font-bold border transition-all ${
+                className={`py-1.5 px-0.5 text-[8px] uppercase tracking-wider font-bold border transition-all truncate ${
                   activePaymentMethod === 'payid' 
                     ? 'bg-brand-success text-brand-text border-brand-success' 
                     : 'bg-transparent border-brand-secondary/10 text-brand-muted/40 disabled:opacity-30 disabled:cursor-not-allowed'
@@ -194,7 +211,7 @@ export default function FloatingElements() {
                 type="button"
                 onClick={() => isBankTransferAllowed && setPaymentMethod('bank_transfer')}
                 disabled={!isBankTransferAllowed}
-                className={`py-1.5 px-1 text-[9px] uppercase tracking-wider font-bold border transition-all ${
+                className={`py-1.5 px-0.5 text-[8px] uppercase tracking-wider font-bold border transition-all truncate ${
                   activePaymentMethod === 'bank_transfer' 
                     ? 'bg-brand-success text-brand-text border-brand-success' 
                     : 'bg-transparent border-brand-secondary/10 text-brand-muted/40 disabled:opacity-30 disabled:cursor-not-allowed'
@@ -204,10 +221,10 @@ export default function FloatingElements() {
                 Bank{!isBankTransferAllowed && "*"}
               </button>
             </div>
-            {!isPayidAllowed && (
-              <p className="text-[8px] text-brand-muted/80 mt-1.5 font-light italic">*PayID requires $100+ min, Bank Transfer $200+ min.</p>
+            {!isCreditCardAllowed && (
+              <p className="text-[8px] text-brand-muted/80 mt-1.5 font-light italic">*Credit Card & PayID require $100+ min, Bank Transfer $200+ min.</p>
             )}
-            {isPayidAllowed && !isBankTransferAllowed && (
+            {isCreditCardAllowed && !isBankTransferAllowed && (
               <p className="text-[8px] text-brand-muted/80 mt-1.5 font-light italic">*Bank Transfer requires $200+ min.</p>
             )}
           </div>

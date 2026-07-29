@@ -20,7 +20,7 @@ export default function CheckoutPage() {
     country: 'Australia',
   });
   const [shippingMethod, setShippingMethod] = useState<'normal' | 'express'>('normal');
-  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<'crypto' | 'payid' | 'bank_transfer'>('crypto');
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<'crypto' | 'credit_card' | 'payid' | 'bank_transfer'>('crypto');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isWhatsAppSubmitting, setIsWhatsAppSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -37,15 +37,18 @@ export default function CheckoutPage() {
   const isMinOrderMet = subtotal >= 150;
 
   const isCryptoAllowed = true;
+  const isCreditCardAllowed = total >= 100;
   const isPayidAllowed = total >= 100;
   const isBankTransferAllowed = total >= 200;
 
   // Derive the active payment method during render
   let paymentMethod = selectedPaymentMethod;
-  if (paymentMethod === 'payid' && !isPayidAllowed) {
+  if (paymentMethod === 'credit_card' && !isCreditCardAllowed) {
+    paymentMethod = 'crypto';
+  } else if (paymentMethod === 'payid' && !isPayidAllowed) {
     paymentMethod = 'crypto';
   } else if (paymentMethod === 'bank_transfer' && !isBankTransferAllowed) {
-    paymentMethod = isPayidAllowed ? 'payid' : 'crypto';
+    paymentMethod = isCreditCardAllowed ? 'credit_card' : (isPayidAllowed ? 'payid' : 'crypto');
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -309,6 +312,7 @@ export default function CheckoutPage() {
                   <div className="font-bold text-brand-text uppercase tracking-wider">Payment Requirements:</div>
                   <ul className="list-disc list-inside text-brand-muted space-y-1">
                     <li><strong>Cryptocurrency</strong>: Available for all orders (No limits) - <span className="text-brand-text font-bold">Preferred</span></li>
+                    <li><strong>Credit Card</strong>: Available for orders of <strong>$100 AUD</strong> or more (Information will be emailed to you)</li>
                     <li><strong>PayID</strong>: Available for orders of <strong>$100 AUD</strong> or more</li>
                     <li><strong>Bank Transfer</strong>: Available for orders of <strong>$200 AUD</strong> or more</li>
                   </ul>
@@ -330,6 +334,33 @@ export default function CheckoutPage() {
                     )}
                   </label>
                   
+                  <label className={`block border p-4 transition ${
+                    isCreditCardAllowed 
+                      ? (paymentMethod === 'credit_card' ? 'border-brand-text bg-brand-secondary cursor-pointer' : 'border-brand-border hover:border-gray-400 cursor-pointer') 
+                      : 'border-brand-border bg-gray-50 opacity-60 cursor-not-allowed'
+                  }`}>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <input 
+                          type="radio" 
+                          name="payment" 
+                          value="credit_card" 
+                          checked={paymentMethod === 'credit_card'} 
+                          disabled={!isCreditCardAllowed}
+                          onChange={() => isCreditCardAllowed && setSelectedPaymentMethod('credit_card')} 
+                          className="accent-brand-text disabled:opacity-50" 
+                        />
+                        <span className={`text-sm font-bold ${!isCreditCardAllowed ? 'text-brand-muted' : ''}`}>Credit Card</span>
+                      </div>
+                      {!isCreditCardAllowed && (
+                        <span className="text-[10px] text-red-600 font-bold bg-red-50 px-2 py-1 uppercase tracking-wider">Orders $100+ Only</span>
+                      )}
+                    </div>
+                    {isCreditCardAllowed && paymentMethod === 'credit_card' && (
+                      <p className="text-xs text-brand-muted mt-3 ml-7">Pay using Credit Card. Our credit card information and payment instructions will be emailed to you.</p>
+                    )}
+                  </label>
+
                   <label className={`block border p-4 transition ${
                     isPayidAllowed 
                       ? (paymentMethod === 'payid' ? 'border-brand-text bg-brand-secondary cursor-pointer' : 'border-brand-border hover:border-gray-400 cursor-pointer') 

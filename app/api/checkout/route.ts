@@ -18,6 +18,9 @@ export async function POST(req: Request) {
     if (calculatedTotal < 100 && paymentMethod !== 'crypto') {
       return NextResponse.json({ error: 'Orders below $100 AUD can only be paid via Crypto.' }, { status: 400 });
     }
+    if (calculatedTotal < 100 && paymentMethod === 'credit_card') {
+      return NextResponse.json({ error: 'Credit Card is only available for orders of $100 AUD or more.' }, { status: 400 });
+    }
     if (calculatedTotal < 200 && paymentMethod === 'bank_transfer') {
       return NextResponse.json({ error: 'Bank Transfer is only available for orders above $200 AUD.' }, { status: 400 });
     }
@@ -30,6 +33,8 @@ export async function POST(req: Request) {
     let paymentMethodLabel = 'Bank Transfer';
     if (paymentMethod === 'payid') {
       paymentMethodLabel = 'PayID';
+    } else if (paymentMethod === 'credit_card') {
+      paymentMethodLabel = 'Credit Card';
     } else if (paymentMethod === 'crypto') {
       paymentMethodLabel = 'Cryptocurrency (USDT/BTC/LTC - Preferred)';
     }
@@ -56,6 +61,8 @@ Payment Method: ${paymentMethodLabel}
 
     const paymentInstructions = paymentMethod === 'crypto'
       ? `You have selected Cryptocurrency. We will contact you manually with the transfer details shortly. (Crypto is our most preferred option with no delay in confirmation and processing).`
+      : paymentMethod === 'credit_card'
+      ? `You have selected Credit Card. Our credit card payment information and secure checkout link will be emailed to you shortly.`
       : `We will contact you manually with the payment details for your chosen payment method (${paymentMethodLabel}) shortly.`;
 
     const clientEmailText = `
