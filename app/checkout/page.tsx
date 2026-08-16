@@ -1,10 +1,20 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useCart } from '@/components/CartContext';
 import Link from 'next/link';
 import { motion } from 'motion/react';
-import { Loader2, MessageCircle } from 'lucide-react';
+import { Loader2, MessageCircle, CreditCard, ShieldCheck, CheckCircle2, ExternalLink, Mail, Copy, Check } from 'lucide-react';
+
+interface OrderResult {
+  orderId: string;
+  paymentMethod: string;
+  checkoutUrl?: string | null;
+  checkoutId?: string | null;
+  reference?: string | null;
+  usdAmount?: number | null;
+  total?: number;
+}
 
 export default function CheckoutPage() {
   const { items, clearOrder, removeItem } = useCart();
@@ -24,6 +34,8 @@ export default function CheckoutPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isWhatsAppSubmitting, setIsWhatsAppSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [orderResult, setOrderResult] = useState<OrderResult | null>(null);
+  const [copiedLink, setCopiedLink] = useState(false);
   const [error, setError] = useState('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -51,6 +63,12 @@ export default function CheckoutPage() {
     paymentMethod = isCreditCardAllowed ? 'credit_card' : (isPayidAllowed ? 'payid' : 'crypto');
   }
 
+  const handleCopyLink = (url: string) => {
+    navigator.clipboard.writeText(url);
+    setCopiedLink(true);
+    setTimeout(() => setCopiedLink(false), 3000);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (items.length === 0) return;
@@ -76,15 +94,17 @@ export default function CheckoutPage() {
         }),
       });
 
+      const resData = await response.json();
+
       if (!response.ok) {
-        const errData = await response.json().catch(() => ({}));
-        throw new Error(errData.error || 'Failed to process order. Please try again.');
+        throw new Error(resData.error || 'Failed to process order. Please try again.');
       }
 
+      setOrderResult(resData);
       clearOrder();
       setSuccess(true);
     } catch (err: any) {
-      setError(err.message || 'Something went wrong');
+      setError(err.message || 'Something went wrong processing your order.');
     } finally {
       setIsSubmitting(false);
     }
@@ -111,7 +131,7 @@ export default function CheckoutPage() {
     setError('');
 
     try {
-      // 1. Send the order details to the server so it gets registered / emailed
+      // 1. Send the order details to the server so it gets registered / emailed and Bachs checkout URL is generated
       const response = await fetch('/api/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -126,22 +146,27 @@ export default function CheckoutPage() {
         }),
       });
 
+      const resData = await response.json();
+
       if (!response.ok) {
-        const errData = await response.json().catch(() => ({}));
-        throw new Error(errData.error || 'Failed to register order details. Please try again.');
+        throw new Error(resData.error || 'Failed to register order details. Please try again.');
       }
+
+      setOrderResult(resData);
 
       // 2. Open WhatsApp with all details prefilled
       const whatsappNumber = "61485958620"; // Admin whatsapp number
       
       let paymentMethodLabel = 'Bank Transfer';
-      if (paymentMethod === 'payid') {
+      if (paymentMethod === 'credit_card') {
+        paymentMethodLabel = 'Credit Card (Bachs Gateway)';
+      } else if (paymentMethod === 'payid') {
         paymentMethodLabel = 'PayID';
       } else if (paymentMethod === 'crypto') {
         paymentMethodLabel = 'Cryptocurrency (USDT/BTC/LTC - Preferred)';
       }
 
-      let text = `*NEW ORDER SUBMITTED*\n\n`;
+      let text = `*NEW ORDER SUBMITTED (#${resData.orderId || 'NEW'})*\n\n`;
       text += `*Customer Info:*\n`;
       text += `- Name: ${formData.firstName} ${formData.lastName}\n`;
       text += `- Email: ${formData.email}\n`;
@@ -154,18 +179,24 @@ export default function CheckoutPage() {
       text += `- Postcode: ${formData.postcode}\n`;
       text += `- Country: ${formData.country}\n\n`;
       
-      text += `*Shipping Method:* ${shippingMethod === 'express' ? 'Express ($70)' : 'Normal ($20)'}\n`;
+      text += `*Shipping Method:* ${shippingMethod === 'express' ? 'Express ($70 AUD)' : 'Normal ($20 AUD)'}\n`;
       text += `*Payment Method:* ${paymentMethodLabel}\n\n`;
       
       text += `*Order Items:*\n`;
       items.forEach(item => {
-        text += `- ${item.qty}x ${item.name} (${item.variant}) - $${(item.price * item.qty).toFixed(2)}\n`;
+        text += `- ${item.qty}x ${item.name} (${item.variant}) - $${(item.price * item.qty).toFixed(2)} AUD\n`;
       });
       
-      text += `\n*Subtotal:* $${subtotal.toFixed(2)}\n`;
-      text += `*Shipping:* $${shippingCost.toFixed(2)}\n`;
+      text += `\n*Subtotal:* $${subtotal.toFixed(2)} AUD\n`;
+      text += `*Shipping:* $${shippingCost.toFixed(2)} AUD\n`;
       text += `*Total Order Amount:* $${total.toFixed(2)} AUD\n\n`;
-      text += `Please send the payment instructions so I can transfer the funds immediately.`;
+
+      if (paymentMethod === 'credit_card' && resData.checkoutUrl) {
+        text += `*Credit Card Payment Portal Link:* ${resData.checkoutUrl}\n`;
+        text += `(Please confirm once card payment is completed)\n`;
+      } else {
+        text += `Please send the payment instructions so I can transfer the funds immediately.`;
+      }
 
       clearOrder();
       setSuccess(true);
@@ -178,24 +209,96 @@ export default function CheckoutPage() {
   };
 
   if (success) {
+    const isCreditCard = orderResult?.paymentMethod === 'credit_card' && orderResult?.checkoutUrl;
+
     return (
-      <div className="max-w-3xl mx-auto px-4 py-24 text-center">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="bg-white p-12 border border-brand-border">
-          <h1 className="text-3xl font-heading font-light tracking-tighter mb-6">Order Received</h1>
-          <p className="text-brand-muted mb-6 leading-relaxed">
-            Thank you for your order. We have received your order details and sent a confirmation email to <strong>{formData.email}</strong>. Our team will contact you manually with custom payment instructions shortly.
-          </p>
-          <div className="bg-brand-secondary p-6 mb-8 text-sm text-left">
-            <h3 className="font-bold mb-4 uppercase tracking-widest text-xs">Important Information</h3>
-            <p className="text-brand-muted leading-relaxed">
-              Please note that your order will be processed and shipped once your payment has cleared on our end. Once cleared, we will process and ship your order, and your tracking number will be emailed to you. We appreciate your patience.
-            </p>
+      <div className="max-w-3xl mx-auto px-4 py-16 text-center">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          className="bg-white p-8 sm:p-12 border border-brand-border shadow-sm text-center"
+        >
+          <div className="w-16 h-16 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-6 border border-emerald-200">
+            <CheckCircle2 className="w-8 h-8 text-emerald-600" />
           </div>
+
+          <span className="text-xs uppercase font-mono tracking-widest text-brand-muted bg-brand-secondary px-3 py-1 border border-brand-border inline-block mb-3">
+            Order Reference: #{orderResult?.orderId || 'CONFIRMED'}
+          </span>
+
+          <h1 className="text-3xl font-heading font-light tracking-tighter mb-4 text-brand-text">
+            Order Received
+          </h1>
+
+          <p className="text-brand-muted mb-8 leading-relaxed max-w-lg mx-auto text-sm sm:text-base">
+            Thank you for your order! We have logged your details in our system and sent an order confirmation to <strong className="text-brand-text">{formData.email}</strong>.
+          </p>
+
+          {/* Special Bachs Credit Card Payment Block */}
+          {isCreditCard ? (
+            <div className="bg-amber-50/70 border-2 border-brand-accent/30 p-6 sm:p-8 mb-8 text-left space-y-4">
+              <div className="flex items-center gap-3">
+                <CreditCard className="w-6 h-6 text-brand-accent" />
+                <h3 className="font-bold uppercase tracking-wider text-sm text-brand-text">
+                  Complete Your Credit Card Payment
+                </h3>
+              </div>
+              <p className="text-xs text-brand-muted leading-relaxed">
+                Your order is ready. Click the button below to complete your payment via our secure Bachs Credit Card Payment Gateway:
+              </p>
+              
+              <div className="p-3 bg-white border border-brand-border flex items-center justify-between text-xs font-mono">
+                <span className="text-brand-muted">Amount Due:</span>
+                <span className="font-bold text-brand-text">
+                  ${total.toFixed(2)} AUD {orderResult?.usdAmount ? `(~$${orderResult.usdAmount.toFixed(2)} USD)` : ''}
+                </span>
+              </div>
+
+              <div className="pt-2 flex flex-col sm:flex-row gap-3">
+                <a
+                  href={orderResult.checkoutUrl!}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 bg-brand-cta text-white font-bold text-xs uppercase tracking-widest py-4 px-6 flex items-center justify-center gap-2 hover:bg-opacity-90 transition shadow-sm text-center"
+                >
+                  Proceed to Credit Card Payment <ExternalLink className="w-4 h-4" />
+                </a>
+
+                <button
+                  type="button"
+                  onClick={() => handleCopyLink(orderResult.checkoutUrl!)}
+                  className="inline-flex items-center justify-center gap-2 border border-brand-border bg-white text-brand-text font-bold text-xs uppercase tracking-widest py-4 px-4 hover:bg-brand-secondary transition"
+                >
+                  {copiedLink ? (
+                    <><Check className="w-4 h-4 text-emerald-600" /> Copied!</>
+                  ) : (
+                    <><Copy className="w-4 h-4" /> Copy Link</>
+                  )}
+                </button>
+              </div>
+
+              <div className="flex items-center gap-2 text-[11px] text-brand-muted pt-2 border-t border-brand-border/60">
+                <Mail className="w-3.5 h-3.5 text-brand-text shrink-0" />
+                <span>Our credit card information and payment gateway checkout link have also been emailed to <strong>{formData.email}</strong>.</span>
+              </div>
+            </div>
+          ) : (
+            <div className="bg-brand-secondary p-6 mb-8 text-sm text-left border border-brand-border">
+              <h3 className="font-bold mb-3 uppercase tracking-widest text-xs text-brand-text">Next Steps &amp; Payment</h3>
+              <p className="text-xs text-brand-muted leading-relaxed mb-3">
+                Our team will review your order details and contact you via email / WhatsApp with manual transfer instructions for your selected payment method.
+              </p>
+              <p className="text-xs text-brand-muted leading-relaxed">
+                Please note that your order will be processed and shipped once your payment has cleared on our end. Tracking will be provided via email.
+              </p>
+            </div>
+          )}
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/" className="inline-block border border-brand-text text-brand-text font-bold text-xs uppercase tracking-widest py-4 px-8 hover:bg-brand-secondary transition">
               Back to Home
             </Link>
-            <Link href="/products" className="inline-block bg-brand-cta text-white font-bold text-xs uppercase tracking-widest py-4 px-8 hover:bg-opacity-90 transition">
+            <Link href="/products" className="inline-block bg-brand-text text-brand-bg font-bold text-xs uppercase tracking-widest py-4 px-8 hover:bg-opacity-90 transition">
               Continue Shopping
             </Link>
           </div>
@@ -287,18 +390,18 @@ export default function CheckoutPage() {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
                         <input type="radio" name="shipping" value="normal" checked={shippingMethod === 'normal'} onChange={() => setShippingMethod('normal')} className="accent-brand-text" />
-                        <span className="text-sm font-bold">Normal Shipping</span>
+                        <span className="text-sm font-bold">Standard Australia Post Express</span>
                       </div>
-                      <span className="font-mono text-sm">$20.00</span>
+                      <span className="font-mono text-sm">$20.00 AUD</span>
                     </div>
                   </label>
                   <label className={`block border p-4 cursor-pointer transition ${shippingMethod === 'express' ? 'border-brand-text bg-brand-secondary' : 'border-brand-border hover:border-gray-400'}`}>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
                         <input type="radio" name="shipping" value="express" checked={shippingMethod === 'express'} onChange={() => setShippingMethod('express')} className="accent-brand-text" />
-                        <span className="text-sm font-bold">Express Shipping</span>
+                        <span className="text-sm font-bold">Priority Next-Day Dispatch</span>
                       </div>
-                      <span className="font-mono text-sm">$70.00</span>
+                      <span className="font-mono text-sm">$70.00 AUD</span>
                     </div>
                   </label>
                 </div>
@@ -312,13 +415,14 @@ export default function CheckoutPage() {
                   <div className="font-bold text-brand-text uppercase tracking-wider">Payment Requirements:</div>
                   <ul className="list-disc list-inside text-brand-muted space-y-1">
                     <li><strong>Cryptocurrency</strong>: Available for all orders (No limits) - <span className="text-brand-text font-bold">Preferred</span></li>
-                    <li><strong>Credit Card</strong>: Available for orders of <strong>$100 AUD</strong> or more (Information will be emailed to you)</li>
+                    <li><strong>Credit Card (Bachs Gateway)</strong>: Available for orders of <strong>$100 AUD</strong> or more (Information &amp; secure link emailed to you)</li>
                     <li><strong>PayID</strong>: Available for orders of <strong>$100 AUD</strong> or more</li>
                     <li><strong>Bank Transfer</strong>: Available for orders of <strong>$200 AUD</strong> or more</li>
                   </ul>
                 </div>
 
                 <div className="space-y-3">
+                  {/* Crypto */}
                   <label className={`block border p-4 cursor-pointer transition ${paymentMethod === 'crypto' ? 'border-brand-text bg-brand-secondary' : 'border-brand-border hover:border-gray-400'}`}>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
@@ -329,11 +433,12 @@ export default function CheckoutPage() {
                     </div>
                     {paymentMethod === 'crypto' && (
                       <p className="text-xs text-brand-muted mt-3 ml-7">
-                        Pay using cryptocurrency. This is our <strong>most preferred and best option</strong> with <strong>no delay in confirmation and processing</strong>. We will contact you manually with the transfer details shortly.
+                        Pay using cryptocurrency. This is our <strong>most preferred and fastest option</strong> with <strong>zero delay in confirmation and processing</strong>. We will contact you manually with the wallet details shortly.
                       </p>
                     )}
                   </label>
                   
+                  {/* Credit Card with Bachs API */}
                   <label className={`block border p-4 transition ${
                     isCreditCardAllowed 
                       ? (paymentMethod === 'credit_card' ? 'border-brand-text bg-brand-secondary cursor-pointer' : 'border-brand-border hover:border-gray-400 cursor-pointer') 
@@ -350,17 +455,26 @@ export default function CheckoutPage() {
                           onChange={() => isCreditCardAllowed && setSelectedPaymentMethod('credit_card')} 
                           className="accent-brand-text disabled:opacity-50" 
                         />
-                        <span className={`text-sm font-bold ${!isCreditCardAllowed ? 'text-brand-muted' : ''}`}>Credit Card</span>
+                        <div className="flex items-center gap-2">
+                          <span className={`text-sm font-bold ${!isCreditCardAllowed ? 'text-brand-muted' : ''}`}>Credit Card</span>
+                          <span className="text-[10px] bg-brand-secondary border border-brand-border px-1.5 py-0.5 font-mono text-brand-muted">Visa / MC / AMEX</span>
+                        </div>
                       </div>
-                      {!isCreditCardAllowed && (
+                      {!isCreditCardAllowed ? (
                         <span className="text-[10px] text-red-600 font-bold bg-red-50 px-2 py-1 uppercase tracking-wider">Orders $100+ Only</span>
+                      ) : (
+                        <span className="text-[10px] text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 font-bold uppercase tracking-wider">Bachs Gateway</span>
                       )}
                     </div>
                     {isCreditCardAllowed && paymentMethod === 'credit_card' && (
-                      <p className="text-xs text-brand-muted mt-3 ml-7">Pay using Credit Card. Our credit card information and payment instructions will be emailed to you.</p>
+                      <div className="text-xs text-brand-muted mt-3 ml-7 space-y-1.5 leading-relaxed">
+                        <p>Pay securely using Credit / Debit Card via the <strong>Bachs Payment Gateway</strong>.</p>
+                        <p className="text-brand-text font-medium">✨ Our credit card payment information and secure checkout link will be generated instantly and emailed to you upon placing the order.</p>
+                      </div>
                     )}
                   </label>
 
+                  {/* PayID */}
                   <label className={`block border p-4 transition ${
                     isPayidAllowed 
                       ? (paymentMethod === 'payid' ? 'border-brand-text bg-brand-secondary cursor-pointer' : 'border-brand-border hover:border-gray-400 cursor-pointer') 
@@ -388,6 +502,7 @@ export default function CheckoutPage() {
                     )}
                   </label>
 
+                  {/* Bank Transfer */}
                   <label className={`block border p-4 transition ${
                     isBankTransferAllowed 
                       ? (paymentMethod === 'bank_transfer' ? 'border-brand-text bg-brand-secondary cursor-pointer' : 'border-brand-border hover:border-gray-400 cursor-pointer') 
@@ -453,7 +568,7 @@ export default function CheckoutPage() {
                         <button onClick={() => removeItem(item.key)} className="text-[10px] text-red-500 hover:text-red-700 mt-2 uppercase tracking-wide">Remove</button>
                       </div>
                     </div>
-                    <span className="font-mono text-sm">${(item.price * item.qty).toFixed(2)}</span>
+                    <span className="font-mono text-sm">${(item.price * item.qty).toFixed(2)} AUD</span>
                   </div>
                 ))}
               </div>
@@ -461,11 +576,11 @@ export default function CheckoutPage() {
               <div className="space-y-3 text-sm border-t border-brand-border pt-6 mb-6">
                 <div className="flex justify-between">
                   <span className="text-brand-muted">Subtotal</span>
-                  <span className="font-mono">${subtotal.toFixed(2)}</span>
+                  <span className="font-mono">${subtotal.toFixed(2)} AUD</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-brand-muted">Shipping</span>
-                  <span className="font-mono">${shippingCost.toFixed(2)}</span>
+                  <span className="font-mono">${shippingCost.toFixed(2)} AUD</span>
                 </div>
               </div>
 
@@ -489,7 +604,7 @@ export default function CheckoutPage() {
                   className="w-full bg-brand-cta text-white font-bold text-xs uppercase tracking-widest py-4 flex justify-center items-center gap-2 hover:bg-opacity-90 transition disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
-                    <><Loader2 className="w-4 h-4 animate-spin" /> Processing...</>
+                    <><Loader2 className="w-4 h-4 animate-spin" /> Processing Order...</>
                   ) : !isMinOrderMet ? (
                     'Min Order $150 AUD Required'
                   ) : (
