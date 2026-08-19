@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
-import { createBachsCheckoutSession, convertAudToUsd } from '@/lib/bachs';
 
 export async function POST(req: Request) {
   try {
@@ -47,39 +46,6 @@ export async function POST(req: Request) {
     const fullAddress = `${address}, ${city}, ${state} ${postcode}, ${country || 'Australia'}`;
     const itemsSummary = items.map((item: any) => `${item.qty}x ${item.name} (${item.variant}) - $${(item.price * item.qty).toFixed(2)} AUD`).join('\n');
 
-    let bachsCheckoutUrl: string | null = null;
-    let bachsCheckoutId: string | null = null;
-    let bachsReference: string | null = null;
-    let usdAmount: number | null = null;
-
-    // If Credit Card is selected, initiate the Bachs payment gateway session
-    if (paymentMethod === 'credit_card') {
-      try {
-        usdAmount = convertAudToUsd(calculatedTotal);
-        const bachsSession = await createBachsCheckoutSession({
-          customer: {
-            name: fullCustomerName,
-            email: email,
-            phone: phone || undefined,
-          },
-          audAmount: calculatedTotal,
-          orderRef: orderId,
-          shippingMethod: shippingMethod === 'normal' ? 'Standard Express ($20.00 AUD)' : 'Priority Express ($70.00 AUD)',
-          itemsSummary: items.map((i: any) => `${i.qty}x ${i.name} (${i.variant})`).join(', '),
-          address: fullAddress,
-        });
-
-        bachsCheckoutUrl = bachsSession.checkout_url;
-        bachsCheckoutId = bachsSession.checkout_id;
-        bachsReference = bachsSession.reference;
-      } catch (err: any) {
-        console.error('Bachs API gateway error:', err);
-        return NextResponse.json({ 
-          error: `Credit Card Gateway Error: ${err.message || 'Unable to generate credit card payment session. Please try another payment method or contact support.'}` 
-        }, { status: 502 });
-      }
-    }
-
     const adminEmail = process.env.ADMIN_EMAIL || 'order@reta-australia.com.au';
     const smtpHost = process.env.SMTP_HOST;
     const smtpUser = process.env.SMTP_USER;
@@ -89,7 +55,7 @@ export async function POST(req: Request) {
     if (paymentMethod === 'payid') {
       paymentMethodLabel = 'PayID';
     } else if (paymentMethod === 'credit_card') {
-      paymentMethodLabel = 'Credit Card (Bachs Gateway)';
+      paymentMethodLabel = 'Credit Card (Payment Link)';
     } else if (paymentMethod === 'crypto') {
       paymentMethodLabel = 'Cryptocurrency (USDT/BTC/LTC - Preferred)';
     }
@@ -102,7 +68,7 @@ ${itemsSummary}
 
 Subtotal: $${subtotal.toFixed(2)} AUD
 Shipping (${shippingMethod === 'normal' ? 'Standard' : 'Priority'}): $${shippingCost.toFixed(2)} AUD
-Total: $${total.toFixed(2)} AUD ${usdAmount ? `(approx $${usdAmount.toFixed(2)} USD)` : ''}
+Total: $${total.toFixed(2)} AUD
 
 Customer Details:
 ----------------------------
@@ -112,24 +78,15 @@ Phone: ${phone}
 Address: ${fullAddress}
 
 Payment Method: ${paymentMethodLabel}
-${bachsCheckoutUrl ? `Credit Card Payment Link: ${bachsCheckoutUrl}\nBachs Reference: ${bachsReference || 'N/A'}\nBachs Checkout ID: ${bachsCheckoutId || 'N/A'}` : ''}
     `;
 
     let paymentInstructions = '';
     if (paymentMethod === 'crypto') {
       paymentInstructions = `You have selected Cryptocurrency. We will contact you manually with the transfer details shortly. (Crypto is our most preferred option with no delay in confirmation and processing).`;
     } else if (paymentMethod === 'credit_card') {
-      paymentInstructions = `You have selected Credit Card via Bachs Secure Payment Gateway.
-
-CREDIT CARD PAYMENT INSTRUCTIONS:
-Please click the secure link below to complete your payment by Credit/Debit Card:
-👉 Pay Online Now: ${bachsCheckoutUrl}
-
-Payment Details:
-- Amount: $${total.toFixed(2)} AUD (billed as ~$${usdAmount?.toFixed(2)} USD via secure card processing)
-- Reference: ${bachsReference || orderId}
-
-Once your card payment is confirmed, your order will be packed and dispatched with next-day express delivery.`;
+      paymentInstructions = `You have selected Credit Card. Our team will send a secure credit card payment link to your email (${email}) shortly to complete your payment. Once your payment has cleared, your order will be processed and dispatched immediately.`;
+    } else if (paymentMethod === 'payid') {
+      paymentInstructions = `You have selected PayID. Our team will contact you shortly with the PayID transfer details to complete your payment.`;
     } else {
       paymentInstructions = `We will contact you manually with the payment details for your chosen payment method (${paymentMethodLabel}) shortly.`;
     }
@@ -202,10 +159,6 @@ ${orderDetails}
       success: true, 
       orderId,
       paymentMethod,
-      checkoutUrl: bachsCheckoutUrl,
-      checkoutId: bachsCheckoutId,
-      reference: bachsReference,
-      usdAmount,
       total: calculatedTotal
     });
   } catch (error: any) {

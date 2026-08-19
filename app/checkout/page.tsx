@@ -4,15 +4,11 @@ import { useState } from 'react';
 import { useCart } from '@/components/CartContext';
 import Link from 'next/link';
 import { motion } from 'motion/react';
-import { Loader2, MessageCircle, CreditCard, ShieldCheck, CheckCircle2, ExternalLink, Mail, Copy, Check } from 'lucide-react';
+import { Loader2, MessageCircle, CreditCard, CheckCircle2, Mail, Clock, ShieldCheck, Check } from 'lucide-react';
 
 interface OrderResult {
   orderId: string;
   paymentMethod: string;
-  checkoutUrl?: string | null;
-  checkoutId?: string | null;
-  reference?: string | null;
-  usdAmount?: number | null;
   total?: number;
 }
 
@@ -35,7 +31,6 @@ export default function CheckoutPage() {
   const [isWhatsAppSubmitting, setIsWhatsAppSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [orderResult, setOrderResult] = useState<OrderResult | null>(null);
-  const [copiedLink, setCopiedLink] = useState(false);
   const [error, setError] = useState('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -62,12 +57,6 @@ export default function CheckoutPage() {
   } else if (paymentMethod === 'bank_transfer' && !isBankTransferAllowed) {
     paymentMethod = isCreditCardAllowed ? 'credit_card' : (isPayidAllowed ? 'payid' : 'crypto');
   }
-
-  const handleCopyLink = (url: string) => {
-    navigator.clipboard.writeText(url);
-    setCopiedLink(true);
-    setTimeout(() => setCopiedLink(false), 3000);
-  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -131,7 +120,7 @@ export default function CheckoutPage() {
     setError('');
 
     try {
-      // 1. Send the order details to the server so it gets registered / emailed and Bachs checkout URL is generated
+      // 1. Send the order details to the server so it gets registered / emailed
       const response = await fetch('/api/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -159,7 +148,7 @@ export default function CheckoutPage() {
       
       let paymentMethodLabel = 'Bank Transfer';
       if (paymentMethod === 'credit_card') {
-        paymentMethodLabel = 'Credit Card (Bachs Gateway)';
+        paymentMethodLabel = 'Credit Card (Send Payment Link)';
       } else if (paymentMethod === 'payid') {
         paymentMethodLabel = 'PayID';
       } else if (paymentMethod === 'crypto') {
@@ -191,9 +180,8 @@ export default function CheckoutPage() {
       text += `*Shipping:* $${shippingCost.toFixed(2)} AUD\n`;
       text += `*Total Order Amount:* $${total.toFixed(2)} AUD\n\n`;
 
-      if (paymentMethod === 'credit_card' && resData.checkoutUrl) {
-        text += `*Credit Card Payment Portal Link:* ${resData.checkoutUrl}\n`;
-        text += `(Please confirm once card payment is completed)\n`;
+      if (paymentMethod === 'credit_card') {
+        text += `Please send me the credit card payment link to my email/WhatsApp to complete payment.`;
       } else {
         text += `Please send the payment instructions so I can transfer the funds immediately.`;
       }
@@ -209,7 +197,7 @@ export default function CheckoutPage() {
   };
 
   if (success) {
-    const isCreditCard = orderResult?.paymentMethod === 'credit_card' && orderResult?.checkoutUrl;
+    const isCreditCard = orderResult?.paymentMethod === 'credit_card';
 
     return (
       <div className="max-w-3xl mx-auto px-4 py-16 text-center">
@@ -234,52 +222,34 @@ export default function CheckoutPage() {
             Thank you for your order! We have logged your details in our system and sent an order confirmation to <strong className="text-brand-text">{formData.email}</strong>.
           </p>
 
-          {/* Special Bachs Credit Card Payment Block */}
+          {/* Credit Card Payment Notice */}
           {isCreditCard ? (
-            <div className="bg-amber-50/70 border-2 border-brand-accent/30 p-6 sm:p-8 mb-8 text-left space-y-4">
+            <div className="bg-amber-50/80 border-2 border-amber-300/80 p-6 sm:p-8 mb-8 text-left space-y-4">
               <div className="flex items-center gap-3">
-                <CreditCard className="w-6 h-6 text-brand-accent" />
-                <h3 className="font-bold uppercase tracking-wider text-sm text-brand-text">
-                  Complete Your Credit Card Payment
-                </h3>
-              </div>
-              <p className="text-xs text-brand-muted leading-relaxed">
-                Your order is ready. Click the button below to complete your payment via our secure Bachs Credit Card Payment Gateway:
-              </p>
-              
-              <div className="p-3 bg-white border border-brand-border flex items-center justify-between text-xs font-mono">
-                <span className="text-brand-muted">Amount Due:</span>
-                <span className="font-bold text-brand-text">
-                  ${total.toFixed(2)} AUD {orderResult?.usdAmount ? `(~$${orderResult.usdAmount.toFixed(2)} USD)` : ''}
-                </span>
+                <div className="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center shrink-0 border border-amber-200">
+                  <CreditCard className="w-5 h-5 text-amber-900" />
+                </div>
+                <div>
+                  <h3 className="font-bold uppercase tracking-wider text-sm text-amber-950">
+                    Credit Card Payment Link Pending
+                  </h3>
+                  <span className="text-[11px] text-amber-800 font-medium">A payment link will be sent to your email shortly</span>
+                </div>
               </div>
 
-              <div className="pt-2 flex flex-col sm:flex-row gap-3">
-                <a
-                  href={orderResult.checkoutUrl!}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 bg-brand-cta text-white font-bold text-xs uppercase tracking-widest py-4 px-6 flex items-center justify-center gap-2 hover:bg-opacity-90 transition shadow-sm text-center"
-                >
-                  Proceed to Credit Card Payment <ExternalLink className="w-4 h-4" />
-                </a>
-
-                <button
-                  type="button"
-                  onClick={() => handleCopyLink(orderResult.checkoutUrl!)}
-                  className="inline-flex items-center justify-center gap-2 border border-brand-border bg-white text-brand-text font-bold text-xs uppercase tracking-widest py-4 px-4 hover:bg-brand-secondary transition"
-                >
-                  {copiedLink ? (
-                    <><Check className="w-4 h-4 text-emerald-600" /> Copied!</>
-                  ) : (
-                    <><Copy className="w-4 h-4" /> Copy Link</>
-                  )}
-                </button>
-              </div>
-
-              <div className="flex items-center gap-2 text-[11px] text-brand-muted pt-2 border-t border-brand-border/60">
-                <Mail className="w-3.5 h-3.5 text-brand-text shrink-0" />
-                <span>Our credit card information and payment gateway checkout link have also been emailed to <strong>{formData.email}</strong>.</span>
+              <div className="bg-white p-4 border border-amber-200 text-xs text-brand-text space-y-2 leading-relaxed">
+                <div className="flex items-start gap-2">
+                  <Mail className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />
+                  <p>
+                    Our team will send a <strong>secure credit card payment link</strong> to <strong>{formData.email}</strong> (and your phone/WhatsApp) to complete your order of <strong>${total.toFixed(2)} AUD</strong>.
+                  </p>
+                </div>
+                <div className="flex items-start gap-2 pt-1 border-t border-gray-100">
+                  <Clock className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />
+                  <p>
+                    Please check your inbox (and spam/junk folder) within the next few minutes. Once your card payment is completed, your package will be dispatched with express tracking.
+                  </p>
+                </div>
               </div>
             </div>
           ) : (
@@ -415,7 +385,7 @@ export default function CheckoutPage() {
                   <div className="font-bold text-brand-text uppercase tracking-wider">Payment Requirements:</div>
                   <ul className="list-disc list-inside text-brand-muted space-y-1">
                     <li><strong>Cryptocurrency</strong>: Available for all orders (No limits) - <span className="text-brand-text font-bold">Preferred</span></li>
-                    <li><strong>Credit Card (Bachs Gateway)</strong>: Available for orders of <strong>$100 AUD</strong> or more (Information &amp; secure link emailed to you)</li>
+                    <li><strong>Credit Card</strong>: Available for orders of <strong>$100 AUD</strong> or more (A payment link will be sent to you to complete payment)</li>
                     <li><strong>PayID</strong>: Available for orders of <strong>$100 AUD</strong> or more</li>
                     <li><strong>Bank Transfer</strong>: Available for orders of <strong>$200 AUD</strong> or more</li>
                   </ul>
@@ -438,7 +408,7 @@ export default function CheckoutPage() {
                     )}
                   </label>
                   
-                  {/* Credit Card with Bachs API */}
+                  {/* Credit Card */}
                   <label className={`block border p-4 transition ${
                     isCreditCardAllowed 
                       ? (paymentMethod === 'credit_card' ? 'border-brand-text bg-brand-secondary cursor-pointer' : 'border-brand-border hover:border-gray-400 cursor-pointer') 
@@ -457,20 +427,31 @@ export default function CheckoutPage() {
                         />
                         <div className="flex items-center gap-2">
                           <span className={`text-sm font-bold ${!isCreditCardAllowed ? 'text-brand-muted' : ''}`}>Credit Card</span>
-                          <span className="text-[10px] bg-brand-secondary border border-brand-border px-1.5 py-0.5 font-mono text-brand-muted">Visa / MC / AMEX</span>
+                          <span className="text-[10px] bg-brand-secondary border border-brand-border px-1.5 py-0.5 font-mono text-brand-muted">Visa / Mastercard / AMEX</span>
                         </div>
                       </div>
                       {!isCreditCardAllowed ? (
                         <span className="text-[10px] text-red-600 font-bold bg-red-50 px-2 py-1 uppercase tracking-wider">Orders $100+ Only</span>
                       ) : (
-                        <span className="text-[10px] text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 font-bold uppercase tracking-wider">Bachs Gateway</span>
+                        <span className="text-[10px] text-brand-text bg-white border border-brand-border px-2 py-0.5 font-bold uppercase tracking-wider">Payment Link</span>
                       )}
                     </div>
+                    
+                    {/* Notice for Credit Card */}
                     {isCreditCardAllowed && paymentMethod === 'credit_card' && (
-                      <div className="text-xs text-brand-muted mt-3 ml-7 space-y-1.5 leading-relaxed">
-                        <p>Pay securely using Credit / Debit Card via the <strong>Bachs Payment Gateway</strong>.</p>
-                        <p className="text-brand-text font-medium">✨ Our credit card payment information and secure checkout link will be generated instantly and emailed to you upon placing the order.</p>
-                      </div>
+                      <motion.div 
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        className="mt-3 ml-7 p-3.5 bg-amber-50/80 border border-amber-200/90 rounded-none text-xs text-brand-text space-y-1.5"
+                      >
+                        <div className="flex items-center gap-2 font-bold text-amber-900 text-[11px] uppercase tracking-wider">
+                          <CreditCard className="w-3.5 h-3.5" />
+                          <span>Payment Link Notice</span>
+                        </div>
+                        <p className="text-brand-muted leading-relaxed">
+                          A secure payment link will be sent to your email (<span className="font-semibold text-brand-text">{formData.email || 'your email'}</span>) and phone/WhatsApp to complete your payment upon placing this order.
+                        </p>
+                      </motion.div>
                     )}
                   </label>
 

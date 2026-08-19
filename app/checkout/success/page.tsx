@@ -4,11 +4,11 @@ import { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { motion } from 'motion/react';
-import { CheckCircle2, ShieldCheck, Truck, ArrowRight } from 'lucide-react';
+import { CheckCircle2, ShieldCheck, Truck, ArrowRight, Mail } from 'lucide-react';
 
 function SuccessContent() {
   const searchParams = useSearchParams();
-  const orderRef = searchParams.get('order_ref') || 'PENDING';
+  const orderRef = searchParams.get('order_ref') || 'CONFIRMED';
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-20">
@@ -30,17 +30,17 @@ function SuccessContent() {
         </h1>
         
         <p className="text-brand-muted text-sm sm:text-base mb-8 max-w-lg mx-auto leading-relaxed">
-          Your order has been recorded in our system. A full receipt with order breakdown and dispatch details has been emailed to you.
+          Your order has been recorded in our system. A full receipt with order breakdown and instructions has been emailed to you.
         </p>
 
         {/* Status card */}
         <div className="bg-brand-secondary/60 border border-brand-border p-6 text-left mb-8 space-y-4">
           <div className="flex items-start gap-3">
-            <ShieldCheck className="w-5 h-5 text-brand-text shrink-0 mt-0.5" />
+            <Mail className="w-5 h-5 text-brand-text shrink-0 mt-0.5" />
             <div>
-              <h4 className="text-xs font-bold uppercase tracking-wider text-brand-text">Bachs Secure Payment Processing</h4>
+              <h4 className="text-xs font-bold uppercase tracking-wider text-brand-text">Payment &amp; Processing</h4>
               <p className="text-xs text-brand-muted mt-0.5 leading-relaxed">
-                Credit card transactions are processed securely through Bachs Payment Gateway with bank-grade 256-bit encryption.
+                If you selected Credit Card or manual payment, payment instructions or a secure payment link will be sent to your email to complete your payment.
               </p>
             </div>
           </div>
@@ -48,9 +48,9 @@ function SuccessContent() {
           <div className="flex items-start gap-3 border-t border-brand-border pt-4">
             <Truck className="w-5 h-5 text-brand-text shrink-0 mt-0.5" />
             <div>
-              <h4 className="text-xs font-bold uppercase tracking-wider text-brand-text">Fast Local Dispatch</h4>
+              <h4 className="text-xs font-bold uppercase tracking-wider text-brand-text">Fast Local Express Dispatch</h4>
               <p className="text-xs text-brand-muted mt-0.5 leading-relaxed">
-                Orders placed before 2:00 PM AEST are dispatched same/next business day with discrete Australia Post express tracking.
+                Orders placed before 2:00 PM AEST are dispatched same/next business day with discrete Australia Post express tracking once payment clears.
               </p>
             </div>
           </div>
