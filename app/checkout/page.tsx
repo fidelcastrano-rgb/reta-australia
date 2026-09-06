@@ -1,23 +1,25 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import { useCart } from '@/components/CartContext';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { motion } from 'motion/react';
-import { Loader2, MessageCircle, CreditCard, ShieldCheck, CheckCircle2, ExternalLink, Mail, Copy, Check } from 'lucide-react';
+import { Loader2, MessageCircle, CheckCircle2, CreditCard, Lock, ShieldCheck, AlertCircle } from 'lucide-react';
 
 interface OrderResult {
   orderId: string;
   paymentMethod: string;
-  checkoutUrl?: string | null;
-  checkoutId?: string | null;
-  reference?: string | null;
-  usdAmount?: number | null;
   total?: number;
+  checkoutUrl?: string;
+  cardGatewayNotice?: string;
 }
 
-export default function CheckoutPage() {
+function CheckoutContent() {
   const { items, clearOrder, removeItem } = useCart();
+  const searchParams = useSearchParams();
+  const isCanceled = searchParams.get('canceled') === 'true';
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -30,12 +32,11 @@ export default function CheckoutPage() {
     country: 'Australia',
   });
   const [shippingMethod, setShippingMethod] = useState<'normal' | 'express'>('normal');
-  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<'crypto' | 'credit_card' | 'payid' | 'bank_transfer'>('crypto');
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<'credit_card' | 'crypto' | 'payid' | 'bank_transfer'>('credit_card');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isWhatsAppSubmitting, setIsWhatsAppSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [orderResult, setOrderResult] = useState<OrderResult | null>(null);
-  const [copiedLink, setCopiedLink] = useState(false);
   const [error, setError] = useState('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -46,34 +47,24 @@ export default function CheckoutPage() {
   const shippingCost = shippingMethod === 'normal' ? 20 : 70;
   const total = subtotal + shippingCost;
 
-  const isMinOrderMet = subtotal >= 150;
+  const isMinOrderMet = subtotal >= 100;
 
-  const isCryptoAllowed = true;
-  const isCreditCardAllowed = total >= 100;
   const isPayidAllowed = total >= 100;
   const isBankTransferAllowed = total >= 200;
 
   // Derive the active payment method during render
   let paymentMethod = selectedPaymentMethod;
-  if (paymentMethod === 'credit_card' && !isCreditCardAllowed) {
-    paymentMethod = 'crypto';
-  } else if (paymentMethod === 'payid' && !isPayidAllowed) {
-    paymentMethod = 'crypto';
+  if (paymentMethod === 'payid' && !isPayidAllowed) {
+    paymentMethod = 'credit_card';
   } else if (paymentMethod === 'bank_transfer' && !isBankTransferAllowed) {
-    paymentMethod = isCreditCardAllowed ? 'credit_card' : (isPayidAllowed ? 'payid' : 'crypto');
+    paymentMethod = 'credit_card';
   }
-
-  const handleCopyLink = (url: string) => {
-    navigator.clipboard.writeText(url);
-    setCopiedLink(true);
-    setTimeout(() => setCopiedLink(false), 3000);
-  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (items.length === 0) return;
     if (!isMinOrderMet) {
-      setError(`Minimum order amount is $150 AUD. Please add $${(150 - subtotal).toFixed(2)} AUD more to your cart to proceed.`);
+      setError(`Minimum order amount is $100 AUD. Please add $${(100 - subtotal).toFixed(2)} AUD more to your cart to proceed.`);
       return;
     }
     setIsSubmitting(true);
@@ -100,6 +91,13 @@ export default function CheckoutPage() {
         throw new Error(resData.error || 'Failed to process order. Please try again.');
       }
 
+      // If Bachs hosted redirect URL was returned, forward customer to checkout
+      if (resData.checkoutUrl) {
+        clearOrder();
+        window.location.href = resData.checkoutUrl;
+        return;
+      }
+
       setOrderResult(resData);
       clearOrder();
       setSuccess(true);
@@ -124,14 +122,14 @@ export default function CheckoutPage() {
 
     if (items.length === 0) return;
     if (!isMinOrderMet) {
-      setError(`Minimum order amount is $150 AUD. Please add $${(150 - subtotal).toFixed(2)} AUD more to your cart to proceed.`);
+      setError(`Minimum order amount is $100 AUD. Please add $${(100 - subtotal).toFixed(2)} AUD more to your cart to proceed.`);
       return;
     }
     setIsWhatsAppSubmitting(true);
     setError('');
 
     try {
-      // 1. Send the order details to the server so it gets registered / emailed and Bachs checkout URL is generated
+      // 1. Send the order details to the server so it gets registered / emailed
       const response = await fetch('/api/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -159,7 +157,7 @@ export default function CheckoutPage() {
       
       let paymentMethodLabel = 'Bank Transfer';
       if (paymentMethod === 'credit_card') {
-        paymentMethodLabel = 'Credit Card (Bachs Gateway)';
+        paymentMethodLabel = 'Credit / Debit Card (Bachs Hosted Checkout)';
       } else if (paymentMethod === 'payid') {
         paymentMethodLabel = 'PayID';
       } else if (paymentMethod === 'crypto') {
@@ -191,9 +189,8 @@ export default function CheckoutPage() {
       text += `*Shipping:* $${shippingCost.toFixed(2)} AUD\n`;
       text += `*Total Order Amount:* $${total.toFixed(2)} AUD\n\n`;
 
-      if (paymentMethod === 'credit_card' && resData.checkoutUrl) {
-        text += `*Credit Card Payment Portal Link:* ${resData.checkoutUrl}\n`;
-        text += `(Please confirm once card payment is completed)\n`;
+      if (resData.checkoutUrl) {
+        text += `Card Payment Link: ${resData.checkoutUrl}\n\n`;
       } else {
         text += `Please send the payment instructions so I can transfer the funds immediately.`;
       }
@@ -209,8 +206,6 @@ export default function CheckoutPage() {
   };
 
   if (success) {
-    const isCreditCard = orderResult?.paymentMethod === 'credit_card' && orderResult?.checkoutUrl;
-
     return (
       <div className="max-w-3xl mx-auto px-4 py-16 text-center">
         <motion.div 
@@ -234,65 +229,34 @@ export default function CheckoutPage() {
             Thank you for your order! We have logged your details in our system and sent an order confirmation to <strong className="text-brand-text">{formData.email}</strong>.
           </p>
 
-          {/* Special Bachs Credit Card Payment Block */}
-          {isCreditCard ? (
-            <div className="bg-amber-50/70 border-2 border-brand-accent/30 p-6 sm:p-8 mb-8 text-left space-y-4">
-              <div className="flex items-center gap-3">
-                <CreditCard className="w-6 h-6 text-brand-accent" />
-                <h3 className="font-bold uppercase tracking-wider text-sm text-brand-text">
-                  Complete Your Credit Card Payment
-                </h3>
+          {orderResult?.cardGatewayNotice && (
+            <div className="bg-amber-50 border border-amber-300 p-6 mb-8 text-left">
+              <div className="flex items-start gap-3">
+                <AlertCircle className="w-5 h-5 text-amber-700 shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="font-bold text-xs uppercase tracking-widest text-amber-900 mb-1">
+                    Card Payment Order Queued
+                  </h3>
+                  <p className="text-xs text-amber-800 leading-relaxed mb-2">
+                    Your order <strong>#{orderResult.orderId}</strong> has been received. Our card processing gateway is undergoing scheduled credential synchronization. A direct payment link or invoice has been queued and will be sent to <strong className="text-amber-950">{formData.email}</strong> and SMS shortly.
+                  </p>
+                  <p className="text-xs text-amber-800 leading-relaxed">
+                    If you need immediate express dispatch, you can also message our dispatch team on WhatsApp for instant confirmation.
+                  </p>
+                </div>
               </div>
-              <p className="text-xs text-brand-muted leading-relaxed">
-                Your order is ready. Click the button below to complete your payment via our secure Bachs Credit Card Payment Gateway:
-              </p>
-              
-              <div className="p-3 bg-white border border-brand-border flex items-center justify-between text-xs font-mono">
-                <span className="text-brand-muted">Amount Due:</span>
-                <span className="font-bold text-brand-text">
-                  ${total.toFixed(2)} AUD {orderResult?.usdAmount ? `(~$${orderResult.usdAmount.toFixed(2)} USD)` : ''}
-                </span>
-              </div>
-
-              <div className="pt-2 flex flex-col sm:flex-row gap-3">
-                <a
-                  href={orderResult.checkoutUrl!}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 bg-brand-cta text-white font-bold text-xs uppercase tracking-widest py-4 px-6 flex items-center justify-center gap-2 hover:bg-opacity-90 transition shadow-sm text-center"
-                >
-                  Proceed to Credit Card Payment <ExternalLink className="w-4 h-4" />
-                </a>
-
-                <button
-                  type="button"
-                  onClick={() => handleCopyLink(orderResult.checkoutUrl!)}
-                  className="inline-flex items-center justify-center gap-2 border border-brand-border bg-white text-brand-text font-bold text-xs uppercase tracking-widest py-4 px-4 hover:bg-brand-secondary transition"
-                >
-                  {copiedLink ? (
-                    <><Check className="w-4 h-4 text-emerald-600" /> Copied!</>
-                  ) : (
-                    <><Copy className="w-4 h-4" /> Copy Link</>
-                  )}
-                </button>
-              </div>
-
-              <div className="flex items-center gap-2 text-[11px] text-brand-muted pt-2 border-t border-brand-border/60">
-                <Mail className="w-3.5 h-3.5 text-brand-text shrink-0" />
-                <span>Our credit card information and payment gateway checkout link have also been emailed to <strong>{formData.email}</strong>.</span>
-              </div>
-            </div>
-          ) : (
-            <div className="bg-brand-secondary p-6 mb-8 text-sm text-left border border-brand-border">
-              <h3 className="font-bold mb-3 uppercase tracking-widest text-xs text-brand-text">Next Steps &amp; Payment</h3>
-              <p className="text-xs text-brand-muted leading-relaxed mb-3">
-                Our team will review your order details and contact you via email / WhatsApp with manual transfer instructions for your selected payment method.
-              </p>
-              <p className="text-xs text-brand-muted leading-relaxed">
-                Please note that your order will be processed and shipped once your payment has cleared on our end. Tracking will be provided via email.
-              </p>
             </div>
           )}
+
+          <div className="bg-brand-secondary p-6 mb-8 text-sm text-left border border-brand-border">
+            <h3 className="font-bold mb-3 uppercase tracking-widest text-xs text-brand-text">Next Steps &amp; Payment</h3>
+            <p className="text-xs text-brand-muted leading-relaxed mb-3">
+              Our team will review your order details. If manual payment was chosen, instructions will be delivered via email or WhatsApp.
+            </p>
+            <p className="text-xs text-brand-muted leading-relaxed">
+              Please note that your order will be processed and shipped once payment verification is completed. Discrete tracking details will be emailed directly to you.
+            </p>
+          </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/" className="inline-block border border-brand-text text-brand-text font-bold text-xs uppercase tracking-widest py-4 px-8 hover:bg-brand-secondary transition">
@@ -309,7 +273,19 @@ export default function CheckoutPage() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <h1 className="text-4xl font-heading font-light tracking-tighter mb-12">Checkout</h1>
+      <h1 className="text-4xl font-heading font-light tracking-tighter mb-8">Checkout</h1>
+
+      {isCanceled && (
+        <div className="mb-8 p-4 bg-amber-50 border border-amber-300 text-amber-900 text-sm flex items-start gap-3">
+          <AlertCircle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
+          <div>
+            <strong className="block font-bold">Payment Session Canceled</strong>
+            <p className="text-xs text-amber-800 mt-0.5">
+              Your previous card checkout session was canceled or timed out. You can submit again below to open a fresh secure session, or select an alternative payment method.
+            </p>
+          </div>
+        </div>
+      )}
 
       {items.length === 0 ? (
         <div className="text-center py-12 bg-white border border-brand-border">
@@ -412,16 +388,50 @@ export default function CheckoutPage() {
                 <h2 className="text-sm font-bold uppercase tracking-widest mb-6 border-b border-brand-border pb-4">Payment Method</h2>
                 
                 <div className="bg-brand-secondary p-4 text-xs space-y-2 mb-6 border border-brand-border">
-                  <div className="font-bold text-brand-text uppercase tracking-wider">Payment Requirements:</div>
+                  <div className="font-bold text-brand-text uppercase tracking-wider">Payment Options &amp; Minimums:</div>
                   <ul className="list-disc list-inside text-brand-muted space-y-1">
-                    <li><strong>Cryptocurrency</strong>: Available for all orders (No limits) - <span className="text-brand-text font-bold">Preferred</span></li>
-                    <li><strong>Credit Card (Bachs Gateway)</strong>: Available for orders of <strong>$100 AUD</strong> or more (Instant payment portal &amp; emailed link)</li>
-                    <li><strong>PayID</strong>: Available for orders of <strong>$100 AUD</strong> or more</li>
-                    <li><strong>Bank Transfer</strong>: Available for orders of <strong>$200 AUD</strong> or more</li>
+                    <li><strong>Credit / Debit Card</strong>: Instant hosted redirect payment &mdash; <span className="text-brand-text font-bold">Recommended</span></li>
+                    <li><strong>Cryptocurrency</strong>: USDT / BTC / LTC (Fast manual confirmation)</li>
+                    <li><strong>PayID</strong>: Orders of <strong>$100 AUD</strong> or more</li>
+                    <li><strong>Bank Transfer</strong>: Orders of <strong>$200 AUD</strong> or more</li>
                   </ul>
                 </div>
 
                 <div className="space-y-3">
+                  {/* Credit Card via Bachs */}
+                  <label className={`block border p-4 cursor-pointer transition ${paymentMethod === 'credit_card' ? 'border-brand-text bg-brand-secondary' : 'border-brand-border hover:border-gray-400'}`}>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <input 
+                          type="radio" 
+                          name="payment" 
+                          value="credit_card" 
+                          checked={paymentMethod === 'credit_card'} 
+                          onChange={() => setSelectedPaymentMethod('credit_card')} 
+                          className="accent-brand-text" 
+                        />
+                        <div className="flex items-center gap-2">
+                          <CreditCard className="w-4 h-4 text-brand-text" />
+                          <span className="text-sm font-bold">Credit / Debit Card (Visa, Mastercard, Amex)</span>
+                        </div>
+                      </div>
+                      <span className="bg-emerald-700 text-white text-[9px] uppercase font-mono font-bold tracking-wider px-2 py-0.5">
+                        INSTANT REDIRECT
+                      </span>
+                    </div>
+                    {paymentMethod === 'credit_card' && (
+                      <div className="mt-3 ml-7 space-y-2 text-xs text-brand-muted">
+                        <p>
+                          Pay securely with <strong>Visa, Mastercard, or American Express</strong> via Bachs 256-bit encrypted hosted checkout. You will be redirected to complete payment and then returned immediately.
+                        </p>
+                        <div className="flex items-center gap-2 text-[11px] font-mono text-brand-text bg-white border border-brand-border p-2">
+                          <Lock className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                          <span>256-bit SSL encrypted &bull; Powered by Bachs Payment Systems</span>
+                        </div>
+                      </div>
+                    )}
+                  </label>
+
                   {/* Crypto */}
                   <label className={`block border p-4 cursor-pointer transition ${paymentMethod === 'crypto' ? 'border-brand-text bg-brand-secondary' : 'border-brand-border hover:border-gray-400'}`}>
                     <div className="flex items-center justify-between">
@@ -433,44 +443,8 @@ export default function CheckoutPage() {
                     </div>
                     {paymentMethod === 'crypto' && (
                       <p className="text-xs text-brand-muted mt-3 ml-7">
-                        Pay using cryptocurrency. This is our <strong>most preferred and fastest option</strong> with <strong>zero delay in confirmation and processing</strong>. We will contact you manually with the wallet details shortly.
+                        Pay using cryptocurrency. This is our <strong>most preferred option</strong> with zero delay in confirmation and processing. We will contact you manually with the wallet details shortly.
                       </p>
-                    )}
-                  </label>
-                  
-                  {/* Credit Card with Bachs API */}
-                  <label className={`block border p-4 transition ${
-                    isCreditCardAllowed 
-                      ? (paymentMethod === 'credit_card' ? 'border-brand-text bg-brand-secondary cursor-pointer' : 'border-brand-border hover:border-gray-400 cursor-pointer') 
-                      : 'border-brand-border bg-gray-50 opacity-60 cursor-not-allowed'
-                  }`}>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <input 
-                          type="radio" 
-                          name="payment" 
-                          value="credit_card" 
-                          checked={paymentMethod === 'credit_card'} 
-                          disabled={!isCreditCardAllowed}
-                          onChange={() => isCreditCardAllowed && setSelectedPaymentMethod('credit_card')} 
-                          className="accent-brand-text disabled:opacity-50" 
-                        />
-                        <div className="flex items-center gap-2">
-                          <span className={`text-sm font-bold ${!isCreditCardAllowed ? 'text-brand-muted' : ''}`}>Credit Card</span>
-                          <span className="text-[10px] bg-brand-secondary border border-brand-border px-1.5 py-0.5 font-mono text-brand-muted">Visa / Mastercard / AMEX</span>
-                        </div>
-                      </div>
-                      {!isCreditCardAllowed ? (
-                        <span className="text-[10px] text-red-600 font-bold bg-red-50 px-2 py-1 uppercase tracking-wider">Orders $100+ Only</span>
-                      ) : (
-                        <span className="text-[10px] text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 font-bold uppercase tracking-wider">Bachs Gateway</span>
-                      )}
-                    </div>
-                    {isCreditCardAllowed && paymentMethod === 'credit_card' && (
-                      <div className="text-xs text-brand-muted mt-3 ml-7 space-y-1.5 leading-relaxed">
-                        <p>Pay securely using Credit / Debit Card via the <strong>Bachs Payment Gateway</strong>.</p>
-                        <p className="text-brand-text font-medium">✨ A secure Bachs card payment link will be generated instantly for immediate payment and emailed to you upon placing the order.</p>
-                      </div>
                     )}
                   </label>
 
@@ -539,7 +513,7 @@ export default function CheckoutPage() {
               )}
 
               <div className="bg-brand-secondary p-6 text-xs text-brand-muted border-l-2 border-brand-text">
-                <p>Please note that your order will be processed and shipped once your payment has cleared on our end. Once cleared, we will process and ship your order, and your tracking number will be emailed to you. We appreciate your patience.</p>
+                <p>Please note that your order will be processed and shipped once your payment has cleared on our end. Once cleared, your tracking number will be emailed to you.</p>
               </div>
 
             </form>
@@ -591,8 +565,8 @@ export default function CheckoutPage() {
 
               {!isMinOrderMet && (
                 <div className="mb-6 p-4 bg-amber-50 border border-amber-300 text-amber-800 text-xs font-mono">
-                  <strong className="block uppercase tracking-wider mb-1">⚠️ Minimum Order Requirement: $150 AUD</strong>
-                  Current subtotal is <strong>${subtotal.toFixed(2)} AUD</strong>. Please add <strong>${(150 - subtotal).toFixed(2)} AUD</strong> more to your order to complete checkout.
+                  <strong className="block uppercase tracking-wider mb-1">⚠️ Minimum Order Requirement: $100 AUD</strong>
+                  Current subtotal is <strong>${subtotal.toFixed(2)} AUD</strong>. Please add <strong>${(100 - subtotal).toFixed(2)} AUD</strong> more to your order to complete checkout.
                 </div>
               )}
 
@@ -604,9 +578,13 @@ export default function CheckoutPage() {
                   className="w-full bg-brand-cta text-white font-bold text-xs uppercase tracking-widest py-4 flex justify-center items-center gap-2 hover:bg-opacity-90 transition disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
-                    <><Loader2 className="w-4 h-4 animate-spin" /> Processing Order...</>
+                    <><Loader2 className="w-4 h-4 animate-spin" /> Preparing Checkout...</>
                   ) : !isMinOrderMet ? (
-                    'Min Order $150 AUD Required'
+                    'Min Order $100 AUD Required'
+                  ) : paymentMethod === 'credit_card' ? (
+                    <span className="flex items-center gap-2">
+                      <CreditCard className="w-4 h-4" /> Proceed to Card Payment
+                    </span>
                   ) : (
                     'Place Order on Website'
                   )}
@@ -632,5 +610,17 @@ export default function CheckoutPage() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function CheckoutPage() {
+  return (
+    <Suspense fallback={
+      <div className="max-w-7xl mx-auto px-4 py-24 text-center">
+        <p className="text-sm font-mono text-brand-muted">Loading checkout...</p>
+      </div>
+    }>
+      <CheckoutContent />
+    </Suspense>
   );
 }

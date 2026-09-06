@@ -4,11 +4,12 @@ import { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { motion } from 'motion/react';
-import { CheckCircle2, ShieldCheck, Truck, ArrowRight } from 'lucide-react';
+import { CheckCircle2, Truck, ArrowRight, CreditCard, ShieldCheck } from 'lucide-react';
 
 function SuccessContent() {
   const searchParams = useSearchParams();
-  const orderRef = searchParams.get('order_ref') || 'CONFIRMED';
+  const orderRef = searchParams.get('order_ref') || searchParams.get('checkout_id') || 'CONFIRMED';
+  const isBachsPayment = searchParams.get('payment') === 'bachs' || Boolean(searchParams.get('checkout_id'));
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-20">
@@ -21,31 +22,30 @@ function SuccessContent() {
           <CheckCircle2 className="w-8 h-8 text-emerald-600" />
         </div>
 
-        <span className="text-[10px] uppercase font-mono tracking-widest text-brand-muted bg-brand-secondary px-3 py-1 border border-brand-border inline-block mb-3">
-          Order Reference: #{orderRef}
-        </span>
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-4">
+          <span className="text-[10px] uppercase font-mono tracking-widest text-brand-muted bg-brand-secondary px-3 py-1 border border-brand-border inline-block">
+            Order Reference: #{orderRef}
+          </span>
+          {isBachsPayment && (
+            <span className="text-[10px] uppercase font-mono tracking-widest text-emerald-800 bg-emerald-50 px-3 py-1 border border-emerald-200 inline-flex items-center gap-1.5 font-bold">
+              <CreditCard className="w-3 h-3 text-emerald-700" /> Card Payment Authorized
+            </span>
+          )}
+        </div>
 
         <h1 className="text-3xl sm:text-4xl font-heading font-light tracking-tight mb-4 text-brand-text">
-          Thank You For Your Order
+          {isBachsPayment ? 'Payment Successful' : 'Thank You For Your Order'}
         </h1>
         
         <p className="text-brand-muted text-sm sm:text-base mb-8 max-w-lg mx-auto leading-relaxed">
-          Your order has been recorded in our system. A full receipt with order breakdown and dispatch details has been emailed to you.
+          {isBachsPayment
+            ? 'Your card payment has been securely authorized via Bachs. Your order has been registered in our system and is queued for immediate dispatch.'
+            : 'Your order has been recorded in our system. A full receipt with order breakdown and dispatch details has been emailed to you.'}
         </p>
 
         {/* Status card */}
         <div className="bg-brand-secondary/60 border border-brand-border p-6 text-left mb-8 space-y-4">
-          <div className="flex items-start gap-3">
-            <ShieldCheck className="w-5 h-5 text-brand-text shrink-0 mt-0.5" />
-            <div>
-              <h4 className="text-xs font-bold uppercase tracking-wider text-brand-text">Bachs Secure Payment Processing</h4>
-              <p className="text-xs text-brand-muted mt-0.5 leading-relaxed">
-                Credit card transactions are processed securely through Bachs Payment Gateway with bank-grade 256-bit encryption.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-start gap-3 border-t border-brand-border pt-4">
+          <div className="flex items-start gap-3 border-brand-border">
             <Truck className="w-5 h-5 text-brand-text shrink-0 mt-0.5" />
             <div>
               <h4 className="text-xs font-bold uppercase tracking-wider text-brand-text">Fast Local Express Dispatch</h4>
@@ -54,6 +54,17 @@ function SuccessContent() {
               </p>
             </div>
           </div>
+          {isBachsPayment && (
+            <div className="flex items-start gap-3 border-t border-brand-border/60 pt-3">
+              <ShieldCheck className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+              <div>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-brand-text">Verified Secure Checkout</h4>
+                <p className="text-xs text-brand-muted mt-0.5 leading-relaxed">
+                  Processed via Bachs Payment Systems with end-to-end encryption.
+                </p>
+              </div>
+            </div>
+          )}
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -8,7 +8,7 @@ import { usePathname } from 'next/navigation';
 export default function FloatingElements() {
   const { items, removeItem, clearOrder } = useCart();
   const [mounted, setMounted] = useState(false);
-  const [paymentMethod, setPaymentMethod] = useState<'crypto' | 'credit_card' | 'payid' | 'bank_transfer'>('crypto');
+  const [paymentMethod, setPaymentMethod] = useState<'card' | 'crypto' | 'payid' | 'bank_transfer'>('card');
   const [minimized, setMinimized] = useState(false);
   const pathname = usePathname();
   
@@ -31,19 +31,16 @@ export default function FloatingElements() {
   const total = items.reduce((acc, item) => acc + (item.price * item.qty), 0);
   const whatsappNumber = "61485958620"; // Admin whatsapp number
 
-  const MIN_ORDER_AMOUNT = 150;
+  const MIN_ORDER_AMOUNT = 100;
   const isMinOrderMet = total >= MIN_ORDER_AMOUNT;
 
-  const isCreditCardAllowed = total >= 100;
   const isPayidAllowed = total >= 100;
   const isBankTransferAllowed = total >= 200;
 
   const activePaymentMethod = 
     paymentMethod === 'bank_transfer' && !isBankTransferAllowed
-      ? (isCreditCardAllowed ? 'credit_card' : (isPayidAllowed ? 'payid' : 'crypto'))
-      : (paymentMethod === 'credit_card' && !isCreditCardAllowed
-        ? (isPayidAllowed ? 'payid' : 'crypto')
-        : (paymentMethod === 'payid' && !isPayidAllowed ? 'crypto' : paymentMethod));
+      ? (isPayidAllowed ? 'payid' : 'card')
+      : (paymentMethod === 'payid' && !isPayidAllowed ? 'card' : paymentMethod);
   
   const generateOrderText = () => {
     let text = "Hi, I would like to order:\n\n";
@@ -52,8 +49,8 @@ export default function FloatingElements() {
     });
 
     const paymentLabels = {
+      card: "Credit / Debit Card (Bachs Hosted Checkout)",
       crypto: "Cryptocurrency (USDT/BTC/LTC - Preferred)",
-      credit_card: "Credit Card (Information will be emailed)",
       payid: "PayID",
       bank_transfer: "Bank Transfer"
     };
@@ -66,7 +63,7 @@ export default function FloatingElements() {
 
   const sendWA = () => {
     if (!isMinOrderMet) {
-      alert(`Minimum order amount is $150 AUD. Please add $${(MIN_ORDER_AMOUNT - total).toFixed(2)} AUD more to proceed.`);
+      alert(`Minimum order amount is $100 AUD. Please add $${(MIN_ORDER_AMOUNT - total).toFixed(2)} AUD more to proceed.`);
       return;
     }
     window.open(`https://wa.me/${whatsappNumber}?text=${generateOrderText()}`, '_blank');
@@ -74,7 +71,7 @@ export default function FloatingElements() {
   
   const sendEmail = () => {
     if (!isMinOrderMet) {
-      alert(`Minimum order amount is $150 AUD. Please add $${(MIN_ORDER_AMOUNT - total).toFixed(2)} AUD more to proceed.`);
+      alert(`Minimum order amount is $100 AUD. Please add $${(MIN_ORDER_AMOUNT - total).toFixed(2)} AUD more to proceed.`);
       return;
     }
     window.location.href = `mailto:order@reta-australia.com.au?subject=New Order&body=${generateOrderText()}`;
@@ -157,7 +154,7 @@ export default function FloatingElements() {
             <div className="mb-3 p-2.5 bg-amber-500/20 border border-amber-500/40 text-amber-200 text-[10px] font-mono flex items-start gap-2">
               <AlertTriangle className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
               <div>
-                <span className="font-bold uppercase tracking-wider block">Minimum Order: $150 AUD</span>
+                <span className="font-bold uppercase tracking-wider block">Minimum Order: $100 AUD</span>
                 Please add <strong className="text-white">${(MIN_ORDER_AMOUNT - total).toFixed(2)} AUD</strong> more to proceed to checkout.
               </div>
             </div>
@@ -172,8 +169,20 @@ export default function FloatingElements() {
             <div className="grid grid-cols-4 gap-1">
               <button 
                 type="button"
+                onClick={() => setPaymentMethod('card')}
+                className={`py-2 px-1 text-[9px] uppercase tracking-wider font-bold border transition-all truncate ${
+                  activePaymentMethod === 'card' 
+                    ? 'bg-brand-success text-brand-text border-brand-success' 
+                    : 'bg-transparent border-brand-secondary/20 text-brand-muted hover:text-brand-bg hover:border-brand-bg'
+                }`}
+                title="Credit / Debit Card (Bachs)"
+              >
+                Card
+              </button>
+              <button 
+                type="button"
                 onClick={() => setPaymentMethod('crypto')}
-                className={`py-1.5 px-0.5 text-[8px] uppercase tracking-wider font-bold border transition-all truncate ${
+                className={`py-2 px-1 text-[9px] uppercase tracking-wider font-bold border transition-all truncate ${
                   activePaymentMethod === 'crypto' 
                     ? 'bg-brand-success text-brand-text border-brand-success' 
                     : 'bg-transparent border-brand-secondary/20 text-brand-muted hover:text-brand-bg hover:border-brand-bg'
@@ -183,22 +192,9 @@ export default function FloatingElements() {
               </button>
               <button 
                 type="button"
-                onClick={() => isCreditCardAllowed && setPaymentMethod('credit_card')}
-                disabled={!isCreditCardAllowed}
-                className={`py-1.5 px-0.5 text-[8px] uppercase tracking-wider font-bold border transition-all truncate ${
-                  activePaymentMethod === 'credit_card' 
-                    ? 'bg-brand-success text-brand-text border-brand-success' 
-                    : 'bg-transparent border-brand-secondary/10 text-brand-muted/40 disabled:opacity-30 disabled:cursor-not-allowed'
-                } ${isCreditCardAllowed ? 'hover:text-brand-bg hover:border-brand-bg' : ''}`}
-                title={!isCreditCardAllowed ? "Min $100 for Credit Card" : "Credit Card"}
-              >
-                Card{!isCreditCardAllowed && "*"}
-              </button>
-              <button 
-                type="button"
                 onClick={() => isPayidAllowed && setPaymentMethod('payid')}
                 disabled={!isPayidAllowed}
-                className={`py-1.5 px-0.5 text-[8px] uppercase tracking-wider font-bold border transition-all truncate ${
+                className={`py-2 px-1 text-[9px] uppercase tracking-wider font-bold border transition-all truncate ${
                   activePaymentMethod === 'payid' 
                     ? 'bg-brand-success text-brand-text border-brand-success' 
                     : 'bg-transparent border-brand-secondary/10 text-brand-muted/40 disabled:opacity-30 disabled:cursor-not-allowed'
@@ -211,7 +207,7 @@ export default function FloatingElements() {
                 type="button"
                 onClick={() => isBankTransferAllowed && setPaymentMethod('bank_transfer')}
                 disabled={!isBankTransferAllowed}
-                className={`py-1.5 px-0.5 text-[8px] uppercase tracking-wider font-bold border transition-all truncate ${
+                className={`py-2 px-1 text-[9px] uppercase tracking-wider font-bold border transition-all truncate ${
                   activePaymentMethod === 'bank_transfer' 
                     ? 'bg-brand-success text-brand-text border-brand-success' 
                     : 'bg-transparent border-brand-secondary/10 text-brand-muted/40 disabled:opacity-30 disabled:cursor-not-allowed'
@@ -221,10 +217,10 @@ export default function FloatingElements() {
                 Bank{!isBankTransferAllowed && "*"}
               </button>
             </div>
-            {!isCreditCardAllowed && (
-              <p className="text-[8px] text-brand-muted/80 mt-1.5 font-light italic">*Credit Card & PayID require $100+ min, Bank Transfer $200+ min.</p>
+            {!isPayidAllowed && (
+              <p className="text-[8px] text-brand-muted/80 mt-1.5 font-light italic">*PayID requires $100+ min, Bank Transfer $200+ min.</p>
             )}
-            {isCreditCardAllowed && !isBankTransferAllowed && (
+            {isPayidAllowed && !isBankTransferAllowed && (
               <p className="text-[8px] text-brand-muted/80 mt-1.5 font-light italic">*Bank Transfer requires $200+ min.</p>
             )}
           </div>
@@ -244,10 +240,10 @@ export default function FloatingElements() {
               </Link>
             ) : (
               <button 
-                onClick={() => alert(`Minimum order amount is $150 AUD. Please add $${(MIN_ORDER_AMOUNT - total).toFixed(2)} AUD more to your order.`)}
+                onClick={() => alert(`Minimum order amount is $100 AUD. Please add $${(MIN_ORDER_AMOUNT - total).toFixed(2)} AUD more to your order.`)}
                 className="flex items-center justify-center gap-2 bg-gray-600 text-gray-300 py-3 text-xs uppercase tracking-widest font-bold cursor-not-allowed w-full opacity-80"
               >
-                Min Order $150 AUD Required
+                Min Order $100 AUD Required
               </button>
             )}
             

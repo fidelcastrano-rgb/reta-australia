@@ -71,7 +71,7 @@ export default function ProductClientDetails({ product }: { product: any }) {
         </div>
         <div className="text-right">
           <span className="text-[10px] font-mono uppercase bg-brand-secondary border border-brand-border px-3 py-1.5 text-brand-text font-bold">
-            Min Store Order: $150 AUD
+            Min Store Order: $100 AUD
           </span>
         </div>
       </div>

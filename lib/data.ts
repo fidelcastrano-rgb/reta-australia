@@ -5,30 +5,30 @@ export const products = [
     "slug": "buy-alluvi-retatrutide-40mg-x2-bundle",
     "tag": "ALLUVI",
     "description": "Alluvi Retatrutide 40mg ×2 Bundle includes two pre-calibrated research devices designed for precision, consistency, and extended laboratory use. Ready-to-use with no preparation required, making it ideal for high-volume and multi-phase research workflows.",
-    "priceFrom": 204.75,
+    "priceFrom": 384.93,
     "variants": [
       {
         "id": "1item",
         "name": "1 Device",
-        "price": 204.75,
+        "price": 384.93,
         "savingsLabel": ""
       },
       {
         "id": "2items",
         "name": "2 Devices",
-        "price": 389.03,
+        "price": 731.37,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "5items",
         "name": "5 Devices",
-        "price": 921.38,
+        "price": 1732.19,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "10items",
         "name": "10 Devices",
-        "price": 1740.38,
+        "price": 3271.91,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -42,30 +42,30 @@ export const products = [
     "slug": "buy-alluvi-retatrutide-20mg-pen",
     "tag": "ALLUVI",
     "description": "Alluvi Retatrutide 20mg is a pre-calibrated research device designed for precision and convenience in laboratory settings. Ready-to-use with no preparation required, ensuring consistent and efficient experimental use. Approved for human use.",
-    "priceFrom": 65,
+    "priceFrom": 178.6,
     "variants": [
       {
         "id": "1item",
         "name": "1 Device",
-        "price": 65,
+        "price": 178.6,
         "savingsLabel": ""
       },
       {
         "id": "2items",
         "name": "2 Devices",
-        "price": 123.5,
+        "price": 339.34,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "5items",
         "name": "5 Devices",
-        "price": 292.5,
+        "price": 803.7,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "10items",
         "name": "10 Devices",
-        "price": 552.5,
+        "price": 1518.1,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -79,30 +79,30 @@ export const products = [
     "slug": "alluvi-retatrutide-bpc-157-tb-500-40mg",
     "tag": "ALLUVI",
     "description": "Alluvi Retatrutide BPC-157 & TB-500 40mg is a ready-to-use research pen combining three advanced peptides in a pre-measured laboratory formulation. Designed strictly for research purposes, this prefilled device offers precision handling, consistency, and convenience for controlled experimental settings across the UK and Europe.",
-    "priceFrom": 90.99,
+    "priceFrom": 171.06,
     "variants": [
       {
         "id": "1item",
         "name": "1 Device",
-        "price": 90.99,
+        "price": 171.06,
         "savingsLabel": ""
       },
       {
         "id": "2items",
         "name": "2 Devices",
-        "price": 172.88,
+        "price": 325.01,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "5items",
         "name": "5 Devices",
-        "price": 409.46,
+        "price": 769.77,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "10items",
         "name": "10 Devices",
-        "price": 773.42,
+        "price": 1454.01,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -116,30 +116,30 @@ export const products = [
     "slug": "alluvi-glow-ghk-cu-bpc-157-tb-500-70mg",
     "tag": "ALLUVI",
     "description": "Alluvi Glow GHK-Cu – BPC-157 & TB-500 70mg is a pre-calibrated research peptide blend developed for laboratory and in-vitro research purposes only. This advanced 70mg research formula combines three widely studied peptides in a ready-made research device, manufactured to high analytical standards and supplied exclusively for R&D use within the UK and Europe.",
-    "priceFrom": 58.49,
+    "priceFrom": 109.96,
     "variants": [
       {
         "id": "1item",
         "name": "1 Device",
-        "price": 58.49,
+        "price": 109.96,
         "savingsLabel": ""
       },
       {
         "id": "2items",
         "name": "2 Devices",
-        "price": 111.13,
+        "price": 208.92,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "5items",
         "name": "5 Devices",
-        "price": 263.21,
+        "price": 494.82,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "10items",
         "name": "10 Devices",
-        "price": 497.17,
+        "price": 934.66,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -153,30 +153,30 @@ export const products = [
     "slug": "alluvi-nad-1000mg",
     "tag": "ALLUVI",
     "description": "Alluvi NAD+ 1000mg is a high-purity research compound supplied in a pre-calibrated research format for laboratory and in-vitro use only. Designed for controlled scientific investigation, this premium 1000mg NAD+ formulation is available across the UK and Europe exclusively for R&D purposes.",
-    "priceFrom": 110.49,
+    "priceFrom": 207.72,
     "variants": [
       {
         "id": "1item",
         "name": "1 Device",
-        "price": 110.49,
+        "price": 207.72,
         "savingsLabel": ""
       },
       {
         "id": "2items",
         "name": "2 Devices",
-        "price": 209.93,
+        "price": 394.67,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "5items",
         "name": "5 Devices",
-        "price": 497.2,
+        "price": 934.74,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "10items",
         "name": "10 Devices",
-        "price": 939.16,
+        "price": 1765.62,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -190,30 +190,30 @@ export const products = [
     "slug": "alluvi-tirzepatide-40mg",
     "tag": "ALLUVI",
     "description": "Alluvi Tirzepatide 40mg R&D Only is a high-purity, pre-calibrated research pen designed exclusively for laboratory and analytical research applications. Manufactured to strict quality standards and distributed across the UK and Europe, this ready-to-use research device ensures precision handling, consistency, and controlled laboratory study use. For research purposes only.",
-    "priceFrom": 77.99,
+    "priceFrom": 146.62,
     "variants": [
       {
         "id": "1item",
         "name": "1 Device",
-        "price": 77.99,
+        "price": 146.62,
         "savingsLabel": ""
       },
       {
         "id": "2items",
         "name": "2 Devices",
-        "price": 148.18,
+        "price": 278.58,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "5items",
         "name": "5 Devices",
-        "price": 350.96,
+        "price": 659.79,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "10items",
         "name": "10 Devices",
-        "price": 662.92,
+        "price": 1246.27,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -227,30 +227,30 @@ export const products = [
     "slug": "alluvi-retatrutide-40mg",
     "tag": "ALLUVI",
     "description": "Alluvi Retatrutide 40mg R&D Only is a high-purity, pre-calibrated research pen designed exclusively for laboratory and analytical research applications. Supplied across the UK and Europe, this ready-to-use research device ensures precision handling, structured laboratory testing, and reliable research consistency. For laboratory research use only.",
-    "priceFrom": 123.49,
+    "priceFrom": 232.16,
     "variants": [
       {
         "id": "1item",
         "name": "1 Device",
-        "price": 123.49,
+        "price": 232.16,
         "savingsLabel": ""
       },
       {
         "id": "2items",
         "name": "2 Devices",
-        "price": 234.63,
+        "price": 441.1,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "5items",
         "name": "5 Devices",
-        "price": 555.7,
+        "price": 1044.72,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "10items",
         "name": "10 Devices",
-        "price": 1049.67,
+        "price": 1973.36,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -264,30 +264,30 @@ export const products = [
     "slug": "alluvi-tirzepatide-20mg",
     "tag": "ALLUVI",
     "description": "Alluvi Tirzepatide 20mg R&D Only is a high-purity, pre-calibrated research pen designed exclusively for laboratory and analytical research use. Supplied across the UK and Europe, this ready-made research device ensures precision handling, structured testing, and consistent batch performance. For research purposes only.",
-    "priceFrom": 51.99,
+    "priceFrom": 97.74,
     "variants": [
       {
         "id": "1item",
         "name": "1 Device",
-        "price": 51.99,
+        "price": 97.74,
         "savingsLabel": ""
       },
       {
         "id": "2items",
         "name": "2 Devices",
-        "price": 98.78,
+        "price": 185.71,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "5items",
         "name": "5 Devices",
-        "price": 233.96,
+        "price": 439.83,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "10items",
         "name": "10 Devices",
-        "price": 441.92,
+        "price": 830.79,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -301,30 +301,30 @@ export const products = [
     "slug": "alluvi-retatrutide-20mg-x2-bundle",
     "tag": "ALLUVI",
     "description": "Alluvi Retatrutide 20mg ×2 Bundle provides two pre-calibrated 20mg research pens designed exclusively for laboratory and analytical research use. Ideal for structured testing and extended research protocols, this bundle ensures batch consistency, secure packaging, and UK & EU supply. For research purposes only.",
-    "priceFrom": 129.99,
+    "priceFrom": 244.38,
     "variants": [
       {
         "id": "1item",
         "name": "1 Device",
-        "price": 129.99,
+        "price": 244.38,
         "savingsLabel": ""
       },
       {
         "id": "2items",
         "name": "2 Devices",
-        "price": 246.98,
+        "price": 464.32,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "5items",
         "name": "5 Devices",
-        "price": 584.96,
+        "price": 1099.71,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "10items",
         "name": "10 Devices",
-        "price": 1104.92,
+        "price": 2077.23,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -338,30 +338,30 @@ export const products = [
     "slug": "tirzepatide-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure Tirzepatide. Tirzepatide (brand names Mounjaro, Zepbound) is a double glucagon hormone receptor agonist (GLP-1 and GIP receptors), making it more effective for body fat mass reduction than its predecessor Semaglutide by targeting further receptors.",
-    "priceFrom": 97.5,
+    "priceFrom": 183.3,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 97.5,
+        "price": 183.3,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 185.25,
+        "price": 348.27,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 438.75,
+        "price": 824.85,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 828.75,
+        "price": 1558.05,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -375,30 +375,30 @@ export const products = [
     "slug": "tb-500-5mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 5mg of highly pure TB-500. TB-500 (TB-4, short for Thymosin β4) is a naturally-occurring peptide that plays a vital role in the repair and regeneration of injured cells and tissues by promoting cell migration, forming new blood vessels and regenerating the tissue as well as decreasing the number of myofibroblasts in wounds, ...",
-    "priceFrom": 63.375,
+    "priceFrom": 119.14,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 63.375,
+        "price": 119.14,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 120.41,
+        "price": 226.37,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 285.19,
+        "price": 536.13,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 538.69,
+        "price": 1012.69,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -412,30 +412,30 @@ export const products = [
     "slug": "semaglutide-5mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 5mg of highly pure Semaglutide. Semaglutide (brand names Ozempic, Wegovy) is used for weight loss, to lower blood sugar levels, and to reduce the risk of major cardiovascular events such as heart attack or stroke in certain patients. It is a GLP-1 agonist to be administered subcutaneously once a week that works ...",
-    "priceFrom": 82.875,
+    "priceFrom": 155.8,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 82.875,
+        "price": 155.8,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 157.46,
+        "price": 296.02,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 372.94,
+        "price": 701.1,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 704.44,
+        "price": 1324.3,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -449,30 +449,30 @@ export const products = [
     "slug": "retatrutide-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure Retatrutide. Retatrutide is classified as a triple glucagon hormone receptor agonist (GLP-1, GIP, and GCGR receptors), making it more effective for body fat mass reduction than its predecessor Semaglutide by targeting further receptors.",
-    "priceFrom": 146.25,
+    "priceFrom": 274.95,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 146.25,
+        "price": 274.95,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 277.88,
+        "price": 522.41,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 658.13,
+        "price": 1237.28,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 1243.13,
+        "price": 2337.07,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -486,30 +486,30 @@ export const products = [
     "slug": "hcg-7-000iu",
     "tag": "PEPTIDE",
     "description": "Each vial contains 7,000iu of highly pure Human Chorionic Gonadotropin (hCG). Human chorionic gonadotropin (HCG) is prescribed for men to address the symptoms of hypogonadism, such as low testosterone and infertility. When testosterone is introduced exogenously such as during TRT, HCG helps to maintain fertility, testicular and penis size, cognitive function, and libido.",
-    "priceFrom": 63.375,
+    "priceFrom": 119.14,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 63.375,
+        "price": 119.14,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 120.41,
+        "price": 226.37,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 285.19,
+        "price": 536.13,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 538.69,
+        "price": 1012.69,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -523,30 +523,30 @@ export const products = [
     "slug": "bpc-157-5mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 5mg of highly pure BPC-157. BPC-157, short for Body Protection Compound 157, is a chain of fifteen amino acids with various mechanisms of action, including activating cells involved in tissue repair, including muscles, tendons, ligaments and the gastrointestinal tract, stimulating the synthesis of growth factors, and inhibiting inflammation.",
-    "priceFrom": 63.375,
+    "priceFrom": 119.14,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 63.375,
+        "price": 119.14,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 120.41,
+        "price": 226.37,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 285.19,
+        "price": 536.13,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 538.69,
+        "price": 1012.69,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -560,30 +560,30 @@ export const products = [
     "slug": "hcg-14-000iu",
     "tag": "PEPTIDE",
     "description": "Each vial contains 14,000iu of highly pure Human Chorionic Gonadotropin (hCG). Human chorionic gonadotropin (HCG) is prescribed for men to address the symptoms of hypogonadism, such as low testosterone and infertility. When testosterone is introduced exogenously such as during TRT, HCG helps to maintain fertility, testicular and penis size, cognitive function, and libido.",
-    "priceFrom": 117,
+    "priceFrom": 219.96,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 117,
+        "price": 219.96,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 222.3,
+        "price": 417.92,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 526.5,
+        "price": 989.82,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 994.5,
+        "price": 1869.66,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -597,30 +597,30 @@ export const products = [
     "slug": "bpc-157-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure BPC-157. BPC-157, short for Body Protection Compound 157, is a chain of fifteen amino acids with various mechanisms of action, including activating cells involved in tissue repair, including muscles, tendons, ligaments and the gastrointestinal tract, stimulating the synthesis of growth factors, and inhibiting inflammation.",
-    "priceFrom": 117,
+    "priceFrom": 219.96,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 117,
+        "price": 219.96,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 222.3,
+        "price": 417.92,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 526.5,
+        "price": 989.82,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 994.5,
+        "price": 1869.66,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -634,30 +634,30 @@ export const products = [
     "slug": "bpc-157-tb-500-8220-healing-blend-8221-6mg-6mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 6mg of BPC-157 and 6mg of TB-500. Our “Healing Blend” combines BPC-157 and TB-500 (TB-4) at an ideal 1:1 ratio that takes advantage of their synergistic healing effects when used in conjunction. BPC-157, short for Body Protection Compound 157, is a chain of fifteen amino acids with various mechanisms of action, including ...",
-    "priceFrom": 117,
+    "priceFrom": 219.96,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 117,
+        "price": 219.96,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 222.3,
+        "price": 417.92,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 526.5,
+        "price": 989.82,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 994.5,
+        "price": 1869.66,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -671,30 +671,30 @@ export const products = [
     "slug": "tesamorelin-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure Tesamorelin. Tesamorelin is a synthetic peptide that acts as a growth hormone-releasing hormone (GHRH) analog. It is primarily used to reduce abdominal fat in HIV-infected patients with lipodystrophy, a condition characterized by abnormal fat distribution. By stimulating the release of growth hormone, tesamorelin helps improve body composition and ...",
-    "priceFrom": 146.25,
+    "priceFrom": 274.95,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 146.25,
+        "price": 274.95,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 277.88,
+        "price": 522.41,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 658.13,
+        "price": 1237.28,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 1243.13,
+        "price": 2337.07,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -708,30 +708,30 @@ export const products = [
     "slug": "cagrilintide-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure Cagrilintide. Cagrilintide is a novel peptide developed as a treatment for obesity and weight management. It is a dual agonist that targets both the GLP-1 (glucagon-like peptide-1) and the amylin receptor, which helps to regulate appetite and glucose metabolism. By enhancing feelings of fullness and reducing hunger, cagrilintide ...",
-    "priceFrom": 165.75,
+    "priceFrom": 311.61,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 165.75,
+        "price": 311.61,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 314.93,
+        "price": 592.06,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 745.88,
+        "price": 1402.25,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 1408.88,
+        "price": 2648.69,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -745,30 +745,30 @@ export const products = [
     "slug": "survodutide-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure Survodutide. Survodutide is a peptide drug that acts as a dual agonist for GLP-1 (glucagon-like peptide-1) and GIP (gastric inhibitory polypeptide) receptors. It is being studied primarily for its potential in treating obesity and type 2 diabetes by helping to regulate appetite, enhance satiety, and improve glucose control. ...",
-    "priceFrom": 165.75,
+    "priceFrom": 311.61,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 165.75,
+        "price": 311.61,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 314.93,
+        "price": 592.06,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 745.88,
+        "price": 1402.25,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 1408.88,
+        "price": 2648.69,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -782,30 +782,30 @@ export const products = [
     "slug": "melanotan-2-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure Melanotan-2. Melanotan 2 is a synthetic analog of the naturally occurring melanocyte-stimulating hormone (MSH). It is primarily used to stimulate melanin production in the skin, leading to tanning without the need for sun exposure. Additionally, melanotan 2 has been studied for its potential effects on appetite suppression and ...",
-    "priceFrom": 63.375,
+    "priceFrom": 119.14,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 63.375,
+        "price": 119.14,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 120.41,
+        "price": 226.37,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 285.19,
+        "price": 536.13,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 538.69,
+        "price": 1012.69,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -819,30 +819,30 @@ export const products = [
     "slug": "igf-1-lr3-1mg",
     "tag": "HGH",
     "description": "IGF-1 LR3 (Insulin-like Growth Factor 1 Long Arg3) is a synthetic form of IGF-1, a protein that plays a key role in growth, development, and cellular repair. It's similar to the naturally occurring IGF-1 in your body but has a longer half-life due to a modification in its structure—specifically, the substitution of the active amino acids to increase biological activity.",
-    "priceFrom": 121.875,
+    "priceFrom": 229.13,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 121.875,
+        "price": 229.13,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 231.56,
+        "price": 435.35,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 548.44,
+        "price": 1031.09,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 1035.94,
+        "price": 1947.61,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -856,30 +856,30 @@ export const products = [
     "slug": "pt-141-10mg",
     "tag": "PEPTIDE",
     "description": "PT-141 (Bremelanotide) is a peptide used to treat sexual dysfunction. FDA-approved as Vyleesi, it treats hypoactive sexual desire disorder (HSDD) in women and is also studied for erectile dysfunction (ED). Unlike Viagra, it works by stimulating the melanocortin system in the brain to enhance arousal. Administered via injection, effects start within 30-60 minutes and last ...",
-    "priceFrom": 82.875,
+    "priceFrom": 155.8,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 82.875,
+        "price": 155.8,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 157.46,
+        "price": 296.02,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 372.94,
+        "price": 701.1,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 704.44,
+        "price": 1324.3,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -893,30 +893,30 @@ export const products = [
     "slug": "ipamorelin-10mg",
     "tag": "PEPTIDE",
     "description": "Ipamorelin is a growth hormone secretagogue (GHS) and selective ghrelin receptor agonist that stimulates the release of growth hormone (GH). It is often used for anti-aging, muscle growth, fat loss, and recovery. Key Benefits: Increases Growth Hormone naturally without raising cortisol or prolactin. Enhances Muscle Growth & Recovery by promoting protein synthesis. Supports Fat Loss ...",
-    "priceFrom": 117,
+    "priceFrom": 219.96,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 117,
+        "price": 219.96,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 222.3,
+        "price": 417.92,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 526.5,
+        "price": 989.82,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 994.5,
+        "price": 1869.66,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -930,30 +930,30 @@ export const products = [
     "slug": "epitalon-10mg",
     "tag": "PEPTIDE",
     "description": "Epitalon is a synthetic tetrapeptide (Ala-Glu-Asp-Gly) known for its potential anti-aging and telomere-lengthening effects. It was developed based on the natural epithalamin peptide produced in the pineal gland. Key Benefits: Promotes Longevity: May extend telomere length, slowing cellular aging. Enhances Sleep & Circadian Rhythms: Regulates melatonin production. Boosts Immune Function: Supports overall health and resilience. ...",
-    "priceFrom": 63.375,
+    "priceFrom": 119.14,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 63.375,
+        "price": 119.14,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 120.41,
+        "price": 226.37,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 285.19,
+        "price": 536.13,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 538.69,
+        "price": 1012.69,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -967,30 +967,30 @@ export const products = [
     "slug": "cjc-1295-with-dac-12-5mg",
     "tag": "PEPTIDE",
     "description": "CJC-1295 with DAC is a synthetic growth hormone-releasing hormone (GHRH) analog that increases growth hormone (GH) and IGF-1 levels for muscle growth, fat loss, and anti-aging benefits. The DAC (Drug Affinity Complex) extends its half-life, allowing weekly dosing instead of frequent injections. Key Benefits: Increases Growth Hormone & IGF-1 for muscle growth and fat loss. ...",
-    "priceFrom": 165.75,
+    "priceFrom": 311.61,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 165.75,
+        "price": 311.61,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 314.93,
+        "price": 592.06,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 745.88,
+        "price": 1402.25,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 1408.88,
+        "price": 2648.69,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -1004,30 +1004,30 @@ export const products = [
     "slug": "glow-blend-50mg",
     "tag": "PEPTIDE",
     "description": "The GLOW Protocol Peptide Blend is a synergistic combination of three peptides: GHK-Cu, TB-500, and BPC-157. This blend is designed to enhance regenerative processes and support systemic recovery. Components: GHK-Cu (Copper Peptide): A tripeptide that binds copper ions, known for its role in promoting collagen production and skin regeneration. TB-500 (Thymosin Beta-4 Fragment): A synthetic ...",
-    "priceFrom": 141.375,
+    "priceFrom": 265.78,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 141.375,
+        "price": 265.78,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 268.61,
+        "price": 504.98,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 636.19,
+        "price": 1196.01,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 1201.69,
+        "price": 2259.13,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -1041,30 +1041,30 @@ export const products = [
     "slug": "cjc-1295-no-dac-ipamorelin-blend",
     "tag": "PEPTIDE",
     "description": "Each vial contains 5mg of EACH CJC-1295 no DAC + Ipamorelin in lyophilized form. CJC-1295 is a synthetic growth hormone-releasing hormone (GHRH) analog designed to increase growth hormone (GH) and IGF-1 levels for muscle growth, fat loss, anti-aging, and recovery. It stimulates the pituitary gland to produce GH, mimicking the body's natural process. CJC-1295 without ...",
-    "priceFrom": 121.875,
+    "priceFrom": 229.13,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 121.875,
+        "price": 229.13,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 231.56,
+        "price": 435.35,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 548.44,
+        "price": 1031.09,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 1035.94,
+        "price": 1947.61,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -1078,30 +1078,30 @@ export const products = [
     "slug": "sermorelin-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure Sermorelin. Sermorelin is a synthetic peptide that stimulates the release of growth hormone (GH) from the pituitary gland. It is a growth hormone-releasing hormone (GHRH) analog, meaning it mimics the natural GHRH produced by the hypothalamus. Sermorelin itself does not contain growth hormone but encourages the body to ...",
-    "priceFrom": 121.875,
+    "priceFrom": 229.13,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 121.875,
+        "price": 229.13,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 231.56,
+        "price": 435.35,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 548.44,
+        "price": 1031.09,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 1035.94,
+        "price": 1947.61,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -1115,30 +1115,30 @@ export const products = [
     "slug": "tb-500-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure TB-500. TB-500 (TB-4, short for Thymosin β4) is a naturally-occurring peptide that plays a vital role in the repair and regeneration of injured cells and tissues by promoting cell migration, forming new blood vessels and regenerating the tissue as well as decreasing the number of myofibroblasts in wounds, ...",
-    "priceFrom": 117,
+    "priceFrom": 219.96,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 117,
+        "price": 219.96,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 222.3,
+        "price": 417.92,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 526.5,
+        "price": 989.82,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 994.5,
+        "price": 1869.66,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -1152,30 +1152,30 @@ export const products = [
     "slug": "ghk-cu-70mg",
     "tag": "PEPTIDE",
     "description": "GHK-Cu Copper Peptide – Skin Regeneration & Anti-Aging Powerhouse Rediscover youthful skin with GHK-Cu (Copper Tripeptide-1), a naturally occurring peptide renowned for its regenerative and anti-aging properties. This potent compound combines the tripeptide GHK (glycyl-L-histidyl-L-lysine) with a copper ion, creating a biologically active molecule that supports skin health, hair growth, and tissue repair. Key Benefits: ...",
-    "priceFrom": 63.375,
+    "priceFrom": 119.14,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 63.375,
+        "price": 119.14,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 120.41,
+        "price": 226.37,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 285.19,
+        "price": 536.13,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 538.69,
+        "price": 1012.69,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -1189,30 +1189,30 @@ export const products = [
     "slug": "mots-c-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure MOTS-C. MOTS-c (Mitochondrial Open Reading Frame of the 12S rRNA Type-c) is a mitochondrial-derived peptide consisting of 16 amino acids. It plays a key role in cellular metabolism and energy homeostasis, acting through pathways related to insulin sensitivity, glucose metabolism, and stress response.",
-    "priceFrom": 63.375,
+    "priceFrom": 119.14,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 63.375,
+        "price": 119.14,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 120.41,
+        "price": 226.37,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 285.19,
+        "price": 536.13,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 538.69,
+        "price": 1012.69,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -1226,30 +1226,30 @@ export const products = [
     "slug": "ss-31-50mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 50mg of highly pure SS-31. SS-31 (also known as Elamipretide) is a synthetic tetrapeptide (D-Arg-Dmt-Lys-Phe-NH₂) known for its unique mitochondrial-targeting properties. SS-31 selectively binds to cardiolipin within the inner mitochondrial membrane, helping to stabilize mitochondrial structure and improve bioenergetics. Its antioxidant and cell-protective actions have made it a key molecule in mitochondrial ...",
-    "priceFrom": 243.75,
+    "priceFrom": 458.25,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 243.75,
+        "price": 458.25,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 463.13,
+        "price": 870.68,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 1096.88,
+        "price": 2062.13,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 2071.88,
+        "price": 3895.13,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -1263,30 +1263,30 @@ export const products = [
     "slug": "semax-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure Semax in lyophilized form. Please note this batch is overdosed to ~13mg per vial, per the Janoshik test report. Semax is a synthetic peptide derived from the adrenocorticotropic hormone (ACTH) fragment (Met-Glu-His-Phe-Pro-Gly-Pro). Originally developed in Russia, Semax has been widely studied for its potential nootropic, neuroprotective, and neurorestorative properties. ...",
-    "priceFrom": 82.875,
+    "priceFrom": 155.8,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 82.875,
+        "price": 155.8,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 157.46,
+        "price": 296.02,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 372.94,
+        "price": 701.1,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 704.44,
+        "price": 1324.3,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -1300,30 +1300,30 @@ export const products = [
     "slug": "semaglutide-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure Semaglutide. Semaglutide (brand names Ozempic, Wegovy) is used for weight loss, to lower blood sugar levels, and to reduce the risk of major cardiovascular events such as heart attack or stroke in certain patients. It is a GLP-1 agonist to be administered subcutaneously once a week that works ...",
-    "priceFrom": 131.625,
+    "priceFrom": 247.46,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 131.625,
+        "price": 247.46,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 250.09,
+        "price": 470.17,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 592.31,
+        "price": 1113.57,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 1118.81,
+        "price": 2103.41,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -1337,30 +1337,30 @@ export const products = [
     "slug": "retatrutide-20mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 20mg of highly pure Retatrutide. Retatrutide is classified as a triple glucagon hormone receptor agonist (GLP-1, GIP, and GCGR receptors), making it more effective for body fat mass reduction than its predecessor Semaglutide by targeting further receptors.",
-    "priceFrom": 243.75,
+    "priceFrom": 458.25,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 243.75,
+        "price": 458.25,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 463.13,
+        "price": 870.68,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 1096.88,
+        "price": 2062.13,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 2071.88,
+        "price": 3895.13,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -1374,30 +1374,30 @@ export const products = [
     "slug": "cjc-1295-no-dac-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure CJC-1295 no DAC. Please note this batch is overdosed to closer to 12.5mg per vial per the Janoshik test report. OverviewCJC-1295 no DAC is a synthetic peptide belonging to the growth hormone–releasing hormone (GHRH) analog class. Unlike the DAC (Drug Affinity Complex) version, the no-DAC form has a shorter ...",
-    "priceFrom": 63.375,
+    "priceFrom": 119.14,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 63.375,
+        "price": 119.14,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 120.41,
+        "price": 226.37,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 285.19,
+        "price": 536.13,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 538.69,
+        "price": 1012.69,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -1411,30 +1411,30 @@ export const products = [
     "slug": "mazdutide-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure Mazdutide. Mazdutide is a synthetic dual GLP-1/GIP receptor agonist studied for its role in metabolic regulation. Research has explored its effects on glucose control, insulin response, and body weight management in preclinical and clinical trials.",
-    "priceFrom": 165.75,
+    "priceFrom": 311.61,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 165.75,
+        "price": 311.61,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 314.93,
+        "price": 592.06,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 745.88,
+        "price": 1402.25,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 1408.88,
+        "price": 2648.69,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -1448,30 +1448,30 @@ export const products = [
     "slug": "thymosin-alpha-1-12-5mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 12.5mg of highly pure Thymosin Alpha-1. Thymosin Alpha-1 (Tα1) is a naturally occurring peptide fragment derived from thymosin fraction 5, originally isolated from the thymus gland. It has been widely studied for its potential role in modulating immune response and supporting immune system function in preclinical and clinical research settings.",
-    "priceFrom": 117,
+    "priceFrom": 219.96,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 117,
+        "price": 219.96,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 222.3,
+        "price": 417.92,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 526.5,
+        "price": 989.82,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 994.5,
+        "price": 1869.66,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -1485,30 +1485,30 @@ export const products = [
     "slug": "klow-blend-80mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains a blend of highly pure BPC-157, TB-500, KPV, and GHK-Cu. KLOW is a proprietary research blend combining four synergistic peptides—BPC-157, TB-500, KPV, and GHK-Cu—designed for advanced laboratory investigation into immune modulation, inflammation control, tissue repair, and cellular signaling. By combining these compounds, the KLOW blend offers researchers a unique opportunity to explore ...",
-    "priceFrom": 165.75,
+    "priceFrom": 311.61,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 165.75,
+        "price": 311.61,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 314.93,
+        "price": 592.06,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 745.88,
+        "price": 1402.25,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 1408.88,
+        "price": 2648.69,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -1522,30 +1522,30 @@ export const products = [
     "slug": "kpv-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure KPV. KPV is a naturally occurring tripeptide fragment (Lysine-Proline-Valine) derived from the hormone alpha-MSH. It has been studied extensively in research for its anti-inflammatory, immune-modulating, and wound-healing potential. Because of its small size and stability, KPV has become a focus of laboratory investigation into novel therapeutic pathways for ...",
-    "priceFrom": 82.875,
+    "priceFrom": 155.8,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 82.875,
+        "price": 155.8,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 157.46,
+        "price": 296.02,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 372.94,
+        "price": 701.1,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 704.44,
+        "price": 1324.3,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -1559,30 +1559,30 @@ export const products = [
     "slug": "selank-12-5mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 12.5mg of highly pure lyophilized Selank. Selank is a synthetic peptide analog of the naturally occurring tuftsin fragment, designed for research into its potential neuromodulatory and anxiolytic effects. It has been investigated for its influence on mood regulation, cognitive function, and stress resilience.",
-    "priceFrom": 117,
+    "priceFrom": 219.96,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 117,
+        "price": 219.96,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 222.3,
+        "price": 417.92,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 526.5,
+        "price": 989.82,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 994.5,
+        "price": 1869.66,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -1596,30 +1596,30 @@ export const products = [
     "slug": "glutathione-1500mg",
     "tag": "PEPTIDE",
     "description": "Overview Glutathione is a naturally occurring tripeptide composed of glutamine, cysteine, and glycine — often referred to as the body’s master antioxidant. It plays a central role in detoxification, immune defense, and cellular repair by neutralizing free radicals and reactive oxygen species. Mechanism of Action Injectable (parenteral) glutathione delivers the reduced form (GSH) directly into ...",
-    "priceFrom": 82.875,
+    "priceFrom": 155.8,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 82.875,
+        "price": 155.8,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 157.46,
+        "price": 296.02,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 372.94,
+        "price": 701.1,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 704.44,
+        "price": 1324.3,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -1633,30 +1633,30 @@ export const products = [
     "slug": "retatrutide-60mg",
     "tag": "PEPTIDE",
     "description": "Important note: this is a standard peptide vial and will only hold a maximum of about 3.5mL of bacteriostatic water. Each vial contains 60mg of highly pure Retatrutide. Retatrutide is classified as a triple glucagon hormone receptor agonist (GLP-1, GIP, and GCGR receptors), making it more effective for body fat mass reduction than its predecessor ...",
-    "priceFrom": 492.375,
+    "priceFrom": 925.67,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 492.375,
+        "price": 925.67,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 935.51,
+        "price": 1758.77,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 2215.69,
+        "price": 4165.51,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 4185.19,
+        "price": 7868.19,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -1670,30 +1670,30 @@ export const products = [
     "slug": "l-carnitine-750mg-ml",
     "tag": "PEPTIDE",
     "description": "Each vial contains 30mL of L-Carnitine at 750mg/mL. L-Carnitine (Levocarnitine) is a naturally occurring quaternary ammonium compound involved in mitochondrial energy metabolism. In research settings, L-Carnitine plays a central role in the transport of long-chain fatty acids into the mitochondria, where they can be oxidized for ATP production. This mechanism makes it a valuable compound ...",
-    "priceFrom": 117,
+    "priceFrom": 219.96,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 117,
+        "price": 219.96,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 222.3,
+        "price": 417.92,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 526.5,
+        "price": 989.82,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 994.5,
+        "price": 1869.66,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -1707,30 +1707,30 @@ export const products = [
     "slug": "tirzepatide-30mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 30mg of highly pure Tirzepatide. Tirzepatide (brand names Mounjaro, Zepbound) is a double glucagon hormone receptor agonist (GLP-1 and GIP receptors), making it more effective for body fat mass reduction than its predecessor Semaglutide by targeting further receptors.",
-    "priceFrom": 243.75,
+    "priceFrom": 458.25,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 243.75,
+        "price": 458.25,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 463.13,
+        "price": 870.68,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 1096.88,
+        "price": 2062.13,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 2071.88,
+        "price": 3895.13,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -1744,30 +1744,30 @@ export const products = [
     "slug": "nad-350mg",
     "tag": "PEPTIDE",
     "description": "Each 10mL vial contains 350mg of lyophilized NAD+. Overview:High-purity NAD+ (Nicotinamide Adenine Dinucleotide) solution used in research on cellular energy, mitochondrial function, metabolic pathways, and stress responses. Potential Benefits (Research Context Only):Studies suggest NAD+ may: Support cellular energy production (ATP generation) Influence mitochondrial health and biogenesis Play a role in DNA repair pathways Affect cellular ...",
-    "priceFrom": 48.75,
+    "priceFrom": 91.65,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 48.75,
+        "price": 91.65,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 92.63,
+        "price": 174.14,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 219.38,
+        "price": 412.43,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 414.38,
+        "price": 779.03,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -1781,30 +1781,30 @@ export const products = [
     "slug": "ll-37-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure LL-37 in lyophilized form. LL-37 is a synthetic version of the human cathelicidin antimicrobial peptide, produced to high purity for laboratory and research applications. Known for its role in innate immune signaling and host-defense mechanisms, LL-37 is widely studied for its interactions with microbial membranes, immune modulation pathways, and ...",
-    "priceFrom": 82.875,
+    "priceFrom": 155.8,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 82.875,
+        "price": 155.8,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 157.46,
+        "price": 296.02,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 372.94,
+        "price": 701.1,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 704.44,
+        "price": 1324.3,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -1818,30 +1818,30 @@ export const products = [
     "slug": "dsip-12-5mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 12.5mg of highly pure DSIP in lyophilized form. DSIP (Delta Sleep-Inducing Peptide) Injectable is a synthetic peptide corresponding to the naturally occurring neuropeptide studied for its role in neuroendocrine regulation and circadian biology. DSIP is commonly used in research exploring sleep-related signaling pathways, stress responses, and peptide–receptor interactions within the central nervous ...",
-    "priceFrom": 82.875,
+    "priceFrom": 155.8,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 82.875,
+        "price": 155.8,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 157.46,
+        "price": 296.02,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 372.94,
+        "price": 701.1,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 704.44,
+        "price": 1324.3,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -1855,30 +1855,30 @@ export const products = [
     "slug": "kisspeptin-12-5mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 12.5mg of highly pure Kisspeptin in lyophilized form. Kisspeptin Peptide is a synthetic form of the naturally occurring neuropeptide widely studied for its role in neuroendocrine signaling and reproductive axis regulation. It is commonly used in research investigating hypothalamic signaling pathways, hormone release mechanisms, and peptide–receptor interactions. Manufactured to high purity and ...",
-    "priceFrom": 82.875,
+    "priceFrom": 155.8,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 82.875,
+        "price": 155.8,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 157.46,
+        "price": 296.02,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 372.94,
+        "price": 701.1,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 704.44,
+        "price": 1324.3,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -1892,30 +1892,30 @@ export const products = [
     "slug": "5-amino-1mq-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure 5-Amino-1MQ in lyophilized form. Please note it is normal that this product is orange, not white like a typical lyophilized peptide. 5-Amino-1MQ is commonly discussed for its potential effects on metabolic pathways, particularly through inhibition of NNMT. Reported or explored effects include improved regulation of energy metabolism, reduced ...",
-    "priceFrom": 63.375,
+    "priceFrom": 119.14,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 63.375,
+        "price": 119.14,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 120.41,
+        "price": 226.37,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 285.19,
+        "price": 536.13,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 538.69,
+        "price": 1012.69,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -1929,30 +1929,30 @@ export const products = [
     "slug": "human-menopausal-gonadotropin-hmg-75iu-8211-hmg01",
     "tag": "PEPTIDE",
     "description": "Each vial contains 75iu of highly pure Human Menopausal Gonadotropin (HMG). Human Menopausal Gonadotropin (hMG) is a purified gonadotropin preparation containing follicle-stimulating hormone (FSH) and luteinizing hormone (LH). It is commonly prescribed by fertility specialists as part of medically supervised treatment protocols for reproductive health. hMG is derived from human sources and formulated for injection. ...",
-    "priceFrom": 82.875,
+    "priceFrom": 155.8,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 82.875,
+        "price": 155.8,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 157.46,
+        "price": 296.02,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 372.94,
+        "price": 701.1,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 704.44,
+        "price": 1324.3,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -1966,30 +1966,30 @@ export const products = [
     "slug": "tesamorelin-20mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 20mg of highly pure Tesamorelin. Tesamorelin is a synthetic peptide that acts as a growth hormone-releasing hormone (GHRH) analog. It is primarily used to reduce abdominal fat in HIV-infected patients with lipodystrophy, a condition characterized by abnormal fat distribution. By stimulating the release of growth hormone, tesamorelin helps improve body composition and ...",
-    "priceFrom": 243.75,
+    "priceFrom": 458.25,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 243.75,
+        "price": 458.25,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 463.13,
+        "price": 870.68,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 1096.88,
+        "price": 2062.13,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 2071.88,
+        "price": 3895.13,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -2003,30 +2003,30 @@ export const products = [
     "slug": "bpc-157-tb-500-healing-blend-10mg-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of BPC-157 and 10mg of TB-500. Our “Healing Blend” combines BPC-157 and TB-500 (TB-4) at an ideal 1:1 ratio that takes advantage of their synergistic healing effects when used in conjunction. BPC-157, short for Body Protection Compound 157, is a chain of fifteen amino acids with various mechanisms of action, including ...",
-    "priceFrom": 131.625,
+    "priceFrom": 247.46,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 131.625,
+        "price": 247.46,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 250.09,
+        "price": 470.17,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 592.31,
+        "price": 1113.57,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 1118.81,
+        "price": 2103.41,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -2040,30 +2040,30 @@ export const products = [
     "slug": "mots-c-40mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 40mg of highly pure MOTS-C. MOTS-c (Mitochondrial Open Reading Frame of the 12S rRNA Type-c) is a mitochondrial-derived peptide consisting of 16 amino acids. It plays a key role in cellular metabolism and energy homeostasis, acting through pathways related to insulin sensitivity, glucose metabolism, and stress response.",
-    "priceFrom": 195,
+    "priceFrom": 366.6,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 195,
+        "price": 366.6,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 370.5,
+        "price": 696.54,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 877.5,
+        "price": 1649.7,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 1657.5,
+        "price": 3116.1,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -2077,30 +2077,30 @@ export const products = [
     "slug": "cerebrolysin-6-x-60mg-360mg-box",
     "tag": "PEPTIDE",
     "description": "Cerebrolysin is a sterile injectable preparation derived from purified porcine brain extracts. It contains a balanced mixture of amino acids and small peptides designed to support metabolic activity of nerve cells. This product is clinically used as an adjunct therapy for patients with cognitive impairment caused by traumatic brain injury or cerebrovascular diseases. It may ...",
-    "priceFrom": 204.75,
+    "priceFrom": 384.93,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 204.75,
+        "price": 384.93,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 389.03,
+        "price": 731.37,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 921.38,
+        "price": 1732.19,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 1740.38,
+        "price": 3271.91,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -2114,25 +2114,25 @@ export const products = [
     "slug": "bpc-157-arginate-tablets",
     "tag": "PEPTIDE",
     "description": "Each order of AndroNorth BPC-157 Arginate Tablets contains one (1) satchet of sixty (60) tablets, each containing 500 micrograms of highly pure BPC-157 Arginate. BPC-157 Arginate is a synthetic peptide derived from a naturally occurring compound found in gastric juice, known as Body Protection Compound-157 (BPC-157). It has gained attention for its potential role in ...",
-    "priceFrom": 32.5,
+    "priceFrom": 61.1,
     "variants": [
       {
         "id": "1v",
         "name": "1x Vial",
-        "price": 32.5,
+        "price": 61.1,
         "savingsLabel": ""
       },
       {
         "id": "5v",
         "name": "5x Vials",
-        "price": 156,
-        "savingsLabel": "Save £10"
+        "price": 293.28,
+        "savingsLabel": "Save $12 AUD"
       },
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 243.75,
-        "savingsLabel": "Save £81.25"
+        "price": 458.25,
+        "savingsLabel": "Save $153 AUD"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/BPC-157-Arginate-1024x1024.jpg",
@@ -2145,30 +2145,30 @@ export const products = [
     "slug": "melanotan-1-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure Melanotan-1 in lyophilized form. Melanotan-1 is a synthetic peptide formulated to support the body’s natural pigmentation processes. Designed for subcutaneous administration under professional supervision, it is intended for use in controlled settings where modulation of melanin production is desired. Manufactured to high purity standards, it offers consistent quality ...",
-    "priceFrom": 82.875,
+    "priceFrom": 155.8,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 82.875,
+        "price": 155.8,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 157.46,
+        "price": 296.02,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 372.94,
+        "price": 701.1,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 704.44,
+        "price": 1324.3,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -2182,30 +2182,30 @@ export const products = [
     "slug": "brain-blend-6mg-6mg",
     "tag": "PEPTIDE",
     "description": "Each vial of Brain Blend contains 6mg of each Semax and Selank in highly pure, lyophilized form. Brain Blend (Semax + Selank) is a synergistic peptide formulation designed to support cognitive clarity, balanced mood, and overall mental performance. Combining the complementary properties of Semax and Selank, this advanced blend is developed for subcutaneous administration under professional ...",
-    "priceFrom": 97.5,
+    "priceFrom": 183.3,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 97.5,
+        "price": 183.3,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 185.25,
+        "price": 348.27,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 438.75,
+        "price": 824.85,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 828.75,
+        "price": 1558.05,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -2219,30 +2219,30 @@ export const products = [
     "slug": "chonluten-30mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 30mg of highly pure Chonluten in lyophilized form. Chonluten is a synthetic peptide formulation developed to support cellular health and tissue function. Designed for use in controlled settings under professional supervision, it is manufactured to high purity standards to ensure consistent quality and reliability. Chonluten is intended for specialized research and performance-focused ...",
-    "priceFrom": 82.875,
+    "priceFrom": 155.8,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 82.875,
+        "price": 155.8,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 157.46,
+        "price": 296.02,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 372.94,
+        "price": 701.1,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 704.44,
+        "price": 1324.3,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -2256,30 +2256,30 @@ export const products = [
     "slug": "cardiogen-20mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 20mg of highly pure Cardiogen in lyophilized form. Cardiogen is a peptide-based formulation developed to support cardiovascular cellular function and overall tissue vitality. Designed for administration under professional supervision, it is manufactured to high purity standards to ensure consistency and quality. Injectable Cardiogen is intended for specialized research and performance-focused applications where ...",
-    "priceFrom": 82.875,
+    "priceFrom": 155.8,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 82.875,
+        "price": 155.8,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 157.46,
+        "price": 296.02,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 372.94,
+        "price": 701.1,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 704.44,
+        "price": 1324.3,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -2293,30 +2293,30 @@ export const products = [
     "slug": "ovagen-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure Ovagen in lyophilized form. Ovagen is a peptide-based formulation developed to support cellular function and tissue balance. Designed for administration under professional supervision, it is manufactured to high purity standards to ensure consistency and reliability. Injectable Ovagen is intended for specialized research and performance-focused applications where targeted peptide ...",
-    "priceFrom": 63.375,
+    "priceFrom": 119.14,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 63.375,
+        "price": 119.14,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 120.41,
+        "price": 226.37,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 285.19,
+        "price": 536.13,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 538.69,
+        "price": 1012.69,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -2330,30 +2330,30 @@ export const products = [
     "slug": "thymulin-15mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 15mg of highly pure Thymulin in lyophilized form. Thymulin is a peptide-based formulation developed to support immune system modulation and cellular signaling processes. Designed for administration under professional supervision, it is manufactured to high purity standards to ensure consistency and quality. Injectable Thymulin is intended for specialized research and performance-focused applications where ...",
-    "priceFrom": 82.875,
+    "priceFrom": 155.8,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 82.875,
+        "price": 155.8,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 157.46,
+        "price": 296.02,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 372.94,
+        "price": 701.1,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 704.44,
+        "price": 1324.3,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -2367,30 +2367,30 @@ export const products = [
     "slug": "tirzepatide-60mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 60mg of highly pure Tirzepatide. Tirzepatide (brand names Mounjaro, Zepbound) is a double glucagon hormone receptor agonist (GLP-1 and GIP receptors), making it more effective for body fat mass reduction than its predecessor Semaglutide by targeting further receptors.",
-    "priceFrom": 370.5,
+    "priceFrom": 696.54,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 370.5,
+        "price": 696.54,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 703.95,
+        "price": 1323.43,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 1667.25,
+        "price": 3134.43,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 3149.25,
+        "price": 5920.59,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -2404,30 +2404,30 @@ export const products = [
     "slug": "aod-9604-2-5mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 2.5mg of highly pure AOD-9604. AOD-9604 is a synthetic peptide fragment derived from the C-terminal region of human growth hormone (hGH), specifically engineered to isolate and study the lipolytic (fat-metabolizing) properties of hGH without its broader anabolic or growth-promoting effects. It is commonly investigated for its role in regulating fat metabolism, lipid ...",
-    "priceFrom": 63.375,
+    "priceFrom": 119.14,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 63.375,
+        "price": 119.14,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 120.41,
+        "price": 226.37,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 285.19,
+        "price": 536.13,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 538.69,
+        "price": 1012.69,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -2441,30 +2441,30 @@ export const products = [
     "slug": "ara-290-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure ARA-290. ARA-290 is a synthetic peptide derived from the tertiary structure of erythropoietin (EPO), specifically engineered to retain its tissue-protective and anti-inflammatory properties while avoiding the erythropoietic (red blood cell–stimulating) effects associated with full-length EPO. It is primarily studied for its role in modulating innate repair pathways, reducing ...",
-    "priceFrom": 82.875,
+    "priceFrom": 155.8,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 82.875,
+        "price": 155.8,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 157.46,
+        "price": 296.02,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 372.94,
+        "price": 701.1,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 704.44,
+        "price": 1324.3,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -2478,30 +2478,30 @@ export const products = [
     "slug": "pinealon-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure Pinealon. Pinealon is a synthetic short peptide composed of three amino acids (Glu-Asp-Arg), developed as part of a class of regulatory peptides studied for their potential effects on neuronal function, gene expression, and cellular aging processes. It is primarily investigated for its role in supporting cognitive function, neuroprotection, ...",
-    "priceFrom": 82.875,
+    "priceFrom": 155.8,
     "variants": [
       {
         "id": "10v",
         "name": "10x Vials",
-        "price": 82.875,
+        "price": 155.8,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Vials",
-        "price": 157.46,
+        "price": 296.02,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
-        "price": 372.94,
+        "price": 701.1,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
-        "price": 704.44,
+        "price": 1324.3,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -2515,19 +2515,19 @@ export const products = [
     "slug": "bacteriostatic-water-pfizer",
     "tag": "ANCILLARY",
     "description": "PLEASE NOTE: Due to nationwide shortages, customers may receive U.S. Hospira branded Bacteriostatic Water in substitution. Identical product produced by the same company (Hospira owned by Pfizer) branded differently in U.S./Canada.\n\nThis listing contains 1 bottle (30mL) of Pfizer or Hospira Bacteriostatic Water for reconstitution of lyophilized peptides and HGH.\n\nBacteriostatic Water for Injection, USP is a sterile, nonpyrogenic preparation of water for injection containing 0.9% (9 mg/mL) of benzyl alcohol added as a preservative. It is supplied in a multiple-dose container from which repeated withdrawals may be made to dilute or dissolve drugs for injection.",
-    "priceFrom": 13,
+    "priceFrom": 24.44,
     "variants": [
       {
         "id": "1b",
         "name": "1x 30mL Bottle",
-        "price": 13,
+        "price": 24.44,
         "savingsLabel": ""
       },
       {
         "id": "5b",
         "name": "5x 30mL Bottles",
-        "price": 58.5,
-        "savingsLabel": "Save £10"
+        "price": 109.98,
+        "savingsLabel": "Save $12 AUD"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/Mockup-12-scaled.jpg",
@@ -2540,30 +2540,30 @@ export const products = [
     "slug": "hgh-batch-ggc32-110iu-kit",
     "tag": "HGH",
     "description": "Batch GGC32 Human Growth Hormone (191AA HGH) Kit contains 10 vials of high-quality Somatropin. Independent 3rd-party laboratory testing verifies an outstanding purity of 97.27% with an average mass of 11.03 iu per vial (110iu total kit). Widely researched for its role in cellular repair, fat loss, muscle regeneration, and anti-aging applications. Manufactured under strict guidelines to ensure maximum stability and biopotency.",
-    "priceFrom": 107.25,
+    "priceFrom": 201.63,
     "variants": [
       {
         "id": "10v",
         "name": "10x Kit (10 Vials)",
-        "price": 107.25,
+        "price": 201.63,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Kit (10 Vials)",
-        "price": 203.77,
+        "price": 383.1,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Kit (10 Vials)",
-        "price": 482.63,
+        "price": 907.34,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Kit (10 Vials)",
-        "price": 911.63,
+        "price": 1713.86,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -2577,30 +2577,30 @@ export const products = [
     "slug": "hgh-batch-ggc36-420iu-kit",
     "tag": "HGH",
     "description": "Batch GGC36 Human Growth Hormone (191AA HGH) Kit represents our premium high-dose Somatropin offering. This kit contains 10 vials, each verified by independent 3rd-party HPLC testing to contain a purity of 97.85% and an average active mass of 42.72 iu of premium HGH per vial (over 420iu total per kit). Perfect for advanced research requirements focusing on tissue growth, metabolic rate enhancement, muscular hypertrophy, and accelerated physical recovery.",
-    "priceFrom": 273,
+    "priceFrom": 513.24,
     "variants": [
       {
         "id": "10v",
         "name": "10x Kit (10 Vials)",
-        "price": 273,
+        "price": 513.24,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Kit (10 Vials)",
-        "price": 518.7,
+        "price": 975.16,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Kit (10 Vials)",
-        "price": 1228.5,
+        "price": 2309.58,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Kit (10 Vials)",
-        "price": 2320.5,
+        "price": 4362.54,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -2614,30 +2614,30 @@ export const products = [
     "slug": "cloudtropin-batch-ggc34-430iu-kit",
     "tag": "HGH",
     "description": "“Cloudtropin” Batch GGC34 (191AA HGH) is a specialized, budget-friendly high-dose Somatropin kit containing 10 vials (43iu per vial, 430iu total). This batch of HGH is manufactured using pharmaceutical-grade API and excipients, but due to an exceptionally high concentration, it remains slightly cloudy/foggy upon reconstitution. This 'Fog Factor' does not affect its verified 96.65% purity or active potency. Offering maximum performance and biopotency at an incredible value.",
-    "priceFrom": 195,
+    "priceFrom": 366.6,
     "variants": [
       {
         "id": "10v",
         "name": "10x Kit (10 Vials)",
-        "price": 195,
+        "price": 366.6,
         "savingsLabel": "Min Order (10 Vials)"
       },
       {
         "id": "20v",
         "name": "20x Kit (10 Vials)",
-        "price": 370.5,
+        "price": 696.54,
         "savingsLabel": "Save 5%"
       },
       {
         "id": "50v",
         "name": "50x Kit (10 Vials)",
-        "price": 877.5,
+        "price": 1649.7,
         "savingsLabel": "Save 10%"
       },
       {
         "id": "100v",
         "name": "100x Kit (10 Vials)",
-        "price": 1657.5,
+        "price": 3116.1,
         "savingsLabel": "Save 15%"
       }
     ],
@@ -2670,7 +2670,7 @@ export const faqs = [
   },
   {
     "q": "What is the minimum order requirement?",
-    "a": "All peptide vial products have a minimum order requirement of 10 vials. Additionally, our store has a $150 AUD minimum order threshold across all purchases."
+    "a": "All peptide vial products have a minimum order requirement of 10 vials. Additionally, our store has a $100 AUD minimum order threshold across all purchases."
   }
 ];
 
