@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
-import { createBachsCheckoutSession } from '@/lib/bachs';
 
 export async function POST(req: Request) {
   try {
@@ -32,6 +31,10 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Minimum order amount is $100 AUD.' }, { status: 400 });
     }
 
+    if (paymentMethod === 'credit_card') {
+      return NextResponse.json({ error: 'Credit card payment is currently unavailable. Please select Cryptocurrency, PayID, or Bank Transfer.' }, { status: 400 });
+    }
+
     if (calculatedTotal < 100 && paymentMethod === 'payid') {
       return NextResponse.json({ error: 'PayID is only available for orders of $100 AUD or more.' }, { status: 400 });
     }
@@ -50,42 +53,10 @@ export async function POST(req: Request) {
     const smtpPass = process.env.SMTP_PASS;
 
     let paymentMethodLabel = 'Bank Transfer';
-    if (paymentMethod === 'credit_card') {
-      paymentMethodLabel = 'Credit / Debit Card (Bachs Secure Checkout)';
-    } else if (paymentMethod === 'payid') {
+    if (paymentMethod === 'payid') {
       paymentMethodLabel = 'PayID';
     } else if (paymentMethod === 'crypto') {
       paymentMethodLabel = 'Cryptocurrency (USDT/BTC/LTC - Preferred)';
-    }
-
-    // If Credit Card via Bachs was selected, attempt to create the hosted checkout session
-    let checkoutUrl: string | undefined = undefined;
-    let cardGatewayNotice: string | undefined = undefined;
-
-    if (paymentMethod === 'credit_card') {
-      try {
-        const origin = req.headers.get('origin') || req.headers.get('referer') || process.env.APP_URL || 'https://reta-australia.com.au';
-        const bachsSession = await createBachsCheckoutSession({
-          orderId,
-          audTotal: calculatedTotal,
-          customer: {
-            email,
-            name: fullCustomerName,
-            phone_number: phone,
-          },
-          shippingMethod: shippingMethod === 'express' ? 'Priority Express ($70 AUD)' : 'Standard Express ($20 AUD)',
-          shippingAddress: fullAddress,
-          origin,
-          items,
-        });
-
-        if (bachsSession && bachsSession.checkout_url) {
-          checkoutUrl = bachsSession.checkout_url;
-        }
-      } catch (gatewayErr: any) {
-        console.warn(`[Bachs Payment Gateway] Notice for Order #${orderId}: ${gatewayErr.message}`);
-        cardGatewayNotice = gatewayErr.message || 'Credit card gateway synchronization in progress';
-      }
     }
 
     const orderDetails = `
@@ -105,17 +76,11 @@ Email: ${email}
 Phone: ${phone}
 Address: ${fullAddress}
 
-Payment Method: ${paymentMethodLabel}${cardGatewayNotice ? `\nGateway Note: ${cardGatewayNotice}` : ''}
+Payment Method: ${paymentMethodLabel}
     `;
 
     let paymentInstructions = '';
-    if (paymentMethod === 'credit_card') {
-      if (checkoutUrl) {
-        paymentInstructions = `You selected Credit / Debit Card payment. Your transaction was initiated via Bachs Secure Hosted Checkout (${checkoutUrl}). As soon as payment confirmation is completed, your order will be prepared for immediate dispatch.`;
-      } else {
-        paymentInstructions = `You selected Credit / Debit Card payment. Your order #${orderId} has been successfully recorded. Our card processing gateway is undergoing a brief credential synchronization with Bachs. Our dispatch desk will send a direct card payment link or invoice to your email and phone shortly so you can finalize payment.`;
-      }
-    } else if (paymentMethod === 'crypto') {
+    if (paymentMethod === 'crypto') {
       paymentInstructions = `You have selected Cryptocurrency. We will contact you manually with the transfer details shortly. (Crypto is our most preferred option with no delay in confirmation and processing).`;
     } else if (paymentMethod === 'payid') {
       paymentInstructions = `You have selected PayID. Our team will contact you shortly with the PayID transfer details to complete your payment.`;
@@ -192,8 +157,6 @@ ${orderDetails}
       orderId,
       paymentMethod,
       total: calculatedTotal,
-      checkoutUrl,
-      cardGatewayNotice,
     });
   } catch (error: any) {
     console.error('Checkout error:', error);
