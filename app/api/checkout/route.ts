@@ -4,23 +4,22 @@ import nodemailer from 'nodemailer';
 export async function POST(req: Request) {
   try {
     const data = await req.json();
-    const { 
-      firstName, 
-      lastName, 
-      email, 
-      phone, 
-      address, 
-      city, 
-      state, 
-      postcode, 
-      country, 
-      shippingMethod, 
-      paymentMethod, 
-      items, 
-      subtotal, 
-      shippingCost, 
-      total 
-    } = data;
+    const customer = data.customer || {};
+    const firstName = data.firstName || customer.firstName || '';
+    const lastName = data.lastName || customer.lastName || '';
+    const email = data.email || customer.email || '';
+    const phone = data.phone || customer.phone || '';
+    const address = data.address || customer.address || '';
+    const city = data.city || data.suburb || customer.city || customer.suburb || '';
+    const state = data.state || customer.state || '';
+    const postcode = data.postcode || customer.postcode || '';
+    const country = data.country || customer.country || 'Australia';
+    const shippingMethod = data.shippingMethod || 'normal';
+    const paymentMethod = data.paymentMethod || 'crypto';
+    const items = data.items || [];
+    const subtotal = data.subtotal;
+    const shippingCost = data.shippingCost;
+    const total = data.total;
 
     // Server-side verification of payment method and order totals
     const calculatedSubtotal = items.reduce((sum: number, item: any) => sum + item.price * item.qty, 0);
@@ -29,10 +28,6 @@ export async function POST(req: Request) {
 
     if (calculatedSubtotal < 100) {
       return NextResponse.json({ error: 'Minimum order amount is $100 AUD.' }, { status: 400 });
-    }
-
-    if (paymentMethod === 'credit_card') {
-      return NextResponse.json({ error: 'Credit card payment is currently unavailable. Please select Cryptocurrency, PayID, or Bank Transfer.' }, { status: 400 });
     }
 
     if (calculatedTotal < 100 && paymentMethod === 'payid') {
@@ -65,9 +60,9 @@ Order Number: #${orderId}
 Items:
 ${itemsSummary}
 
-Subtotal: $${subtotal.toFixed(2)} AUD
-Shipping (${shippingMethod === 'normal' ? 'Standard' : 'Priority'}): $${shippingCost.toFixed(2)} AUD
-Total: $${total.toFixed(2)} AUD
+Subtotal: $${(typeof subtotal === 'number' ? subtotal : calculatedSubtotal).toFixed(2)} AUD
+Shipping (${shippingMethod === 'normal' ? 'Standard' : 'Priority'}): $${(typeof shippingCost === 'number' ? shippingCost : calculatedShipping).toFixed(2)} AUD
+Total: $${(typeof total === 'number' ? total : calculatedTotal).toFixed(2)} AUD
 
 Customer Details:
 ----------------------------

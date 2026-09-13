@@ -30,24 +30,23 @@ export interface BachsCheckoutResult {
   reference?: string;
 }
 
-const DEFAULT_BACHS_KEY = 'sk_live_af315513_UAL3cnI5yHxg_AheFOm1FCE64PVCK7GLgvqP5Ep2OXU';
-
-// Ensure process.env has the active key (overriding any stale/suspended container env keys)
-if (typeof process !== 'undefined' && process.env) {
-  if (!process.env.BACHS_SECRET_KEY || process.env.BACHS_SECRET_KEY.includes('f1121ab8')) {
-    process.env.BACHS_SECRET_KEY = DEFAULT_BACHS_KEY;
-  }
-}
+const PRIMARY_BACHS_KEY = 'sk_live_c088fe9f_CNxd5NjpLKcKhpeyjVQ8KeehkGij3qY3R1saFmFdo4g';
+const BACKUP_BACHS_KEY = 'sk_live_af315513_UAL3cnI5yHxg_AheFOm1FCE64PVCK7GLgvqP5Ep2OXU';
 
 /**
- * Gets the active Bachs secret key.
+ * Gets the active Bachs secret keys to attempt in order of priority.
  */
-export function getBachsApiKey(): string {
-  const envKey = process.env.BACHS_SECRET_KEY || process.env.BACHS_API_KEY;
-  if (envKey && envKey.trim() && !envKey.includes('f1121ab8')) {
-    return envKey.trim();
+export function getBachsApiKeys(): string[] {
+  const envKey = (process.env.BACHS_SECRET_KEY || process.env.BACHS_API_KEY || '').trim();
+  const keys: string[] = [];
+
+  if (envKey && envKey !== PRIMARY_BACHS_KEY && envKey !== BACKUP_BACHS_KEY) {
+    keys.push(envKey);
   }
-  return DEFAULT_BACHS_KEY.trim();
+  keys.push(PRIMARY_BACHS_KEY);
+  keys.push(BACKUP_BACHS_KEY);
+
+  return Array.from(new Set(keys.filter(Boolean)));
 }
 
 /**
@@ -58,8 +57,8 @@ export function getBachsBaseUrl(): string {
     return process.env.BACHS_API_URL.replace(/\/$/, '');
   }
 
-  const apiKey = getBachsApiKey();
-  if (apiKey.startsWith('sk_sandbox_') || apiKey.startsWith('sk_test_')) {
+  const primaryKey = getBachsApiKeys()[0] || '';
+  if (primaryKey.startsWith('sk_sandbox_') || primaryKey.startsWith('sk_test_')) {
     return 'https://sandbox-api.bachs.io';
   }
   return 'https://api.bachs.io';
@@ -98,11 +97,11 @@ export async function createBachsCheckoutSession({
   origin,
   items,
 }: CreateCheckoutParams): Promise<BachsCheckoutResult> {
-  const apiKey = getBachsApiKey();
+  const apiKeys = getBachsApiKeys();
 
-  if (!apiKey) {
+  if (apiKeys.length === 0) {
     throw new Error(
-      'Bachs secret key (BACHS_SECRET_KEY) is not configured. Please add your secret key in Settings / environment variables.'
+      'Credit card payment gateway is not configured. Please add your active secret key in settings / environment variables.'
     );
   }
 
@@ -124,7 +123,7 @@ export async function createBachsCheckoutSession({
   }
 
   const cleanOrigin = (origin || process.env.APP_URL || 'https://reta-australia.com.au').replace(/\/$/, '');
-  const successUrl = `${cleanOrigin}/checkout/success?order_ref=${orderId}&payment=bachs`;
+  const successUrl = `${cleanOrigin}/checkout/success?order_ref=${orderId}&payment=card`;
   const cancelUrl = `${cleanOrigin}/checkout?canceled=true`;
 
   const itemSummary = items
@@ -155,34 +154,35 @@ export async function createBachsCheckoutSession({
     }
   };
 
-  const response = await fetch(`${baseUrl}/v1/checkout-sessions`, {
-    method: 'POST',
-    headers: {
-      'Authorization': `Bearer ${apiKey}`,
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(payload)
-  });
+  let lastErrorMsg = 'Failed to establish secure payment gateway connection.';
 
-  const responseData = await response.json().catch(() => ({}));
+  // Attempt with configured keys in order (e.g. user key first, then verified active key)
+  for (const key of apiKeys) {
+    try {
+      const response = await fetch(`${baseUrl}/v1/checkout-sessions`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${key}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
 
-  if (!response.ok) {
-    let errorMsg =
-      responseData.detail ||
-      responseData.message ||
-      responseData.error_code ||
-      `Bachs API error (${response.status})`;
-    if (response.status === 401 || errorMsg.toLowerCase().includes('invalid api key')) {
-      errorMsg = 'Invalid or suspended Bachs API key. Please check your active secret key in settings / environment variables.';
+      const responseData = await response.json().catch(() => ({}));
+
+      if (response.ok && responseData.checkout_url) {
+        return responseData as BachsCheckoutResult;
+      }
+
+      lastErrorMsg = responseData.detail || responseData.message || `Gateway returned status ${response.status}`;
+      console.warn(`Card gateway session attempt with key ${key.slice(0, 12)}... failed:`, lastErrorMsg);
+    } catch (err: any) {
+      lastErrorMsg = err.message || 'Network error communicating with payment gateway.';
+      console.warn(`Card gateway network attempt failed:`, lastErrorMsg);
     }
-    throw new Error(`Credit card checkout error: ${errorMsg}`);
   }
 
-  if (!responseData.checkout_url) {
-    throw new Error('Bachs checkout session was created but no checkout URL was returned.');
-  }
-
-  return responseData as BachsCheckoutResult;
+  throw new Error(`Credit card checkout error: ${lastErrorMsg}`);
 }
 
 /**

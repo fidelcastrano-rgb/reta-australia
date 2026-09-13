@@ -1,7 +1,7 @@
 "use client";
 import { useState } from 'react';
 import { useCart } from '@/components/CartContext';
-import { FileText, MessageCircle, AlertCircle, ShieldCheck } from 'lucide-react';
+import { FileText, MessageCircle, ShieldCheck } from 'lucide-react';
 
 export default function ProductClientDetails({ product }: { product: any }) {
   const [selectedVariant, setSelectedVariant] = useState(product.variants[0]);
@@ -20,22 +20,9 @@ export default function ProductClientDetails({ product }: { product: any }) {
 
   return (
     <div>
-      {/* Minimum Vial Order & Volume Discount Alert */}
-      {product.isVial && (
-        <div className="mb-6 p-4 bg-brand-secondary border border-brand-border rounded-lg">
-          <div className="flex items-center gap-2 text-xs font-bold text-brand-text uppercase tracking-wider mb-1">
-            <AlertCircle className="w-4 h-4 text-brand-success" />
-            Minimum Order: 10 Vials
-          </div>
-          <p className="text-xs text-brand-muted font-light leading-relaxed">
-            All vial products are supplied with a strict minimum quantity of 10 vials. The more you buy, the greater the volume discount!
-          </p>
-        </div>
-      )}
-
       <div className="mb-6">
         <div className="text-xs text-brand-muted uppercase font-bold tracking-wider mb-2">
-          Select Package Option {product.isVial ? '(10 Vials Minimum)' : ''}
+          Select Package Option
         </div>
         <div className="flex flex-col gap-2.5">
           {product.variants.map((v: any) => (
@@ -129,7 +116,7 @@ export default function ProductClientDetails({ product }: { product: any }) {
           ))}
         </div>
         <div className="p-6 bg-white text-xs text-brand-muted font-light leading-relaxed">
-          {activeTab === 'contents' && <p>Each vial contains precisely formulated lyophilized powder. Minimal quantity requirement is 10 vials. No diluent is included. Reconstitution materials must be sourced separately.</p>}
+          {activeTab === 'contents' && <p>Each vial contains precisely formulated lyophilized powder. No diluent is included. Reconstitution materials must be sourced separately.</p>}
           {activeTab === 'storage' && <p>Store lyophilized vials at -20°C. Keep away from direct sunlight. Once reconstituted, store at 2-8°C and use within 30 days depending on the solvent used.</p>}
           {activeTab === 'supply' && <p>Synthesized in advanced ISO-certified facilities, purified via HPLC (&gt;99% purity guarantee), and verified by independent laboratory batch analysis.</p>}
         </div>

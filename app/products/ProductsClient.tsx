@@ -112,11 +112,6 @@ function ProductCard({ product, addToOrder }: { product: any, addToOrder: any })
             {product.tag}
           </div>
         )}
-        {product.isVial && (
-          <div className="absolute top-3 right-3 bg-brand-text text-white text-[9px] font-mono px-2 py-1 uppercase tracking-widest font-bold">
-            Min Order: 10 Vials
-          </div>
-        )}
       </div>
       
       <h3 className="text-sm font-bold uppercase tracking-wide mb-2 text-brand-text">{product.name}</h3>
@@ -146,7 +141,7 @@ function ProductCard({ product, addToOrder }: { product: any, addToOrder: any })
         <div className="flex justify-between items-end mb-4">
           <div>
             <div className="text-[10px] text-brand-muted uppercase tracking-widest mb-1">
-              {product.isVial ? 'Price (10 Vials Min)' : 'Price'}
+              Price
             </div>
             <div className="text-xl font-light text-brand-text">${selectedVariant.price} AUD</div>
           </div>

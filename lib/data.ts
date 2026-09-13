@@ -338,36 +338,54 @@ export const products = [
     "slug": "tirzepatide-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure Tirzepatide. Tirzepatide (brand names Mounjaro, Zepbound) is a double glucagon hormone receptor agonist (GLP-1 and GIP receptors), making it more effective for body fat mass reduction than its predecessor Semaglutide by targeting further receptors.",
-    "priceFrom": 183.3,
+    "priceFrom": 24.44,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 24.44,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 46.44,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 109.98,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 183.3,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 348.27,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 824.85,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 1558.05,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/Tirz-10-Red-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "tb-500-5mg",
@@ -375,36 +393,54 @@ export const products = [
     "slug": "tb-500-5mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 5mg of highly pure TB-500. TB-500 (TB-4, short for Thymosin β4) is a naturally-occurring peptide that plays a vital role in the repair and regeneration of injured cells and tissues by promoting cell migration, forming new blood vessels and regenerating the tissue as well as decreasing the number of myofibroblasts in wounds, ...",
-    "priceFrom": 119.14,
+    "priceFrom": 15.89,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 15.89,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 30.19,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 71.51,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 119.14,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 226.37,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 536.13,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 1012.69,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/TB500-Purple-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "semaglutide-5mg",
@@ -412,36 +448,54 @@ export const products = [
     "slug": "semaglutide-5mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 5mg of highly pure Semaglutide. Semaglutide (brand names Ozempic, Wegovy) is used for weight loss, to lower blood sugar levels, and to reduce the risk of major cardiovascular events such as heart attack or stroke in certain patients. It is a GLP-1 agonist to be administered subcutaneously once a week that works ...",
-    "priceFrom": 155.8,
+    "priceFrom": 20.77,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 20.77,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 39.46,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 93.47,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 155.8,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 296.02,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 701.1,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 1324.3,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/Sema-Blue-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "retatrutide-10mg",
@@ -449,36 +503,54 @@ export const products = [
     "slug": "retatrutide-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure Retatrutide. Retatrutide is classified as a triple glucagon hormone receptor agonist (GLP-1, GIP, and GCGR receptors), making it more effective for body fat mass reduction than its predecessor Semaglutide by targeting further receptors.",
-    "priceFrom": 274.95,
+    "priceFrom": 36.66,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 36.66,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 69.65,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 164.97,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 274.95,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 522.41,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 1237.28,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 2337.07,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/R10-Red-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "hcg-7-000iu",
@@ -486,36 +558,54 @@ export const products = [
     "slug": "hcg-7-000iu",
     "tag": "PEPTIDE",
     "description": "Each vial contains 7,000iu of highly pure Human Chorionic Gonadotropin (hCG). Human chorionic gonadotropin (HCG) is prescribed for men to address the symptoms of hypogonadism, such as low testosterone and infertility. When testosterone is introduced exogenously such as during TRT, HCG helps to maintain fertility, testicular and penis size, cognitive function, and libido.",
-    "priceFrom": 119.14,
+    "priceFrom": 15.89,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 15.89,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 30.19,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 71.51,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 119.14,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 226.37,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 536.13,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 1012.69,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/hCG-7000iu-Pink-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "bpc-157-5mg",
@@ -523,36 +613,54 @@ export const products = [
     "slug": "bpc-157-5mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 5mg of highly pure BPC-157. BPC-157, short for Body Protection Compound 157, is a chain of fifteen amino acids with various mechanisms of action, including activating cells involved in tissue repair, including muscles, tendons, ligaments and the gastrointestinal tract, stimulating the synthesis of growth factors, and inhibiting inflammation.",
-    "priceFrom": 119.14,
+    "priceFrom": 15.89,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 15.89,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 30.19,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 71.51,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 119.14,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 226.37,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 536.13,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 1012.69,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/BPC5-Green-1-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "hcg-14-000iu",
@@ -560,36 +668,54 @@ export const products = [
     "slug": "hcg-14-000iu",
     "tag": "PEPTIDE",
     "description": "Each vial contains 14,000iu of highly pure Human Chorionic Gonadotropin (hCG). Human chorionic gonadotropin (HCG) is prescribed for men to address the symptoms of hypogonadism, such as low testosterone and infertility. When testosterone is introduced exogenously such as during TRT, HCG helps to maintain fertility, testicular and penis size, cognitive function, and libido.",
-    "priceFrom": 219.96,
+    "priceFrom": 29.33,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 29.33,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 55.73,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 131.98,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 219.96,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 417.92,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 989.82,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 1869.66,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/hCG-14000iu-Light-Blue-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "bpc-157-10mg",
@@ -597,36 +723,54 @@ export const products = [
     "slug": "bpc-157-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure BPC-157. BPC-157, short for Body Protection Compound 157, is a chain of fifteen amino acids with various mechanisms of action, including activating cells involved in tissue repair, including muscles, tendons, ligaments and the gastrointestinal tract, stimulating the synthesis of growth factors, and inhibiting inflammation.",
-    "priceFrom": 219.96,
+    "priceFrom": 29.33,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 29.33,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 55.73,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 131.98,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 219.96,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 417.92,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 989.82,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 1869.66,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/BPC-157-10mg-purple-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "bpc-157-tb-500-8220-healing-blend-8221-6mg-6mg",
@@ -634,36 +778,54 @@ export const products = [
     "slug": "bpc-157-tb-500-8220-healing-blend-8221-6mg-6mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 6mg of BPC-157 and 6mg of TB-500. Our “Healing Blend” combines BPC-157 and TB-500 (TB-4) at an ideal 1:1 ratio that takes advantage of their synergistic healing effects when used in conjunction. BPC-157, short for Body Protection Compound 157, is a chain of fifteen amino acids with various mechanisms of action, including ...",
-    "priceFrom": 219.96,
+    "priceFrom": 29.33,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 29.33,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 55.73,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 131.98,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 219.96,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 417.92,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 989.82,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 1869.66,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/Healing-6-6-White-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "tesamorelin-10mg",
@@ -671,36 +833,54 @@ export const products = [
     "slug": "tesamorelin-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure Tesamorelin. Tesamorelin is a synthetic peptide that acts as a growth hormone-releasing hormone (GHRH) analog. It is primarily used to reduce abdominal fat in HIV-infected patients with lipodystrophy, a condition characterized by abnormal fat distribution. By stimulating the release of growth hormone, tesamorelin helps improve body composition and ...",
-    "priceFrom": 274.95,
+    "priceFrom": 36.66,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 36.66,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 69.65,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 164.97,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 274.95,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 522.41,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 1237.28,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 2337.07,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/Tesa-10-Purple-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "cagrilintide-10mg",
@@ -708,36 +888,54 @@ export const products = [
     "slug": "cagrilintide-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure Cagrilintide. Cagrilintide is a novel peptide developed as a treatment for obesity and weight management. It is a dual agonist that targets both the GLP-1 (glucagon-like peptide-1) and the amylin receptor, which helps to regulate appetite and glucose metabolism. By enhancing feelings of fullness and reducing hunger, cagrilintide ...",
-    "priceFrom": 311.61,
+    "priceFrom": 41.55,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 41.55,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 78.94,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 186.98,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 311.61,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 592.06,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 1402.25,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 2648.69,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/Cagri-Red-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "survodutide-10mg",
@@ -745,36 +943,54 @@ export const products = [
     "slug": "survodutide-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure Survodutide. Survodutide is a peptide drug that acts as a dual agonist for GLP-1 (glucagon-like peptide-1) and GIP (gastric inhibitory polypeptide) receptors. It is being studied primarily for its potential in treating obesity and type 2 diabetes by helping to regulate appetite, enhance satiety, and improve glucose control. ...",
-    "priceFrom": 311.61,
+    "priceFrom": 41.55,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 41.55,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 78.94,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 186.98,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 311.61,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 592.06,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 1402.25,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 2648.69,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/Survo-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "melanotan-2-10mg",
@@ -782,36 +998,54 @@ export const products = [
     "slug": "melanotan-2-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure Melanotan-2. Melanotan 2 is a synthetic analog of the naturally occurring melanocyte-stimulating hormone (MSH). It is primarily used to stimulate melanin production in the skin, leading to tanning without the need for sun exposure. Additionally, melanotan 2 has been studied for its potential effects on appetite suppression and ...",
-    "priceFrom": 119.14,
+    "priceFrom": 15.89,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 15.89,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 30.19,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 71.51,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 119.14,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 226.37,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 536.13,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 1012.69,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/MT-2-Yellow-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "igf-1-lr3-1mg",
@@ -819,36 +1053,54 @@ export const products = [
     "slug": "igf-1-lr3-1mg",
     "tag": "HGH",
     "description": "IGF-1 LR3 (Insulin-like Growth Factor 1 Long Arg3) is a synthetic form of IGF-1, a protein that plays a key role in growth, development, and cellular repair. It's similar to the naturally occurring IGF-1 in your body but has a longer half-life due to a modification in its structure—specifically, the substitution of the active amino acids to increase biological activity.",
-    "priceFrom": 229.13,
+    "priceFrom": 30.55,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 30.55,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 58.05,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 137.48,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 229.13,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 435.35,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 1031.09,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 1947.61,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/IGF-1-LR3-Orange-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "pt-141-10mg",
@@ -856,36 +1108,54 @@ export const products = [
     "slug": "pt-141-10mg",
     "tag": "PEPTIDE",
     "description": "PT-141 (Bremelanotide) is a peptide used to treat sexual dysfunction. FDA-approved as Vyleesi, it treats hypoactive sexual desire disorder (HSDD) in women and is also studied for erectile dysfunction (ED). Unlike Viagra, it works by stimulating the melanocortin system in the brain to enhance arousal. Administered via injection, effects start within 30-60 minutes and last ...",
-    "priceFrom": 155.8,
+    "priceFrom": 20.77,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 20.77,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 39.46,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 93.47,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 155.8,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 296.02,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 701.1,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 1324.3,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/PT-141-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "ipamorelin-10mg",
@@ -893,36 +1163,54 @@ export const products = [
     "slug": "ipamorelin-10mg",
     "tag": "PEPTIDE",
     "description": "Ipamorelin is a growth hormone secretagogue (GHS) and selective ghrelin receptor agonist that stimulates the release of growth hormone (GH). It is often used for anti-aging, muscle growth, fat loss, and recovery. Key Benefits: Increases Growth Hormone naturally without raising cortisol or prolactin. Enhances Muscle Growth & Recovery by promoting protein synthesis. Supports Fat Loss ...",
-    "priceFrom": 219.96,
+    "priceFrom": 29.33,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 29.33,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 55.73,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 131.98,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 219.96,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 417.92,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 989.82,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 1869.66,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/Ipamorelin-10mg-Pink-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "epitalon-10mg",
@@ -930,36 +1218,54 @@ export const products = [
     "slug": "epitalon-10mg",
     "tag": "PEPTIDE",
     "description": "Epitalon is a synthetic tetrapeptide (Ala-Glu-Asp-Gly) known for its potential anti-aging and telomere-lengthening effects. It was developed based on the natural epithalamin peptide produced in the pineal gland. Key Benefits: Promotes Longevity: May extend telomere length, slowing cellular aging. Enhances Sleep & Circadian Rhythms: Regulates melatonin production. Boosts Immune Function: Supports overall health and resilience. ...",
-    "priceFrom": 119.14,
+    "priceFrom": 15.89,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 15.89,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 30.19,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 71.51,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 119.14,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 226.37,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 536.13,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 1012.69,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/Epitalon-Orange-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "cjc-1295-with-dac-12-5mg",
@@ -967,36 +1273,54 @@ export const products = [
     "slug": "cjc-1295-with-dac-12-5mg",
     "tag": "PEPTIDE",
     "description": "CJC-1295 with DAC is a synthetic growth hormone-releasing hormone (GHRH) analog that increases growth hormone (GH) and IGF-1 levels for muscle growth, fat loss, and anti-aging benefits. The DAC (Drug Affinity Complex) extends its half-life, allowing weekly dosing instead of frequent injections. Key Benefits: Increases Growth Hormone & IGF-1 for muscle growth and fat loss. ...",
-    "priceFrom": 311.61,
+    "priceFrom": 41.55,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 41.55,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 78.94,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 186.98,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 311.61,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 592.06,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 1402.25,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 2648.69,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/CJC-DAC-GREY-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "glow-blend-50mg",
@@ -1004,36 +1328,54 @@ export const products = [
     "slug": "glow-blend-50mg",
     "tag": "PEPTIDE",
     "description": "The GLOW Protocol Peptide Blend is a synergistic combination of three peptides: GHK-Cu, TB-500, and BPC-157. This blend is designed to enhance regenerative processes and support systemic recovery. Components: GHK-Cu (Copper Peptide): A tripeptide that binds copper ions, known for its role in promoting collagen production and skin regeneration. TB-500 (Thymosin Beta-4 Fragment): A synthetic ...",
-    "priceFrom": 265.78,
+    "priceFrom": 35.44,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 35.44,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 67.34,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 159.48,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 265.78,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 504.98,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 1196.01,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 2259.13,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/GLOW-White-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "cjc-1295-no-dac-ipamorelin-blend",
@@ -1041,36 +1383,54 @@ export const products = [
     "slug": "cjc-1295-no-dac-ipamorelin-blend",
     "tag": "PEPTIDE",
     "description": "Each vial contains 5mg of EACH CJC-1295 no DAC + Ipamorelin in lyophilized form. CJC-1295 is a synthetic growth hormone-releasing hormone (GHRH) analog designed to increase growth hormone (GH) and IGF-1 levels for muscle growth, fat loss, anti-aging, and recovery. It stimulates the pituitary gland to produce GH, mimicking the body's natural process. CJC-1295 without ...",
-    "priceFrom": 229.13,
+    "priceFrom": 30.55,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 30.55,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 58.05,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 137.48,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 229.13,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 435.35,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 1031.09,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 1947.61,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/CJC-IPA-Green-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "sermorelin-10mg",
@@ -1078,36 +1438,54 @@ export const products = [
     "slug": "sermorelin-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure Sermorelin. Sermorelin is a synthetic peptide that stimulates the release of growth hormone (GH) from the pituitary gland. It is a growth hormone-releasing hormone (GHRH) analog, meaning it mimics the natural GHRH produced by the hypothalamus. Sermorelin itself does not contain growth hormone but encourages the body to ...",
-    "priceFrom": 229.13,
+    "priceFrom": 30.55,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 30.55,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 58.05,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 137.48,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 229.13,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 435.35,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 1031.09,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 1947.61,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/Sermorelin-Green-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "tb-500-10mg",
@@ -1115,36 +1493,54 @@ export const products = [
     "slug": "tb-500-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure TB-500. TB-500 (TB-4, short for Thymosin β4) is a naturally-occurring peptide that plays a vital role in the repair and regeneration of injured cells and tissues by promoting cell migration, forming new blood vessels and regenerating the tissue as well as decreasing the number of myofibroblasts in wounds, ...",
-    "priceFrom": 219.96,
+    "priceFrom": 29.33,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 29.33,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 55.73,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 131.98,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 219.96,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 417.92,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 989.82,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 1869.66,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/TB-500-10mg-Pink-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "ghk-cu-70mg",
@@ -1152,36 +1548,54 @@ export const products = [
     "slug": "ghk-cu-70mg",
     "tag": "PEPTIDE",
     "description": "GHK-Cu Copper Peptide – Skin Regeneration & Anti-Aging Powerhouse Rediscover youthful skin with GHK-Cu (Copper Tripeptide-1), a naturally occurring peptide renowned for its regenerative and anti-aging properties. This potent compound combines the tripeptide GHK (glycyl-L-histidyl-L-lysine) with a copper ion, creating a biologically active molecule that supports skin health, hair growth, and tissue repair. Key Benefits: ...",
-    "priceFrom": 119.14,
+    "priceFrom": 15.89,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 15.89,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 30.19,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 71.51,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 119.14,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 226.37,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 536.13,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 1012.69,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/GHK-Cu-70mg-Green-1024x928.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "mots-c-10mg",
@@ -1189,36 +1603,54 @@ export const products = [
     "slug": "mots-c-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure MOTS-C. MOTS-c (Mitochondrial Open Reading Frame of the 12S rRNA Type-c) is a mitochondrial-derived peptide consisting of 16 amino acids. It plays a key role in cellular metabolism and energy homeostasis, acting through pathways related to insulin sensitivity, glucose metabolism, and stress response.",
-    "priceFrom": 119.14,
+    "priceFrom": 15.89,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 15.89,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 30.19,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 71.51,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 119.14,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 226.37,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 536.13,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 1012.69,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/MOTS-C-Pink-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "ss-31-50mg",
@@ -1226,36 +1658,54 @@ export const products = [
     "slug": "ss-31-50mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 50mg of highly pure SS-31. SS-31 (also known as Elamipretide) is a synthetic tetrapeptide (D-Arg-Dmt-Lys-Phe-NH₂) known for its unique mitochondrial-targeting properties. SS-31 selectively binds to cardiolipin within the inner mitochondrial membrane, helping to stabilize mitochondrial structure and improve bioenergetics. Its antioxidant and cell-protective actions have made it a key molecule in mitochondrial ...",
-    "priceFrom": 458.25,
+    "priceFrom": 61.1,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 61.1,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 116.09,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 274.95,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 458.25,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 870.68,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 2062.13,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 3895.13,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/SS-31-Green-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "semax-10mg",
@@ -1263,36 +1713,54 @@ export const products = [
     "slug": "semax-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure Semax in lyophilized form. Please note this batch is overdosed to ~13mg per vial, per the Janoshik test report. Semax is a synthetic peptide derived from the adrenocorticotropic hormone (ACTH) fragment (Met-Glu-His-Phe-Pro-Gly-Pro). Originally developed in Russia, Semax has been widely studied for its potential nootropic, neuroprotective, and neurorestorative properties. ...",
-    "priceFrom": 155.8,
+    "priceFrom": 20.77,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 20.77,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 39.46,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 93.47,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 155.8,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 296.02,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 701.1,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 1324.3,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/Semax-Grey-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "semaglutide-10mg",
@@ -1300,36 +1768,54 @@ export const products = [
     "slug": "semaglutide-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure Semaglutide. Semaglutide (brand names Ozempic, Wegovy) is used for weight loss, to lower blood sugar levels, and to reduce the risk of major cardiovascular events such as heart attack or stroke in certain patients. It is a GLP-1 agonist to be administered subcutaneously once a week that works ...",
-    "priceFrom": 247.46,
+    "priceFrom": 32.99,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 32.99,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 62.68,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 148.46,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 247.46,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 470.17,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 1113.57,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 2103.41,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/Sema-10-Blue-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "retatrutide-20mg",
@@ -1337,36 +1823,54 @@ export const products = [
     "slug": "retatrutide-20mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 20mg of highly pure Retatrutide. Retatrutide is classified as a triple glucagon hormone receptor agonist (GLP-1, GIP, and GCGR receptors), making it more effective for body fat mass reduction than its predecessor Semaglutide by targeting further receptors.",
-    "priceFrom": 458.25,
+    "priceFrom": 61.1,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 61.1,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 116.09,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 274.95,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 458.25,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 870.68,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 2062.13,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 3895.13,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/Reta-20-Purple-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "cjc-1295-no-dac-10mg",
@@ -1374,36 +1878,54 @@ export const products = [
     "slug": "cjc-1295-no-dac-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure CJC-1295 no DAC. Please note this batch is overdosed to closer to 12.5mg per vial per the Janoshik test report. OverviewCJC-1295 no DAC is a synthetic peptide belonging to the growth hormone–releasing hormone (GHRH) analog class. Unlike the DAC (Drug Affinity Complex) version, the no-DAC form has a shorter ...",
-    "priceFrom": 119.14,
+    "priceFrom": 15.89,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 15.89,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 30.19,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 71.51,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 119.14,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 226.37,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 536.13,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 1012.69,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/CJCNODAC10-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "mazdutide-10mg",
@@ -1411,36 +1933,54 @@ export const products = [
     "slug": "mazdutide-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure Mazdutide. Mazdutide is a synthetic dual GLP-1/GIP receptor agonist studied for its role in metabolic regulation. Research has explored its effects on glucose control, insulin response, and body weight management in preclinical and clinical trials.",
-    "priceFrom": 311.61,
+    "priceFrom": 41.55,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 41.55,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 78.94,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 186.98,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 311.61,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 592.06,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 1402.25,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 2648.69,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/Mazdutide-Red-color-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "thymosin-alpha-1-12-5mg",
@@ -1448,36 +1988,54 @@ export const products = [
     "slug": "thymosin-alpha-1-12-5mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 12.5mg of highly pure Thymosin Alpha-1. Thymosin Alpha-1 (Tα1) is a naturally occurring peptide fragment derived from thymosin fraction 5, originally isolated from the thymus gland. It has been widely studied for its potential role in modulating immune response and supporting immune system function in preclinical and clinical research settings.",
-    "priceFrom": 219.96,
+    "priceFrom": 29.33,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 29.33,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 55.73,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 131.98,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 219.96,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 417.92,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 989.82,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 1869.66,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/TA1-Grey-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "klow-blend-80mg",
@@ -1485,36 +2043,54 @@ export const products = [
     "slug": "klow-blend-80mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains a blend of highly pure BPC-157, TB-500, KPV, and GHK-Cu. KLOW is a proprietary research blend combining four synergistic peptides—BPC-157, TB-500, KPV, and GHK-Cu—designed for advanced laboratory investigation into immune modulation, inflammation control, tissue repair, and cellular signaling. By combining these compounds, the KLOW blend offers researchers a unique opportunity to explore ...",
-    "priceFrom": 311.61,
+    "priceFrom": 41.55,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 41.55,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 78.94,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 186.98,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 311.61,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 592.06,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 1402.25,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 2648.69,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/KLOW-Grey-1024x929.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "kpv-10mg",
@@ -1522,36 +2098,54 @@ export const products = [
     "slug": "kpv-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure KPV. KPV is a naturally occurring tripeptide fragment (Lysine-Proline-Valine) derived from the hormone alpha-MSH. It has been studied extensively in research for its anti-inflammatory, immune-modulating, and wound-healing potential. Because of its small size and stability, KPV has become a focus of laboratory investigation into novel therapeutic pathways for ...",
-    "priceFrom": 155.8,
+    "priceFrom": 20.77,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 20.77,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 39.46,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 93.47,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 155.8,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 296.02,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 701.1,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 1324.3,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/KPV-10-Blue-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "selank-12-5mg",
@@ -1559,36 +2153,54 @@ export const products = [
     "slug": "selank-12-5mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 12.5mg of highly pure lyophilized Selank. Selank is a synthetic peptide analog of the naturally occurring tuftsin fragment, designed for research into its potential neuromodulatory and anxiolytic effects. It has been investigated for its influence on mood regulation, cognitive function, and stress resilience.",
-    "priceFrom": 219.96,
+    "priceFrom": 29.33,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 29.33,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 55.73,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 131.98,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 219.96,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 417.92,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 989.82,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 1869.66,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/SELANK-Mockup-1024x929.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "glutathione-1500mg",
@@ -1596,36 +2208,54 @@ export const products = [
     "slug": "glutathione-1500mg",
     "tag": "PEPTIDE",
     "description": "Overview Glutathione is a naturally occurring tripeptide composed of glutamine, cysteine, and glycine — often referred to as the body’s master antioxidant. It plays a central role in detoxification, immune defense, and cellular repair by neutralizing free radicals and reactive oxygen species. Mechanism of Action Injectable (parenteral) glutathione delivers the reduced form (GSH) directly into ...",
-    "priceFrom": 155.8,
+    "priceFrom": 20.77,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 20.77,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 39.46,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 93.47,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 155.8,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 296.02,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 701.1,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 1324.3,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/Glutathione-885x1024.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "retatrutide-60mg",
@@ -1633,36 +2263,54 @@ export const products = [
     "slug": "retatrutide-60mg",
     "tag": "PEPTIDE",
     "description": "Important note: this is a standard peptide vial and will only hold a maximum of about 3.5mL of bacteriostatic water. Each vial contains 60mg of highly pure Retatrutide. Retatrutide is classified as a triple glucagon hormone receptor agonist (GLP-1, GIP, and GCGR receptors), making it more effective for body fat mass reduction than its predecessor ...",
-    "priceFrom": 925.67,
+    "priceFrom": 123.42,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 123.42,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 234.5,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 555.39,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 925.67,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 1758.77,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 4165.51,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 7868.19,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/Retatrutide-Mockup-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "l-carnitine-750mg-ml",
@@ -1670,36 +2318,54 @@ export const products = [
     "slug": "l-carnitine-750mg-ml",
     "tag": "PEPTIDE",
     "description": "Each vial contains 30mL of L-Carnitine at 750mg/mL. L-Carnitine (Levocarnitine) is a naturally occurring quaternary ammonium compound involved in mitochondrial energy metabolism. In research settings, L-Carnitine plays a central role in the transport of long-chain fatty acids into the mitochondria, where they can be oxidized for ATP production. This mechanism makes it a valuable compound ...",
-    "priceFrom": 219.96,
+    "priceFrom": 29.33,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 29.33,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 55.73,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 131.98,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 219.96,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 417.92,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 989.82,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 1869.66,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/L-Carnitine-Mockup-944x1024.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "tirzepatide-30mg",
@@ -1707,36 +2373,54 @@ export const products = [
     "slug": "tirzepatide-30mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 30mg of highly pure Tirzepatide. Tirzepatide (brand names Mounjaro, Zepbound) is a double glucagon hormone receptor agonist (GLP-1 and GIP receptors), making it more effective for body fat mass reduction than its predecessor Semaglutide by targeting further receptors.",
-    "priceFrom": 458.25,
+    "priceFrom": 61.1,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 61.1,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 116.09,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 274.95,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 458.25,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 870.68,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 2062.13,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 3895.13,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/T30-Black-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "nad-350mg",
@@ -1744,36 +2428,54 @@ export const products = [
     "slug": "nad-350mg",
     "tag": "PEPTIDE",
     "description": "Each 10mL vial contains 350mg of lyophilized NAD+. Overview:High-purity NAD+ (Nicotinamide Adenine Dinucleotide) solution used in research on cellular energy, mitochondrial function, metabolic pathways, and stress responses. Potential Benefits (Research Context Only):Studies suggest NAD+ may: Support cellular energy production (ATP generation) Influence mitochondrial health and biogenesis Play a role in DNA repair pathways Affect cellular ...",
-    "priceFrom": 91.65,
+    "priceFrom": 12.22,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 12.22,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 23.22,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 54.99,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 91.65,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 174.14,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 412.43,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 779.03,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/L-2-1-1024x1024.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "ll-37-10mg",
@@ -1781,36 +2483,54 @@ export const products = [
     "slug": "ll-37-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure LL-37 in lyophilized form. LL-37 is a synthetic version of the human cathelicidin antimicrobial peptide, produced to high purity for laboratory and research applications. Known for its role in innate immune signaling and host-defense mechanisms, LL-37 is widely studied for its interactions with microbial membranes, immune modulation pathways, and ...",
-    "priceFrom": 155.8,
+    "priceFrom": 20.77,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 20.77,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 39.46,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 93.47,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 155.8,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 296.02,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 701.1,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 1324.3,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/LL-37-White-1024x929.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "dsip-12-5mg",
@@ -1818,36 +2538,54 @@ export const products = [
     "slug": "dsip-12-5mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 12.5mg of highly pure DSIP in lyophilized form. DSIP (Delta Sleep-Inducing Peptide) Injectable is a synthetic peptide corresponding to the naturally occurring neuropeptide studied for its role in neuroendocrine regulation and circadian biology. DSIP is commonly used in research exploring sleep-related signaling pathways, stress responses, and peptide–receptor interactions within the central nervous ...",
-    "priceFrom": 155.8,
+    "priceFrom": 20.77,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 20.77,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 39.46,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 93.47,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 155.8,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 296.02,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 701.1,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 1324.3,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/DSIP-12.5-Red-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "kisspeptin-12-5mg",
@@ -1855,36 +2593,54 @@ export const products = [
     "slug": "kisspeptin-12-5mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 12.5mg of highly pure Kisspeptin in lyophilized form. Kisspeptin Peptide is a synthetic form of the naturally occurring neuropeptide widely studied for its role in neuroendocrine signaling and reproductive axis regulation. It is commonly used in research investigating hypothalamic signaling pathways, hormone release mechanisms, and peptide–receptor interactions. Manufactured to high purity and ...",
-    "priceFrom": 155.8,
+    "priceFrom": 20.77,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 20.77,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 39.46,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 93.47,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 155.8,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 296.02,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 701.1,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 1324.3,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/Kisspeptin-12.5mg-Purple-1024x929.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "5-amino-1mq-10mg",
@@ -1892,36 +2648,54 @@ export const products = [
     "slug": "5-amino-1mq-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure 5-Amino-1MQ in lyophilized form. Please note it is normal that this product is orange, not white like a typical lyophilized peptide. 5-Amino-1MQ is commonly discussed for its potential effects on metabolic pathways, particularly through inhibition of NNMT. Reported or explored effects include improved regulation of energy metabolism, reduced ...",
-    "priceFrom": 119.14,
+    "priceFrom": 15.89,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 15.89,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 30.19,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 71.51,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 119.14,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 226.37,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 536.13,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 1012.69,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/5-Amino-Yellow-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "human-menopausal-gonadotropin-hmg-75iu-8211-hmg01",
@@ -1929,36 +2703,54 @@ export const products = [
     "slug": "human-menopausal-gonadotropin-hmg-75iu-8211-hmg01",
     "tag": "PEPTIDE",
     "description": "Each vial contains 75iu of highly pure Human Menopausal Gonadotropin (HMG). Human Menopausal Gonadotropin (hMG) is a purified gonadotropin preparation containing follicle-stimulating hormone (FSH) and luteinizing hormone (LH). It is commonly prescribed by fertility specialists as part of medically supervised treatment protocols for reproductive health. hMG is derived from human sources and formulated for injection. ...",
-    "priceFrom": 155.8,
+    "priceFrom": 20.77,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 20.77,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 39.46,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 93.47,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 155.8,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 296.02,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 701.1,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 1324.3,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/5-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "tesamorelin-20mg",
@@ -1966,36 +2758,54 @@ export const products = [
     "slug": "tesamorelin-20mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 20mg of highly pure Tesamorelin. Tesamorelin is a synthetic peptide that acts as a growth hormone-releasing hormone (GHRH) analog. It is primarily used to reduce abdominal fat in HIV-infected patients with lipodystrophy, a condition characterized by abnormal fat distribution. By stimulating the release of growth hormone, tesamorelin helps improve body composition and ...",
-    "priceFrom": 458.25,
+    "priceFrom": 61.1,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 61.1,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 116.09,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 274.95,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 458.25,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 870.68,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 2062.13,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 3895.13,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/6-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "bpc-157-tb-500-healing-blend-10mg-10mg",
@@ -2003,36 +2813,54 @@ export const products = [
     "slug": "bpc-157-tb-500-healing-blend-10mg-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of BPC-157 and 10mg of TB-500. Our “Healing Blend” combines BPC-157 and TB-500 (TB-4) at an ideal 1:1 ratio that takes advantage of their synergistic healing effects when used in conjunction. BPC-157, short for Body Protection Compound 157, is a chain of fifteen amino acids with various mechanisms of action, including ...",
-    "priceFrom": 247.46,
+    "priceFrom": 32.99,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 32.99,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 62.68,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 148.46,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 247.46,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 470.17,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 1113.57,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 2103.41,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/3-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "mots-c-40mg",
@@ -2040,36 +2868,54 @@ export const products = [
     "slug": "mots-c-40mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 40mg of highly pure MOTS-C. MOTS-c (Mitochondrial Open Reading Frame of the 12S rRNA Type-c) is a mitochondrial-derived peptide consisting of 16 amino acids. It plays a key role in cellular metabolism and energy homeostasis, acting through pathways related to insulin sensitivity, glucose metabolism, and stress response.",
-    "priceFrom": 366.6,
+    "priceFrom": 48.88,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 48.88,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 92.87,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 219.96,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 366.6,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 696.54,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 1649.7,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 3116.1,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/7-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "cerebrolysin-6-x-60mg-360mg-box",
@@ -2077,36 +2923,54 @@ export const products = [
     "slug": "cerebrolysin-6-x-60mg-360mg-box",
     "tag": "PEPTIDE",
     "description": "Cerebrolysin is a sterile injectable preparation derived from purified porcine brain extracts. It contains a balanced mixture of amino acids and small peptides designed to support metabolic activity of nerve cells. This product is clinically used as an adjunct therapy for patients with cognitive impairment caused by traumatic brain injury or cerebrovascular diseases. It may ...",
-    "priceFrom": 384.93,
+    "priceFrom": 51.32,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 51.32,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 97.51,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 230.94,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 384.93,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 731.37,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 1732.19,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 3271.91,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/Cerebrolysin-Box-1024x618.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "bpc-157-arginate-tablets",
@@ -2145,36 +3009,54 @@ export const products = [
     "slug": "melanotan-1-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure Melanotan-1 in lyophilized form. Melanotan-1 is a synthetic peptide formulated to support the body’s natural pigmentation processes. Designed for subcutaneous administration under professional supervision, it is intended for use in controlled settings where modulation of melanin production is desired. Manufactured to high purity standards, it offers consistent quality ...",
-    "priceFrom": 155.8,
+    "priceFrom": 20.77,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 20.77,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 39.46,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 93.47,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 155.8,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 296.02,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 701.1,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 1324.3,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/11-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "brain-blend-6mg-6mg",
@@ -2182,36 +3064,54 @@ export const products = [
     "slug": "brain-blend-6mg-6mg",
     "tag": "PEPTIDE",
     "description": "Each vial of Brain Blend contains 6mg of each Semax and Selank in highly pure, lyophilized form. Brain Blend (Semax + Selank) is a synergistic peptide formulation designed to support cognitive clarity, balanced mood, and overall mental performance. Combining the complementary properties of Semax and Selank, this advanced blend is developed for subcutaneous administration under professional ...",
-    "priceFrom": 183.3,
+    "priceFrom": 24.44,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 24.44,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 46.44,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 109.98,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 183.3,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 348.27,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 824.85,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 1558.05,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/4-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "chonluten-30mg",
@@ -2219,36 +3119,54 @@ export const products = [
     "slug": "chonluten-30mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 30mg of highly pure Chonluten in lyophilized form. Chonluten is a synthetic peptide formulation developed to support cellular health and tissue function. Designed for use in controlled settings under professional supervision, it is manufactured to high purity standards to ensure consistent quality and reliability. Chonluten is intended for specialized research and performance-focused ...",
-    "priceFrom": 155.8,
+    "priceFrom": 20.77,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 20.77,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 39.46,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 93.47,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 155.8,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 296.02,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 701.1,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 1324.3,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/8-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "cardiogen-20mg",
@@ -2256,36 +3174,54 @@ export const products = [
     "slug": "cardiogen-20mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 20mg of highly pure Cardiogen in lyophilized form. Cardiogen is a peptide-based formulation developed to support cardiovascular cellular function and overall tissue vitality. Designed for administration under professional supervision, it is manufactured to high purity standards to ensure consistency and quality. Injectable Cardiogen is intended for specialized research and performance-focused applications where ...",
-    "priceFrom": 155.8,
+    "priceFrom": 20.77,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 20.77,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 39.46,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 93.47,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 155.8,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 296.02,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 701.1,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 1324.3,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/9-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "ovagen-10mg",
@@ -2293,36 +3229,54 @@ export const products = [
     "slug": "ovagen-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure Ovagen in lyophilized form. Ovagen is a peptide-based formulation developed to support cellular function and tissue balance. Designed for administration under professional supervision, it is manufactured to high purity standards to ensure consistency and reliability. Injectable Ovagen is intended for specialized research and performance-focused applications where targeted peptide ...",
-    "priceFrom": 119.14,
+    "priceFrom": 15.89,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 15.89,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 30.19,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 71.51,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 119.14,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 226.37,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 536.13,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 1012.69,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/2-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "thymulin-15mg",
@@ -2330,36 +3284,54 @@ export const products = [
     "slug": "thymulin-15mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 15mg of highly pure Thymulin in lyophilized form. Thymulin is a peptide-based formulation developed to support immune system modulation and cellular signaling processes. Designed for administration under professional supervision, it is manufactured to high purity standards to ensure consistency and quality. Injectable Thymulin is intended for specialized research and performance-focused applications where ...",
-    "priceFrom": 155.8,
+    "priceFrom": 20.77,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 20.77,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 39.46,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 93.47,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 155.8,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 296.02,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 701.1,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 1324.3,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/10-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "tirzepatide-60mg",
@@ -2367,36 +3339,54 @@ export const products = [
     "slug": "tirzepatide-60mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 60mg of highly pure Tirzepatide. Tirzepatide (brand names Mounjaro, Zepbound) is a double glucagon hormone receptor agonist (GLP-1 and GIP receptors), making it more effective for body fat mass reduction than its predecessor Semaglutide by targeting further receptors.",
-    "priceFrom": 696.54,
+    "priceFrom": 92.87,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 92.87,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 176.45,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 417.92,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 696.54,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 1323.43,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 3134.43,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 5920.59,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/Tirz-60-Blue-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "aod-9604-2-5mg",
@@ -2404,36 +3394,54 @@ export const products = [
     "slug": "aod-9604-2-5mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 2.5mg of highly pure AOD-9604. AOD-9604 is a synthetic peptide fragment derived from the C-terminal region of human growth hormone (hGH), specifically engineered to isolate and study the lipolytic (fat-metabolizing) properties of hGH without its broader anabolic or growth-promoting effects. It is commonly investigated for its role in regulating fat metabolism, lipid ...",
-    "priceFrom": 119.14,
+    "priceFrom": 15.89,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 15.89,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 30.19,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 71.51,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 119.14,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 226.37,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 536.13,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 1012.69,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/AOD-Purple-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "ara-290-10mg",
@@ -2441,36 +3449,54 @@ export const products = [
     "slug": "ara-290-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure ARA-290. ARA-290 is a synthetic peptide derived from the tertiary structure of erythropoietin (EPO), specifically engineered to retain its tissue-protective and anti-inflammatory properties while avoiding the erythropoietic (red blood cell–stimulating) effects associated with full-length EPO. It is primarily studied for its role in modulating innate repair pathways, reducing ...",
-    "priceFrom": 155.8,
+    "priceFrom": 20.77,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 20.77,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 39.46,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 93.47,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 155.8,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 296.02,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 701.1,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 1324.3,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/ARA-290-Purple-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "pinealon-10mg",
@@ -2478,36 +3504,54 @@ export const products = [
     "slug": "pinealon-10mg",
     "tag": "PEPTIDE",
     "description": "Each vial contains 10mg of highly pure Pinealon. Pinealon is a synthetic short peptide composed of three amino acids (Glu-Asp-Arg), developed as part of a class of regulatory peptides studied for their potential effects on neuronal function, gene expression, and cellular aging processes. It is primarily investigated for its role in supporting cognitive function, neuroprotection, ...",
-    "priceFrom": 155.8,
+    "priceFrom": 20.77,
     "variants": [
+      {
+        "id": "1v",
+        "name": "1x Vial",
+        "price": 20.77,
+        "savingsLabel": ""
+      },
+      {
+        "id": "2v",
+        "name": "2x Vials",
+        "price": 39.46,
+        "savingsLabel": "Save 5%"
+      },
+      {
+        "id": "5v",
+        "name": "5x Vials",
+        "price": 93.47,
+        "savingsLabel": "Save 10%"
+      },
       {
         "id": "10v",
         "name": "10x Vials",
         "price": 155.8,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": "Save 25%"
       },
       {
         "id": "20v",
         "name": "20x Vials",
         "price": 296.02,
-        "savingsLabel": "Save 5%"
+        "savingsLabel": "Save 30%"
       },
       {
         "id": "50v",
         "name": "50x Vials",
         "price": 701.1,
-        "savingsLabel": "Save 10%"
+        "savingsLabel": "Save 35%"
       },
       {
         "id": "100v",
         "name": "100x Vials",
         "price": 1324.3,
-        "savingsLabel": "Save 15%"
+        "savingsLabel": "Save 40%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/Pinnealon-Purple-1024x930.jpg",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "bacteriostatic-water-pfizer",
@@ -2543,33 +3587,33 @@ export const products = [
     "priceFrom": 201.63,
     "variants": [
       {
-        "id": "10v",
-        "name": "10x Kit (10 Vials)",
+        "id": "1kit",
+        "name": "1x Kit (10 Vials)",
         "price": 201.63,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": ""
       },
       {
-        "id": "20v",
-        "name": "20x Kit (10 Vials)",
+        "id": "2kits",
+        "name": "2x Kits (20 Vials)",
         "price": 383.1,
         "savingsLabel": "Save 5%"
       },
       {
-        "id": "50v",
-        "name": "50x Kit (10 Vials)",
+        "id": "5kits",
+        "name": "5x Kits (50 Vials)",
         "price": 907.34,
         "savingsLabel": "Save 10%"
       },
       {
-        "id": "100v",
-        "name": "100x Kit (10 Vials)",
+        "id": "10kits",
+        "name": "10x Kits (100 Vials)",
         "price": 1713.86,
         "savingsLabel": "Save 15%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/HGH-Kit-White@0.5x-600x600.webp",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "hgh-batch-ggc36-420iu-kit",
@@ -2580,33 +3624,33 @@ export const products = [
     "priceFrom": 513.24,
     "variants": [
       {
-        "id": "10v",
-        "name": "10x Kit (10 Vials)",
+        "id": "1kit",
+        "name": "1x Kit (10 Vials)",
         "price": 513.24,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": ""
       },
       {
-        "id": "20v",
-        "name": "20x Kit (10 Vials)",
+        "id": "2kits",
+        "name": "2x Kits (20 Vials)",
         "price": 975.16,
         "savingsLabel": "Save 5%"
       },
       {
-        "id": "50v",
-        "name": "50x Kit (10 Vials)",
+        "id": "5kits",
+        "name": "5x Kits (50 Vials)",
         "price": 2309.58,
         "savingsLabel": "Save 10%"
       },
       {
-        "id": "100v",
-        "name": "100x Kit (10 Vials)",
+        "id": "10kits",
+        "name": "10x Kits (100 Vials)",
         "price": 4362.54,
         "savingsLabel": "Save 15%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/HGH-Kit-Purple@0.5x-600x600.webp",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   },
   {
     "id": "cloudtropin-batch-ggc34-430iu-kit",
@@ -2617,33 +3661,33 @@ export const products = [
     "priceFrom": 366.6,
     "variants": [
       {
-        "id": "10v",
-        "name": "10x Kit (10 Vials)",
+        "id": "1kit",
+        "name": "1x Kit (10 Vials)",
         "price": 366.6,
-        "savingsLabel": "Min Order (10 Vials)"
+        "savingsLabel": ""
       },
       {
-        "id": "20v",
-        "name": "20x Kit (10 Vials)",
+        "id": "2kits",
+        "name": "2x Kits (20 Vials)",
         "price": 696.54,
         "savingsLabel": "Save 5%"
       },
       {
-        "id": "50v",
-        "name": "50x Kit (10 Vials)",
+        "id": "5kits",
+        "name": "5x Kits (50 Vials)",
         "price": 1649.7,
         "savingsLabel": "Save 10%"
       },
       {
-        "id": "100v",
-        "name": "100x Kit (10 Vials)",
+        "id": "10kits",
+        "name": "10x Kits (100 Vials)",
         "price": 3116.1,
         "savingsLabel": "Save 15%"
       }
     ],
     "image": "https://growthguys.is/wp-content/uploads/Cloudtropin-Transparent-Background-600x600.png",
     "thumbnails": [],
-    "isVial": true
+    "isVial": false
   }
 ];
 
@@ -2670,7 +3714,7 @@ export const faqs = [
   },
   {
     "q": "What is the minimum order requirement?",
-    "a": "All peptide vial products have a minimum order requirement of 10 vials. Additionally, our store has a $100 AUD minimum order threshold across all purchases."
+    "a": "Our store has a $100 AUD minimum order threshold across all purchases. There is no minimum vial quantity per product, so you can mix and match individual vials, kits, devices, and ancillaries freely to reach the $100 AUD store minimum."
   }
 ];
 

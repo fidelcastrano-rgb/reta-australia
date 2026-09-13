@@ -1,15 +1,22 @@
 'use client';
 
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { motion } from 'motion/react';
-import { CheckCircle2, Truck, ArrowRight, CreditCard, ShieldCheck } from 'lucide-react';
+import { CheckCircle2, Truck, ArrowRight } from 'lucide-react';
+import { useCart } from '@/components/CartContext';
 
 function SuccessContent() {
   const searchParams = useSearchParams();
-  const orderRef = searchParams.get('order_ref') || searchParams.get('checkout_id') || 'CONFIRMED';
-  const isBachsPayment = searchParams.get('payment') === 'bachs' || Boolean(searchParams.get('checkout_id'));
+  const { clearOrder } = useCart();
+  
+  const orderRef = searchParams?.get('order_ref') || searchParams?.get('checkout_id') || 'CONFIRMED';
+
+  useEffect(() => {
+    // Clear the cart once the success page loads
+    clearOrder();
+  }, [clearOrder]);
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-20">
@@ -26,21 +33,14 @@ function SuccessContent() {
           <span className="text-[10px] uppercase font-mono tracking-widest text-brand-muted bg-brand-secondary px-3 py-1 border border-brand-border inline-block">
             Order Reference: #{orderRef}
           </span>
-          {isBachsPayment && (
-            <span className="text-[10px] uppercase font-mono tracking-widest text-emerald-800 bg-emerald-50 px-3 py-1 border border-emerald-200 inline-flex items-center gap-1.5 font-bold">
-              <CreditCard className="w-3 h-3 text-emerald-700" /> Card Payment Authorized
-            </span>
-          )}
         </div>
 
         <h1 className="text-3xl sm:text-4xl font-heading font-light tracking-tight mb-4 text-brand-text">
-          {isBachsPayment ? 'Payment Successful' : 'Thank You For Your Order'}
+          Thank You For Your Order
         </h1>
         
         <p className="text-brand-muted text-sm sm:text-base mb-8 max-w-lg mx-auto leading-relaxed">
-          {isBachsPayment
-            ? 'Your card payment has been securely authorized via Bachs. Your order has been registered in our system and is queued for immediate dispatch.'
-            : 'Your order has been recorded in our system. A full receipt with order breakdown and dispatch details has been emailed to you.'}
+          Your order has been recorded in our system. A receipt with order breakdown and dispatch details has been emailed to you.
         </p>
 
         {/* Status card */}
@@ -54,17 +54,6 @@ function SuccessContent() {
               </p>
             </div>
           </div>
-          {isBachsPayment && (
-            <div className="flex items-start gap-3 border-t border-brand-border/60 pt-3">
-              <ShieldCheck className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
-              <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-brand-text">Verified Secure Checkout</h4>
-                <p className="text-xs text-brand-muted mt-0.5 leading-relaxed">
-                  Processed via Bachs Payment Systems with end-to-end encryption.
-                </p>
-              </div>
-            </div>
-          )}
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

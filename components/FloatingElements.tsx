@@ -165,7 +165,7 @@ export default function FloatingElements() {
               <span>Payment Method</span>
               <span className="text-brand-success font-bold">Select</span>
             </div>
-            <div className="grid grid-cols-3 gap-1.5">
+            <div className="grid grid-cols-3 gap-1">
               <button 
                 type="button"
                 onClick={() => setPaymentMethod('crypto')}

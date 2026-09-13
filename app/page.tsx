@@ -53,11 +53,11 @@ export default function Home() {
       {/* 1. Notice/announcement bar */}
       <div className="bg-brand-text text-white text-sm py-2 overflow-hidden whitespace-nowrap relative">
         <div className="animate-[marquee_25s_linear_infinite] inline-block font-medium">
-          <span className="mx-4">🔥 10 VIAL MINIMUM FOR PEPTIDES &amp; BULK DISCOUNTS</span>
+          <span className="mx-4">📦 $100 STORE MINIMUM ORDER</span>
           <span className="mx-4">🧪 THIRD-PARTY TESTED (COA ON REQUEST)</span>
           <span className="mx-4">🚚 NEXT DAY EXPRESS SHIPPING AUSTRALIA-WIDE</span>
+          <span className="mx-4">🔥 VOLUME &amp; BULK DISCOUNTS ON ALL VIALS</span>
           <span className="mx-4">📦 $100 STORE MINIMUM ORDER</span>
-          <span className="mx-4">🔥 10 VIAL MINIMUM FOR PEPTIDES &amp; BULK DISCOUNTS</span>
           <span className="mx-4">🧪 THIRD-PARTY TESTED (COA ON REQUEST)</span>
         </div>
       </div>

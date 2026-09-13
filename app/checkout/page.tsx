@@ -3,6 +3,7 @@
 import { useState, Suspense } from 'react';
 import { useCart } from '@/components/CartContext';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { motion } from 'motion/react';
 import { Loader2, MessageCircle, CheckCircle2, AlertCircle } from 'lucide-react';
 
@@ -175,11 +176,7 @@ function CheckoutContent() {
       text += `*Shipping:* $${shippingCost.toFixed(2)} AUD\n`;
       text += `*Total Order Amount:* $${total.toFixed(2)} AUD\n\n`;
 
-      if (resData.checkoutUrl) {
-        text += `Card Payment Link: ${resData.checkoutUrl}\n\n`;
-      } else {
-        text += `Please send the payment instructions so I can transfer the funds immediately.`;
-      }
+      text += `Please send the payment instructions so I can transfer the funds immediately.`;
 
       clearOrder();
       setSuccess(true);
@@ -218,7 +215,7 @@ function CheckoutContent() {
           <div className="bg-brand-secondary p-6 mb-8 text-sm text-left border border-brand-border">
             <h3 className="font-bold mb-3 uppercase tracking-widest text-xs text-brand-text">Next Steps &amp; Payment</h3>
             <p className="text-xs text-brand-muted leading-relaxed mb-3">
-              Our team will review your order details. Manual payment instructions (for Cryptocurrency, PayID, or Bank Transfer) will be delivered via email or WhatsApp.
+              Our team will review your order details. Instructions for your chosen payment method will be delivered via email or WhatsApp.
             </p>
             <p className="text-xs text-brand-muted leading-relaxed">
               Please note that your order will be processed and shipped once payment verification is completed. Discrete tracking details will be emailed directly to you.
@@ -345,9 +342,9 @@ function CheckoutContent() {
                 <div className="bg-brand-secondary p-4 text-xs space-y-2 mb-6 border border-brand-border">
                   <div className="font-bold text-brand-text uppercase tracking-wider">Payment Options &amp; Minimums:</div>
                   <ul className="list-disc list-inside text-brand-muted space-y-1">
-                    <li><strong>Cryptocurrency</strong>: USDT / BTC / LTC &mdash; <span className="text-brand-text font-bold">Most Preferred (Instant Processing)</span></li>
-                    <li><strong>PayID</strong>: Instant transfer via phone/email (Orders of <strong>$100 AUD</strong> or more)</li>
-                    <li><strong>Bank Transfer</strong>: BSB &amp; Account number (Orders of <strong>$200 AUD</strong> or more)</li>
+                    <li><strong>Cryptocurrency</strong>: USDT / BTC / LTC (Fast manual confirmation - <span className="text-brand-text font-bold">Preferred</span>)</li>
+                    <li><strong>PayID</strong>: Orders of <strong>$100 AUD</strong> or more</li>
+                    <li><strong>Bank Transfer</strong>: Orders of <strong>$200 AUD</strong> or more</li>
                   </ul>
                 </div>
 
@@ -359,11 +356,10 @@ function CheckoutContent() {
                         <input type="radio" name="payment" value="crypto" checked={paymentMethod === 'crypto'} onChange={() => setSelectedPaymentMethod('crypto')} className="accent-brand-text" />
                         <span className="text-sm font-bold">Crypto (USDT / BTC / LTC etc.)</span>
                       </div>
-                      <span className="bg-brand-text text-brand-bg text-[9px] uppercase font-bold tracking-widest px-2 py-1">MOST PREFERRED</span>
                     </div>
                     {paymentMethod === 'crypto' && (
                       <p className="text-xs text-brand-muted mt-3 ml-7">
-                        Pay using cryptocurrency. This is our <strong>most preferred option</strong> with zero delay in confirmation and processing. We will contact you manually with the wallet details shortly.
+                        Pay using cryptocurrency. This is our preferred fast manual option. We will contact you manually with the wallet details shortly.
                       </p>
                     )}
                   </label>
