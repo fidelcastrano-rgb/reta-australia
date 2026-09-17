@@ -12,6 +12,7 @@ function SuccessContent() {
   const { clearOrder } = useCart();
   
   const orderRef = searchParams?.get('order_ref') || searchParams?.get('checkout_id') || 'CONFIRMED';
+  const isCardPayment = searchParams?.get('payment') === 'card';
 
   useEffect(() => {
     // Clear the cart once the success page loads
@@ -33,6 +34,11 @@ function SuccessContent() {
           <span className="text-[10px] uppercase font-mono tracking-widest text-brand-muted bg-brand-secondary px-3 py-1 border border-brand-border inline-block">
             Order Reference: #{orderRef}
           </span>
+          {isCardPayment && (
+            <span className="text-[10px] uppercase font-mono tracking-widest text-emerald-800 bg-emerald-50 px-3 py-1 border border-emerald-300 inline-block font-bold">
+              ✓ Card Payment Approved
+            </span>
+          )}
         </div>
 
         <h1 className="text-3xl sm:text-4xl font-heading font-light tracking-tight mb-4 text-brand-text">

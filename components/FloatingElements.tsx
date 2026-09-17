@@ -8,7 +8,7 @@ import { usePathname } from 'next/navigation';
 export default function FloatingElements() {
   const { items, removeItem, clearOrder } = useCart();
   const [mounted, setMounted] = useState(false);
-  const [paymentMethod, setPaymentMethod] = useState<'crypto' | 'payid' | 'bank_transfer'>('crypto');
+  const [paymentMethod, setPaymentMethod] = useState<'card' | 'crypto' | 'payid' | 'bank_transfer'>('card');
   const [minimized, setMinimized] = useState(false);
   const pathname = usePathname();
   
@@ -39,8 +39,8 @@ export default function FloatingElements() {
 
   const activePaymentMethod = 
     paymentMethod === 'bank_transfer' && !isBankTransferAllowed
-      ? (isPayidAllowed ? 'payid' : 'crypto')
-      : (paymentMethod === 'payid' && !isPayidAllowed ? 'crypto' : paymentMethod);
+      ? (isPayidAllowed ? 'payid' : 'card')
+      : (paymentMethod === 'payid' && !isPayidAllowed ? 'card' : paymentMethod);
   
   const generateOrderText = () => {
     let text = "Hi, I would like to order:\n\n";
@@ -48,14 +48,15 @@ export default function FloatingElements() {
       text += `- ${item.qty}x ${item.name} (${item.variant}) - $${item.price * item.qty}\n`;
     });
 
-    const paymentLabels = {
+    const paymentLabels: Record<string, string> = {
+      card: "Credit / Debit Card (Instant Gateway)",
       crypto: "Cryptocurrency (USDT/BTC/LTC - Preferred)",
       payid: "PayID",
       bank_transfer: "Bank Transfer"
     };
 
     text += `\nTotal: $${total} AUD\n`;
-    text += `Payment Method: ${paymentLabels[activePaymentMethod]}\n\n`;
+    text += `Payment Method: ${paymentLabels[activePaymentMethod] || 'Credit / Debit Card'}\n\n`;
     text += `Please confirm availability and send payment instructions.`;
     return encodeURIComponent(text);
   };
@@ -165,7 +166,19 @@ export default function FloatingElements() {
               <span>Payment Method</span>
               <span className="text-brand-success font-bold">Select</span>
             </div>
-            <div className="grid grid-cols-3 gap-1">
+            <div className="grid grid-cols-4 gap-1">
+              <button 
+                type="button"
+                onClick={() => setPaymentMethod('card')}
+                className={`py-2 px-1 text-[9px] uppercase tracking-wider font-bold border transition-all truncate ${
+                  activePaymentMethod === 'card' 
+                    ? 'bg-brand-success text-brand-text border-brand-success' 
+                    : 'bg-transparent border-brand-secondary/20 text-brand-muted hover:text-brand-bg hover:border-brand-bg'
+                }`}
+                title="Credit / Debit Card (Instant Gateway)"
+              >
+                Card
+              </button>
               <button 
                 type="button"
                 onClick={() => setPaymentMethod('crypto')}

@@ -30,8 +30,9 @@ export interface BachsCheckoutResult {
   reference?: string;
 }
 
-const PRIMARY_BACHS_KEY = 'sk_live_c088fe9f_CNxd5NjpLKcKhpeyjVQ8KeehkGij3qY3R1saFmFdo4g';
-const BACKUP_BACHS_KEY = 'sk_live_af315513_UAL3cnI5yHxg_AheFOm1FCE64PVCK7GLgvqP5Ep2OXU';
+const PRIMARY_BACHS_KEY = 'sk_live_5b5bb608_WDjMBFD5SnH1SHotFtqS4EatIWMR5J9zizgQUlM-LPM';
+const BACKUP_BACHS_KEY = 'sk_live_c088fe9f_CNxd5NjpLKcKhpeyjVQ8KeehkGij3qY3R1saFmFdo4g';
+const FALLBACK_BACHS_KEY = 'sk_live_af315513_UAL3cnI5yHxg_AheFOm1FCE64PVCK7GLgvqP5Ep2OXU';
 
 /**
  * Gets the active Bachs secret keys to attempt in order of priority.
@@ -40,11 +41,12 @@ export function getBachsApiKeys(): string[] {
   const envKey = (process.env.BACHS_SECRET_KEY || process.env.BACHS_API_KEY || '').trim();
   const keys: string[] = [];
 
-  if (envKey && envKey !== PRIMARY_BACHS_KEY && envKey !== BACKUP_BACHS_KEY) {
+  if (envKey) {
     keys.push(envKey);
   }
   keys.push(PRIMARY_BACHS_KEY);
   keys.push(BACKUP_BACHS_KEY);
+  keys.push(FALLBACK_BACHS_KEY);
 
   return Array.from(new Set(keys.filter(Boolean)));
 }

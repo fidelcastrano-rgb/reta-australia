@@ -3710,7 +3710,7 @@ export const faqs = [
   },
   {
     "q": "What payment methods do you accept?",
-    "a": "We accept secure payments including PayID, Bank Transfer, and Cryptocurrency, with invoice details provided upon order confirmation."
+    "a": "We accept major Credit & Debit Cards (Visa, Mastercard, American Express via instant 256-bit SSL encrypted gateway), Cryptocurrency (USDT, BTC, LTC), PayID ($100+), and Direct Bank Transfer ($200+)."
   },
   {
     "q": "What is the minimum order requirement?",
