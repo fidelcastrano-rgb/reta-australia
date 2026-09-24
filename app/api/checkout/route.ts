@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
-import { createBachsCheckoutSession } from '@/lib/bachs';
 
 export async function POST(req: Request) {
   try {
@@ -49,9 +48,7 @@ export async function POST(req: Request) {
     const smtpPass = process.env.SMTP_PASS;
 
     let paymentMethodLabel = 'Bank Transfer';
-    if (paymentMethod === 'card') {
-      paymentMethodLabel = 'Credit / Debit Card (Visa, Mastercard, Amex)';
-    } else if (paymentMethod === 'payid') {
+    if (paymentMethod === 'payid') {
       paymentMethodLabel = 'PayID';
     } else if (paymentMethod === 'crypto') {
       paymentMethodLabel = 'Cryptocurrency (USDT/BTC/LTC - Preferred)';
@@ -78,9 +75,7 @@ Payment Method: ${paymentMethodLabel}
     `;
 
     let paymentInstructions = '';
-    if (paymentMethod === 'card') {
-      paymentInstructions = `You have selected Credit / Debit Card payment. A secure card payment session has been generated. Once your card payment is completed, your order will be automatically confirmed and prepared for discrete dispatch.`;
-    } else if (paymentMethod === 'crypto') {
+    if (paymentMethod === 'crypto') {
       paymentInstructions = `You have selected Cryptocurrency. We will contact you manually with the transfer details shortly. (Crypto is our most preferred option with no delay in confirmation and processing).`;
     } else if (paymentMethod === 'payid') {
       paymentInstructions = `You have selected PayID. Our team will contact you shortly with the PayID transfer details to complete your payment.`;
@@ -152,36 +147,9 @@ ${orderDetails}
       console.log(clientEmailText);
     }
 
-    let checkoutUrl: string | undefined;
-    if (paymentMethod === 'card') {
-      try {
-        const origin = req.headers.get('origin') || process.env.APP_URL || 'https://reta-australia.com.au';
-        const session = await createBachsCheckoutSession({
-          orderId,
-          audTotal: calculatedTotal,
-          customer: {
-            email,
-            name: fullCustomerName,
-            phone_number: phone,
-          },
-          shippingMethod,
-          shippingAddress: fullAddress,
-          origin,
-          items,
-        });
-        checkoutUrl = session.checkout_url;
-      } catch (cardErr: any) {
-        console.error('Bachs card checkout session error:', cardErr);
-        return NextResponse.json({
-          error: cardErr.message || 'Failed to initialize secure card payment gateway. Please try again or select another payment option.'
-        }, { status: 500 });
-      }
-    }
-
     return NextResponse.json({ 
       success: true, 
       orderId,
-      checkoutUrl,
       paymentMethod,
       total: calculatedTotal,
     });

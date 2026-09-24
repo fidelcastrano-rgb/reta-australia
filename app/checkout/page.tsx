@@ -3,21 +3,17 @@
 import { useState, Suspense } from 'react';
 import { useCart } from '@/components/CartContext';
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
 import { motion } from 'motion/react';
-import { Loader2, MessageCircle, CheckCircle2, AlertCircle, CreditCard, ShieldCheck } from 'lucide-react';
+import { Loader2, MessageCircle, CheckCircle2 } from 'lucide-react';
 
 interface OrderResult {
   orderId: string;
   paymentMethod: string;
   total?: number;
-  checkoutUrl?: string;
 }
 
 function CheckoutContent() {
   const { items, clearOrder, removeItem } = useCart();
-  const searchParams = useSearchParams();
-  const isCanceled = searchParams?.get('canceled') === 'true';
 
   const [formData, setFormData] = useState({
     firstName: '',
@@ -31,7 +27,7 @@ function CheckoutContent() {
     country: 'Australia',
   });
   const [shippingMethod, setShippingMethod] = useState<'normal' | 'express'>('normal');
-  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<'card' | 'crypto' | 'payid' | 'bank_transfer'>('card');
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<'crypto' | 'payid' | 'bank_transfer'>('crypto');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isWhatsAppSubmitting, setIsWhatsAppSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -54,9 +50,9 @@ function CheckoutContent() {
   // Derive the active payment method during render
   let paymentMethod = selectedPaymentMethod;
   if (paymentMethod === 'bank_transfer' && !isBankTransferAllowed) {
-    paymentMethod = isPayidAllowed ? 'payid' : 'card';
+    paymentMethod = isPayidAllowed ? 'payid' : 'crypto';
   } else if (paymentMethod === 'payid' && !isPayidAllowed) {
-    paymentMethod = 'card';
+    paymentMethod = 'crypto';
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -88,12 +84,6 @@ function CheckoutContent() {
 
       if (!response.ok) {
         throw new Error(resData.error || 'Failed to process order. Please try again.');
-      }
-
-      // If credit card payment, redirect directly to Bachs hosted checkout session
-      if (paymentMethod === 'card' && resData.checkoutUrl) {
-        window.location.href = resData.checkoutUrl;
-        return;
       }
 
       setOrderResult(resData);
@@ -154,9 +144,7 @@ function CheckoutContent() {
       const whatsappNumber = "61485958620"; // Admin whatsapp number
       
       let paymentMethodLabel = 'Bank Transfer';
-      if (paymentMethod === 'card') {
-        paymentMethodLabel = 'Credit / Debit Card (Instant Gateway)';
-      } else if (paymentMethod === 'payid') {
+      if (paymentMethod === 'payid') {
         paymentMethodLabel = 'PayID';
       } else if (paymentMethod === 'crypto') {
         paymentMethodLabel = 'Cryptocurrency (USDT/BTC/LTC - Preferred)';
@@ -186,10 +174,6 @@ function CheckoutContent() {
       text += `\n*Subtotal:* $${subtotal.toFixed(2)} AUD\n`;
       text += `*Shipping:* $${shippingCost.toFixed(2)} AUD\n`;
       text += `*Total Order Amount:* $${total.toFixed(2)} AUD\n\n`;
-
-      if (paymentMethod === 'card' && resData.checkoutUrl) {
-        text += `*Card Payment Gateway Link:* ${resData.checkoutUrl}\n\n`;
-      }
 
       text += `Please send the payment instructions so I can transfer the funds immediately.`;
 
@@ -267,18 +251,7 @@ function CheckoutContent() {
           </div>
         </div>
       ) : (
-        <div>
-          {isCanceled && (
-            <div className="mb-8 p-4 bg-amber-50 border border-amber-300 text-amber-900 text-xs flex items-center gap-3">
-              <AlertCircle className="w-5 h-5 text-amber-700 shrink-0" />
-              <div>
-                <span className="font-bold block uppercase tracking-wider">Card Payment Cancelled</span>
-                Your card transaction was not completed. Your items are saved in your cart below so you can try again or select another payment method.
-              </div>
-            </div>
-          )}
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Form Section */}
           <div className="lg:col-span-7">
             <form id="checkout-form" onSubmit={handleSubmit} className="space-y-10">
@@ -368,7 +341,6 @@ function CheckoutContent() {
                 <div className="bg-brand-secondary p-4 text-xs space-y-2 mb-6 border border-brand-border">
                   <div className="font-bold text-brand-text uppercase tracking-wider">Payment Options &amp; Minimums:</div>
                   <ul className="list-disc list-inside text-brand-muted space-y-1">
-                    <li><strong>Credit / Debit Card</strong>: Visa, Mastercard, American Express (<span className="text-emerald-700 font-bold">Instant Online Gateway</span>)</li>
                     <li><strong>Cryptocurrency</strong>: USDT / BTC / LTC (Fast manual confirmation - <span className="text-brand-text font-bold">Preferred</span>)</li>
                     <li><strong>PayID</strong>: Orders of <strong>$100 AUD</strong> or more</li>
                     <li><strong>Bank Transfer</strong>: Orders of <strong>$200 AUD</strong> or more</li>
@@ -376,44 +348,6 @@ function CheckoutContent() {
                 </div>
 
                 <div className="space-y-3">
-                  {/* Credit / Debit Card (Bachs API) */}
-                  <label className={`block border p-4 cursor-pointer transition ${paymentMethod === 'card' ? 'border-brand-text bg-brand-secondary' : 'border-brand-border hover:border-gray-400'}`}>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <input 
-                          type="radio" 
-                          name="payment" 
-                          value="card" 
-                          checked={paymentMethod === 'card'} 
-                          onChange={() => setSelectedPaymentMethod('card')} 
-                          className="accent-brand-text" 
-                        />
-                        <div className="flex items-center gap-2">
-                          <CreditCard className="w-4 h-4 text-brand-text" />
-                          <span className="text-sm font-bold">Credit / Debit Card</span>
-                        </div>
-                      </div>
-                      <span className="text-[10px] text-emerald-800 font-mono font-bold bg-emerald-100/80 px-2 py-0.5 border border-emerald-300 uppercase tracking-wider">
-                        Instant
-                      </span>
-                    </div>
-                    {paymentMethod === 'card' && (
-                      <div className="mt-3 ml-7 space-y-2">
-                        <p className="text-xs text-brand-muted leading-relaxed">
-                          Pay instantly and securely with any Visa, Mastercard, or American Express card via our 256-bit SSL encrypted gateway.
-                        </p>
-                        <div className="flex flex-wrap items-center gap-2 pt-1 text-[10px] text-brand-muted font-mono">
-                          <span className="px-2 py-0.5 bg-white border border-gray-300 font-bold text-gray-800 tracking-wider">VISA</span>
-                          <span className="px-2 py-0.5 bg-white border border-gray-300 font-bold text-gray-800 tracking-wider">Mastercard</span>
-                          <span className="px-2 py-0.5 bg-white border border-gray-300 font-bold text-gray-800 tracking-wider">AMEX</span>
-                          <span className="text-emerald-700 flex items-center gap-1 font-sans font-medium text-[11px] ml-1">
-                            <ShieldCheck className="w-3.5 h-3.5" /> 256-bit SSL Protected
-                          </span>
-                        </div>
-                      </div>
-                    )}
-                  </label>
-
                   {/* Crypto */}
                   <label className={`block border p-4 cursor-pointer transition ${paymentMethod === 'crypto' ? 'border-brand-text bg-brand-secondary' : 'border-brand-border hover:border-gray-400'}`}>
                     <div className="flex items-center justify-between">
@@ -559,11 +493,9 @@ function CheckoutContent() {
                   className="w-full bg-brand-cta text-white font-bold text-xs uppercase tracking-widest py-4 flex justify-center items-center gap-2 hover:bg-opacity-90 transition disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
-                    <><Loader2 className="w-4 h-4 animate-spin" /> {paymentMethod === 'card' ? 'Connecting to Secure Card Gateway...' : 'Submitting Order...'}</>
+                    <><Loader2 className="w-4 h-4 animate-spin" /> Submitting Order...</>
                   ) : !isMinOrderMet ? (
                     'Min Order $100 AUD Required'
-                  ) : paymentMethod === 'card' ? (
-                    'Proceed to Card Payment'
                   ) : (
                     'Place Order on Website'
                   )}
@@ -587,7 +519,6 @@ function CheckoutContent() {
             </div>
           </div>
         </div>
-      </div>
       )}
     </div>
   );
